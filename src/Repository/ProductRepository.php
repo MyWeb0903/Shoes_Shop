@@ -63,4 +63,32 @@ class ProductRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+    public function getProduct(): array
+    {
+        return $this->createQueryBuilder('p')
+         ->select('p.Image, p.Name, p.Price')
+         ->getQuery()
+         ->getResult()
+        ;
+    }
+
+
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+    public function getProductById($id): array
+    {
+        return $this->createQueryBuilder('p')
+         ->select('p.Image, p.Name, p.Price, p.Detail')
+         ->where('id : = id')
+         ->setParameter('id', $id)
+         ->getQuery()
+         ->getResult()
+        ;
+    }
 }

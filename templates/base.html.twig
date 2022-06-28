@@ -41,8 +41,15 @@
 
                         
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
-                             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            {% if app.user %}
+                                   <li><a href="#"> You are logged in as {{ app.user.userIdentifier }}</a></li>
+                                    <li><a href="{{ path('app_logout') }}" class="glyphicon glyphicon-log-out">Logout</a></li>
+                            {% else %}
+                                    <li><a href="{{ path('app_login') }} "><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                    <li><a href="{{ path('app_signup') }}"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
+                            {% endif %}
+                            
+                            
                         </ul> 
                     </div>
             </nav>

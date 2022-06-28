@@ -4,7 +4,6 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,17 +13,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class RegisterController extends AbstractController
 {
       /**
-     * @Route("/register",name="register")
+     * @Route("/register",name="app_signup")
      */
     public function showsAction(Request $request, EntityManagerInterface $entityManager,
-    UserPasswordHasherInterface $hasher, ManagerRegistry $reg): Response
+    UserPasswordHasherInterface $hasher): Response
     {
       $user = new User();
       $form = $this->createForm(UserType::class, $user, [
-        'action' => $this->generateUrl('register'),
+        'action' => $this->generateUrl('app_signup'),
         'method' => 'POST'
       ]);
-      $entity = $reg->getManager();
 
       $form->handleRequest($request);
       

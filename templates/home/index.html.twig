@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+    #welcome{
+        margin-left: -343px;
+        width: 1481px;
+    }
+    .marquee{
+        margin-left: -317px;
+    }
+</style>
+
+<div class="example-wrapper">
+    <div id="welcome">
+        <marquee direction="left" behavior="scroll" scrollamount="5">
+            Welcome to the online website - DHC SHOP
+        </marquee>
+    </div>
+
+    <div class="marquee">
+        <marquee direction="down" width="15" height="25" behavior="alternate" >
+            <b> <marquee behavior="alternate">
+                N
+        </marquee>
+        </marquee>
+            <b> <marquee direction="down" width="15" height="25" behavior="alternate" >
+        <marquee behavior="alternate">
+                E
+        </marquee>
+        </marquee>
+            <b> <marquee direction="down" width="18" height="25" behavior="alternate" >
+        <marquee behavior="alternate">
+                W
+        </marquee>
+        </marquee>
+            <b> <marquee direction="down" width="15" height="25" behavior="alternate" >
+        <marquee behavior="alternate">
+                P
+        </marquee>
+        </marquee>
+            <b> <marquee direction="down" width="15" height="25" behavior="alternate" >
+        <marquee behavior="alternate">
+                R
+        </marquee>
+        </marquee>
+        <marquee direction="down" width="15" height="25" behavior="alternate" >
+            <b>   <marquee behavior="alternate">
+                O
+        </marquee>
+        </marquee>
+        <marquee direction="down" width="15" height="25" behavior="alternate" >
+            <b>  <marquee behavior="alternate">
+                D
+        </marquee>
+        </marquee>
+        <marquee direction="down" width="15" height="25" behavior="alternate" >
+            <b>  <marquee behavior="alternate">
+                U
+        </marquee>
+        </marquee>
+        <marquee direction="down" width="15" height="25" behavior="alternate" >
+            <b>  <marquee behavior="alternate">
+                C
+        </marquee>
+        </marquee>
+        <marquee direction="down" width="15" height="25" behavior="alternate" >
+            <b>  <marquee behavior="alternate">
+                T
+        </marquee>
+        </marquee>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="shoe-level1">
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="#">
+                            <img src="./Image/Balencia-black.jpg" class="img-responsive media-object">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Balencia Black</a></h4>
+                        <p>$2000000</p>
+                        <button type="button" class="btn btn-primary mb-3"><a href="{{path ('product_page')}}">Learn more</a></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shoe-level1">
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="#">
+                            <img src="./Image/Converse-red.jpg" class="img-responsive media-object">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Converse Red</a></h4>
+                        <p>$1500000</p>
+                        <button type="button" class="btn btn-primary mb-3"><a href="{{path ('product_page')}}">Learn more</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="shoe-level2">
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="#">
+                            <img src="./Image/Nike-air-jodan.jpg" class="img-responsive media-object">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nike Air Jodan</a></h4>
+                        <p>$2500000</p>
+                        <button type="button" class="btn btn-primary mb-3"><a href="{{path ('product_page')}}">Learn more</a></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shoe-level2">
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="#">
+                            <img src="./Image/Nike-Air-1.jpg" class="img-responsive media-object">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">Nike Air Force 1</a></h4>
+                        <p>$2500000</p>
+                        <button type="button" class="btn btn-primary mb-3"><a href="{{path ('product_page')}}">Learn more</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}

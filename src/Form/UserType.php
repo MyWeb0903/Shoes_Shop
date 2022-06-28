@@ -76,7 +76,6 @@ class UserType extends AbstractType
             ->add('Gender', ChoiceType::class, [
                                         'choices' => [
                                                 'Gender' => [
-                                                    'Choose your gender' => null,
                                                     'Male' => 'Male',
                                                     'Female' => 'Female'
                                                     ]],

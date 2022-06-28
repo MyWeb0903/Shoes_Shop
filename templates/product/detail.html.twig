@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{% endblock %}
+
+
+{% block body %}
+    <div> 
+        <div>
+            <img src="./Image/{{p.Image}}"/>
+
+            <div>
+                <h3>{{p.Name}}</h3>
+                <h5><span>&#8363;</span>{{p.Price}}</h5>
+                <p>{{p.Detail}}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -64,6 +66,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @ORM\Column(type="date")
      */
     private $Birthday;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="user")
+     */
+    private $Order_ID;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Cart::class, mappedBy="user")
+     */
+    private $Cart_ID;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
+     */
+    private $Product_ID;
+
+    public function __construct()
+    {
+        $this->Order_ID = new ArrayCollection();
+        $this->Cart_ID = new ArrayCollection();
+        $this->Product_ID = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -217,6 +241,90 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setBirthday(\DateTimeInterface $Birthday): self
     {
         $this->Birthday = $Birthday;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrderID(): Collection
+    {
+        return $this->Order_ID;
+    }
+
+    public function addOrderID(Order $orderID): self
+    {
+        if (!$this->Order_ID->contains($orderID)) {
+            $this->Order_ID[] = $orderID;
+            $orderID->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderID(Order $orderID): self
+    {
+        if ($this->Order_ID->removeElement($orderID)) {
+            // set the owning side to null (unless already changed)
+            if ($orderID->getUser() === $this) {
+                $orderID->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Cart>
+     */
+    public function getCartID(): Collection
+    {
+        return $this->Cart_ID;
+    }
+
+    public function addCartID(Cart $cartID): self
+    {
+        if (!$this->Cart_ID->contains($cartID)) {
+            $this->Cart_ID[] = $cartID;
+            $cartID->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCartID(Cart $cartID): self
+    {
+        if ($this->Cart_ID->removeElement($cartID)) {
+            // set the owning side to null (unless already changed)
+            if ($cartID->getUser() === $this) {
+                $cartID->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Product>
+     */
+    public function getProductID(): Collection
+    {
+        return $this->Product_ID;
+    }
+
+    public function addProductID(Product $productID): self
+    {
+        if (!$this->Product_ID->contains($productID)) {
+            $this->Product_ID[] = $productID;
+        }
+
+        return $this;
+    }
+
+    public function removeProductID(Product $productID): self
+    {
+        $this->Product_ID->removeElement($productID);
 
         return $this;
     }

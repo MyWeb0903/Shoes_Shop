@@ -22,6 +22,18 @@ class OrderDetail
      */
     private $Qty_Pro;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Order::class, inversedBy="OrderDetail_ID")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Order_ID;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="OrderDetail_ID")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $product;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +47,30 @@ class OrderDetail
     public function setQtyPro(int $Qty_Pro): self
     {
         $this->Qty_Pro = $Qty_Pro;
+
+        return $this;
+    }
+
+    public function getOrderID(): ?Order
+    {
+        return $this->Order_ID;
+    }
+
+    public function setOrderID(?Order $Order_ID): self
+    {
+        $this->Order_ID = $Order_ID;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }

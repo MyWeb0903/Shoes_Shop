@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class RegisterController extends AbstractController
 {
     /**
-     * @Route("/register",name="register")
+     * @Route("/register",name="app_signup")
      */
     public function registerAction(Request $request, EntityManagerInterface $entityManager,
       UserPasswordHasherInterface $hasher): Response
     {
       $user = new User();
       $form = $this->createForm(UserType::class, $user, [
-        'action' => $this->generateUrl('register'),
+        'action' => $this->generateUrl('app_signup'),
         'method' => 'POST'
       ]);
 

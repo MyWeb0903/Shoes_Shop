@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -26,6 +27,7 @@ class UserType extends AbstractType
                     'required oninvalid' => 'this.setCustomValidity("Please enter username here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]
+     
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -71,16 +73,14 @@ class UserType extends AbstractType
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
-            ->add('Gender', RepeatedType::class, [
-                 'type' =>RadioType::class,
-                 'required' => false,
-                 'options' => ['attr' => ['class' => 'radio-inline']],
-                 'first_options' => ['label' => 'Female', 'attr' => ['name' => 'Gender', 'value' => 'Female'] 
-                    ],
-                'second_options' => ['label' => 'Male', 'attr' => ['name' => 'Gender', 'value' => 'Female']
-
-                    ],
-                 ])
+            ->add('Gender', ChoiceType::class, [
+                                        'choices' => [
+                                                'Gender' => [
+                                                    'Choose your gender' => null,
+                                                    'Male' => 'Male',
+                                                    'Female' => 'Female'
+                                                    ]],
+            ])
             ->add('Birthday', DateTimeType::class, [
                 'widget' => 'single_text'
             ])

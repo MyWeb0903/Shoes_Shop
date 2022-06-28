@@ -11,10 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RegisterController extends AbstractController
 {
-      /**
+    /**
      * @Route("/register",name="register")
      */
-    public function showsAction(Request $request, EntityManagerInterface $entityManager): Response
+    public function registerAction(Request $request, EntityManagerInterface $entityManager): Response
     {
       $user = new User();
       $form = $this->createForm(UserType::class, $user, [

@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
@@ -29,43 +30,43 @@ class UserType extends AbstractType
             ])
             ->add('Fullname', TextType::class, [
                  'attr' => [
-                    'placeholder' => 'Enter the full name',
+                    'placeholder' => 'Enter your full name',
                     'required oninvalid' => 'this.setCustomValidity("Please enter the full name here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
             ->add('Email', EmailType::class, [
                  'attr' => [
-                    'placeholder' => 'Enter the email',
-                    'required oninvalid' => 'this.setCustomValidity("Please enter the email here!")',
+                    'placeholder' => 'Enter your email',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter email here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
             ->add('Address', TextType::class, [
                  'attr' => [
-                    'placeholder' => 'Enter the address',
-                    'required oninvalid' => 'this.setCustomValidity("Please enter the address here!")',
+                    'placeholder' => 'Enter your address',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter address here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
             ->add('Phone', TextType::class, [
                  'attr' => [
-                    'placeholder' => 'Enter the phone number',
-                    'required oninvalid' => 'this.setCustomValidity("Please enter the phone number here!")',
+                    'placeholder' => 'Enter your phone number',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter phone number here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
             ->add('Gender', TextType::class, [
                  'attr' => [
                     'placeholder' => 'Enter full name',
-                    'required oninvalid' => 'this.setCustomValidity("Please enter the full name here!")',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter role here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
             ->add('Gender', TextType::class, [
                  'attr' => [
-                    'placeholder' => 'Enter full name',
-                    'required oninvalid' => 'this.setCustomValidity("Please enter the full name here!")',
+                    'placeholder' => 'Enter your gender',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter gender here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
@@ -82,7 +83,7 @@ class UserType extends AbstractType
             ->add('Register', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-success',
-                    'style' => 'margin-top: 10px'
+                    'style' => 'margin-left: 150px'
                 ]
             ])
 
@@ -92,6 +93,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
+            'data_class' => User::class
             // Configure your form options here
         ]);
     }

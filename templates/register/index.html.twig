@@ -8,13 +8,15 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/Shoes_Shop/src/Controller/RegisterController.php'|file_link(0) }}">src/Controller/RegisterController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/Shoes_Shop/templates/register/index.html.twig'|file_link(0) }}">templates/register/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <h1>Register</h1>
+    <div>
+    {{form_start(register_form, {'attr': {'id': 'register_form_post', 'class': 'register_class'}})}}
+        {{ form(register_form) }} 
+    {{form_end(register_form)}}
+    
+    </div>
+
+
+
 {% endblock %}

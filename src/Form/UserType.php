@@ -18,16 +18,31 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('username', TextType::class)
+            ->add('username', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Enter the username',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter the username here!")',
+                     'oninput' => 'setCustomValidity("")'
+                    ]
+                ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'invalid_message' => 'Not match',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
-                'first_options' => ['label' => 'Password'],
-                'second_options' => ['label' => 'Confirm the password']
-            ])
-            ->add('Fullname', TextType::class, [
+                'first_options' => ['label' => 'Password', 'attr' => [
+                    'placeholder' => 'Enter the password',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter the password here!")',
+                     'oninput' => 'setCustomValidity("")'
+
+            ]],
+                'second_options' => ['label' => 'Confirm the password', 'attr' => [
+                    'placeholder' => 'Confirm the password',
+                    'required oninvalid' => 'this.setCustomValidity("Please enter the password here!")',
+                     'oninput' => 'setCustomValidity("")'
+
+            ]]])
+            ->add('Fullname', TextType::class,['label' => 'Full name', 
                  'attr' => [
                     'placeholder' => 'Enter the full name',
                     'required oninvalid' => 'this.setCustomValidity("Please enter the full name here!")',
@@ -73,6 +88,7 @@ class UserType extends AbstractType
                 'widget' => 'single_text'
             ])
             ->add('agreeTerms', CheckboxType::class, ['mapped' => false,
+                'label' => 'You are not a robot',
                 'attr' => [
                    
                     'oninvalid' => 'this.setCustomValidity("Please check this box if you want to proceed")',

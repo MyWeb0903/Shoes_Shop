@@ -19,14 +19,14 @@ class CartController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/product/{id}", name="get_cart")
-     */
-    public function getCartAction(ProductRepository $repo, $id): Response
-    {
-        $product = $repo->find($id);
-        return $this->render('cart/index.html.twig', [
-            'p' => $product
-        ]);
-    }
+    // /**
+    //  * @Route("/product/{id}", name="get_cart")
+    //  */
+    // public function getCartAction(ProductRepository $repo, $id): Response
+    // {
+    //     $product = $repo->find($id);
+    //     return $this->render('cart/index.html.twig', [
+    //         'p' => $product
+    //     ]);
+    // }
 }

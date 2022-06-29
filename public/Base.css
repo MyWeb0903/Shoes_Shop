@@ -1,4 +1,5 @@
 
+
 body{
     background-color: #e8e8e8;
 }
@@ -30,7 +31,7 @@ body{
     margin-right: 20px;
 }
 .marquee{
-    color: rgb(41, 34, 34);
+    color: red;
 }
 .shoe-level1{
     background-color: #fff;

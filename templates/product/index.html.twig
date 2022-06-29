@@ -46,7 +46,7 @@
                     <a href="{{path ('detail_page', {'id' : p.id})}}"><h3>{{p.Name}}</h3></a>
                     <h5><span>&#8363;</span>{{p.Price}}</h5>
                     <a href="#" class="text-decoration-none"><button class="btn btn-primary">Like <i class="bi bi-suit-heart"></button></i></a>
-                    <a href="#"><button class="btn btn-primary">Add to cart <i class="bi bi-cart4"></i></button></a>
+                    <a href="{{path ('cart_page', {'id' : p.id})}}"><button class="btn btn-primary">Add to cart <i class="bi bi-cart4"></i></button></a>
                 </div>
             </div>
         </div>

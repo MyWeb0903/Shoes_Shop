@@ -145,8 +145,17 @@ textarea.input {
   transition: 0.3s;
   margin: 0;
   width: 100%;
+  margin-top: 10px;
 }
 
+#btn-back{
+  text-decoration: none;
+  color:#1abc9c;
+}
+#btn-back:hover{
+  background-color: transparent;
+  color: #fff;
+}
 .btn:hover {
   background-color: transparent;
   color: #fff;

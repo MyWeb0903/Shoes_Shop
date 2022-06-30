@@ -18,13 +18,18 @@
     h1{
         color: white;
         text-align: center;
+        margin-top: 40px;
+    }
+    .cover-form{
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
+        margin-top: -40px;
+        margin-bottom: -15px;
     }
     .register_class{
         width: 400px;
         margin-left: 560px;
-        color: black;
-        background: rgba(0, 0, 0, 0.8);
-        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
+        color: black;  
         color: white;
         height: 760px;
     }
@@ -32,8 +37,8 @@
 
 <body>
     <div class="cover">
-        <h1>Register</h1>
-        <div>
+        <div class="cover-form">
+            <h1>Register</h1>
             {{form_start(register_form, {'attr': {'id': 'register_form_post', 'class': 'register_class'}})}}
                 {{ form (register_form) }} 
             {{form_end(register_form)}}

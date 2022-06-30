@@ -25,6 +25,10 @@
         width: 250px;
         margin-left: 124px;
     }
+    form{
+        margin-left: 75px;
+        margin-top: -35px;
+    }
     .btn{
         height: 35px;
     }
@@ -46,7 +50,9 @@
                     <a href="{{path ('detail_page', {'id' : p.id})}}"><h3>{{p.Name}}</h3></a>
                     <h5><span>&#8363;</span>{{p.Price}}</h5>
                     <a href="#" class="text-decoration-none"><button class="btn btn-primary">Like <i class="bi bi-suit-heart"></button></i></a>
-                    <a href="{{path ('cart_page', {'id' : p.id})}}"><button class="btn btn-primary">Add to cart <i class="bi bi-cart4"></i></button></a>
+                    <form action="{{path ('cart_page', {'id' : p.id})}}" method="POST">
+                        <button class="btn btn-primary" type="submit">Add to cart <i class="bi bi-cart4"></i></button>
+                    </form>
                 </div>
             </div>
         </div>

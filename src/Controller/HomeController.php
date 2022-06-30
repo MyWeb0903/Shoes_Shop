@@ -13,8 +13,8 @@ class HomeController extends AbstractController
      */
     public function homeAction(): Response
     {
-         return $this->render('home/index.html.twig', [
-        // return $this->render('home/basedemo.html.twig', [
+        //return $this->render('home/index.html.twig', [
+        return $this->render('home/basedemo.html.twig', [
             'controller_name' => 'HomeController',
         ]);
     }

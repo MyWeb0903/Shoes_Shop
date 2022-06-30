@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-        <link rel="icon" href="./Image/ShoeIcon.ico" type="image/x-icon"
+        <script src="https://kit.fontawesome.com/df8e5c3257.js" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./Base.css">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -43,14 +43,18 @@
                         <ul class="nav navbar-nav navbar-right">
 
                             {% if app.user %}
+                                {% if is_granted('ROLE_ADMIN') %}
 
-                               <li><a href=""> You are logged in as {{ app.user.userIdentifier }} </a></li>
-                                <li><a href="{{path ('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                                    <li><a href=""> You are logged in as admin: {{ app.user.userIdentifier }} </a></li>
+                                    <li><a href="{{path ('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                                {% else %}
+                                    <li><a href=""> You are logged in as user: {{ app.user.userIdentifier }} </a></li>
+                                {% endif %}
 
-                            {% else  %}
+                            {# {% else  %}
 
                                 <li><a href="{{path ('app_login')}}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
-                                <li><a href="{{path ('app_signup')}}"><span class="glyphicon gluphicon-sign-up"></span> Sign up</a></li>
+                                <li><a href="{{path ('app_signup')}}"><span class="glyphicon gluphicon-sign-up"></span> Sign up</a></li> #}
 
                             {% endif %}
 

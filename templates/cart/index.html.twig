@@ -3,23 +3,25 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-{# <style>
+<style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
 <div class="example-wrapper">
-    {# <div> 
+    <div>
+    {% for p in cart %} 
         <div>
-            <img src="./Image/{{p.Image}}"/>
+            {# <img src="./Image/{{p.Quantity_Pro}}"/> #}
 
             <div>
-                <h3>{{p.Name}}</h3>
-                <h5><span>&#8363;</span>{{p.Price}}</h5>
+                <h3>{{p.Quantity_Pro}}</h3>
+                <h5><span>&#8363;</span>{{p.user}}</h5>
             </div>
         </div>
-    </div> #}
-{# </div> #} 
+    </div> 
+    {% endfor %}
+</div> 
 {% endblock %} 
 
 

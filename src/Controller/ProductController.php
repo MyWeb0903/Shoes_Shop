@@ -20,10 +20,10 @@ class ProductController extends AbstractController
      */
     public function productAction(ProductRepository $repo): Response
     {
-        // $product = $repo->findAll();
+        $product = $repo->findAll();
         
         return $this->render('product/index.html.twig', [
-            'product' => $repo
+            'product' => $product
         ]);
     }
 

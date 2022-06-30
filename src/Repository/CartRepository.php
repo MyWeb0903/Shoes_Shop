@@ -63,4 +63,19 @@ class CartRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+    /**
+    * @return Cart[] Returns an array of Cart objects
+    */
+   public function getCart($user): array
+   {
+       return $this->createQueryBuilder('c')
+            ->select('c.Quantity_Pro, c.user')
+            ->Where('c.user = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getArrayResult()
+       ;
+   }
 }

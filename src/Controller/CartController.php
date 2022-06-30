@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\CartRepository;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,4 +30,15 @@ class CartController extends AbstractController
     //         'p' => $product
     //     ]);
     // }
+
+    /**
+     * @Route("/showCart/{user}", name="showCart")
+     */
+    public function showCartAction(CartRepository $repo, $user): Response
+    {
+        $cart = $repo->getCart($user);
+        return $this->render('cart/index.html.twig', [
+            'p' => $cart
+        ]);
+    }
 }

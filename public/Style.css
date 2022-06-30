@@ -41,9 +41,7 @@ p {
 .brand a img {
     height: 100px;
     width: 100px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
+    position: relative;
 }
 
 
@@ -113,7 +111,7 @@ p {
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     color: #DF7861;
-    font-size: 13rem;
+    font-size: 10rem;
     letter-spacing: 50px;
     z-index: -1;
     transition: 0.3s ease letter-spacing;
@@ -125,7 +123,7 @@ p {
 }
 
 #header .nav-list ul li:hover a {
-    color: crimson;
+    color: #f0b504;
 }
 
 #header .hamburger {

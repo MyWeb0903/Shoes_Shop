@@ -1,0 +1,92 @@
+<html>
+
+{% block title %}{% endblock %}
+
+
+{% block body %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body{
+        background: url('../Image/Background-shoe-shop.jpg');
+    }
+    #navbar{
+        height: 130px;
+        background: rgba(0, 0, 0, 0.8);
+    }
+    .logo{
+        width: 175px;
+        height: 105px;
+        margin-top: -3px;
+    }
+    .nav{
+        margin-top: 40px;
+        margin-left: 100px;
+    }
+    .navbar-default .navbar-nav>li>a{
+        color:#fff;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+        margin-top: 20px;
+    }
+    #wrap{
+        margin-top: 180px;
+    }
+    .total-detail{
+        width: 315px;
+        margin-left: 520px;
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
+    }
+    .cover-btn{
+        margin-left: 70px;
+    }
+    .btn{
+        margin-bottom: 10px;
+        margin-top: 10px;
+        height: 40px;
+        width: 190px;
+    }
+</style>
+<body>
+    <div class="container-fluid">
+        <div>
+            <nav class="navbar navbar-default" id="navbar">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" 
+                    data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                        <a class="navbar-brand" href="Home.php"><img src="../Image/DHC.jpg" class="logo"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="{{path ('home_page')}}">Home</a></li>
+                        <li><a href="{{path ('about_page')}}">About us</a></li>
+                        <li><a href="{{path ('product_page')}}">Product</a></li>
+                    </ul>
+                </div>
+            </nav> 
+            <div id="wrap">
+                <div class="total-detail">
+                    <div class="cover-btn">
+                        <a href="{{path ('pro_manager')}}"><button class="btn btn-primary">Product Management</button></a><br>
+                        <a href="{{path ('user_manager')}}"><button class="btn btn-primary">Account Management</button></a><br>
+                        <a href="{{path ('order_manager')}}"><button class="btn btn-primary">Order Management</button></a><br>
+                        <a href="{{path ('app_supplier')}}"><button class="btn btn-primary">Supplier Management</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+</html>

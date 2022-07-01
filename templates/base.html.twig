@@ -39,6 +39,12 @@
                                 <li><a href="{{path ('lover_page')}}">Lover <i class="bi bi-heart-fill"></i></a></li>
                                 <li><a href="{{path ('cart_page')}}">Cart <i class="bi bi-cart-check-fill"></i></a></li>
                             {% endif %}
+
+                            {% if app.user %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li><a href="{{path ('admin_page')}}">Admin</a></li>
+                                {% endif %}
+                            {% endif %}
                          </ul>
 
                         
@@ -50,6 +56,7 @@
                                     <li><a href="{{path ('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                                 {% else %}
                                     <li><a href=""> You are logged in as user: {{ app.user.userIdentifier }} </a></li>
+                                    <li><a href="{{path ('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                                 {% endif %}
 
                             {% else  %}

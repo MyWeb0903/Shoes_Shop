@@ -12,7 +12,7 @@ class SupManagerController extends AbstractController
     /**
      * @Route("/supmanager", name="sup_manager")
      */
-    public function adminAction(): Response
+    public function sup_managerAction(): Response
     {
         return $this->render('SupManager/index.html.twig', [
             'controller_name' => 'SupManagerController',

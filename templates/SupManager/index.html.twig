@@ -1,27 +1,51 @@
-{% extends 'base.html.twig' %}
-
+{# {% extends 'base.html.twig' %} #}
+<html>
 {% block title %}{% endblock %}
-
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    body{
+        background: url('./Image/Background-shoe-shop.jpg');    
+    }
+    table{
+        background-color: white;
+        margin-top: 250px;
+    }
+    .action{
+        margin-left: 
+    }
 </style>
-
+<body>
 <div class="container mb-3">
 
     <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>No.</th>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Description</th>
-                <th style="width:160px;"><a style="color: #272727;" href="?page=add_category">
+                <th>Email</th>
+                <th style="width:185px;" class="action"><a style="color: #272727;" href="{{path ('add_supplier')}}">
                         <i class="glyphicon glyphicon-plus"></i> Add new Supplier</a>
                 </th>
             </tr>
         </thead>
+        <tbody>
+            {% for s in supplier %}
+            <tr>
+                <td>{{s.id}}</td>
+                <td>{{s.Name}}</td>
+                <td>{{s.Email}}</td>
+                <td><a href="{{path ('edit_supplier', {'id' : s.id})}}">Update</a> | <a href="{{path ('deleteSupplier', {'id' : s.id})}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
-{% endblock }
+</body>
+{% endblock %}
+</html>

@@ -27,6 +27,10 @@
                     <th>Gender</th>
                     <th>Birthday</th>
                     <th>Address</th>
+                    <th>Roles</th>
+                    <th style="width:185px;" class="action"><a style="color: #272727;" href="{{path ('add_admin')}}">
+                        <i class="glyphicon glyphicon-plus"></i> Add new account</a>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +43,7 @@
                         <td>{{u.Gender}}</td>
                         <td>{{u.Birthday|date('y-m-d')}}</td>
                         <td>{{u.Address}}</td>
+                        <td>{{u.roles ? u.roles|json_encode : ''}}</td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -82,17 +82,17 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //    }
 
 
-   /**
-    * @return User[] Returns an array of User objects
-    */
-   public function getAccount(): array
-   {
-       return $this->createQueryBuilder('u')
-            ->select('u.id, u.username, u.Fullname, u.Email, u.Gender, u.Address, u.Birthday')
-           ->getQuery()
-           ->getResult()
-       ;
-   }
+//    /**
+//     * @return User[] Returns an array of User objects
+//     */
+//    public function getAccount(): array
+//    {
+//        return $this->createQueryBuilder('u')
+//             ->select('u.id, u.username, u.Fullname, u.Email, u.Gender, u.Address, u.Birthday, u.roles')
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
 
 
     /**
@@ -101,9 +101,9 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function getUserAccount($user): array
     {
         return $this->createQueryBuilder('u')
-            ->select('u.username, u.password, u.Fullname, u.Email, u.Gender, u.Address, u.Birthday')
-            ->where('u.username = :user')
-            ->setParameter('user', $user)
+            ->select('u.id, u.username, u.password, u.Fullname, u.Email, u.Gender, u.Address, u.Birthday')
+            ->where('u.id = :user')
+            ->setParameter('user', $user->getId())
             ->getQuery()
             ->getResult()
         ;

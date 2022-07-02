@@ -36,15 +36,16 @@
                             <li><a href="{{path ('about_page')}}">About us</a></li>
                             <li><a href="{{path ('product_page')}}">Product</a></li>
                             {% if app.user %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li><a href="{{path ('admin_page')}}">Admin</a></li>
+                                {% else %}
                                 <li><a href="{{path ('lover_page')}}">Lover <i class="bi bi-heart-fill"></i></a></li>
                                 <li><a href="{{path ('cart_page')}}">Cart <i class="bi bi-cart-check-fill"></i></a></li>
                                 <li><a href="{{path ('profile_page')}}">My Profire <i class="bi bi-person-circle"></i></a></li>
-                            {% endif %}
-
-                            {% if app.user %}
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <li><a href="{{path ('admin_page')}}">Admin</a></li>
+                            {# {% endif %} #}
                                 {% endif %}
+                            {# {% if app.user %} #}
+                                
                             {% endif %}
                          </ul>
 

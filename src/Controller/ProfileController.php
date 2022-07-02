@@ -3,9 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Form\Type\UpdatePasswordType;
 use App\Repository\UserRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ProfileController extends AbstractController
@@ -15,13 +19,43 @@ class ProfileController extends AbstractController
      */
     public function profireAction(UserRepository $repo): Response
     {
-        // $get =  $this->getUser();
+        $user = $this->getUser();
         // $user = $get;
-        $user = $this->get('security.token_storage')->getToken()->getUser();
         $profile = $repo->getUserAccount($user);
         return $this->render('profile/index.html.twig', [
             'profile' => $profile
         ]);
-        // return $this->json($profile);
     }
+
+    /**
+     * @Route("/changePass/{id}", name="change_Pass")
+     */
+    public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, $id, 
+    UserPasswordHasherInterface $hasher): Response
+    {   
+        $user = $repo->find($id);// animal by id
+        $form = $this->createForm(UpdatePasswordType::class, $user);
+
+        $form->handleRequest($req);
+        $entity = $res->getManager();
+
+        //handleform when user clicks submit button
+        if($form->isSubmitted() && $form->isValid()){
+            $user->setPassword($hasher->hashPassword($user, 
+            $form->get('password')->getData()));
+
+            $entity->persist($user);
+            $entity->flush();
+
+            return $this->json([
+                'id' => $user->getId()
+            ]);
+        }
+
+        return $this->render('profile/ChangePass.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+    
 }

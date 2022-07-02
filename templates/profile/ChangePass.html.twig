@@ -1,0 +1,54 @@
+{# {% extends 'base.html.twig' %} #}
+<html>
+{% block title %}{% endblock %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    body{
+        background: url('../Image/Background-shoe-shop.jpg');
+    }
+    .cover{
+        width: 500px;
+    }
+    h1{
+        color: white;
+        text-align: center;
+        margin-top: 40px;
+    }
+    .cover-form{
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
+        margin-top: 200px;
+        margin-bottom: -15px;
+        height: 250px;
+    }
+    .form-group{
+        color: white;
+        width: 400px;
+        margin-left: 30px;
+    }
+    .btn{
+        width: 100px;
+    }
+   
+</style>
+
+<body>
+    <div class="container-fluid cover">
+        <div class="cover-form">
+             <h1>Change Password</h1>
+            {{form_start(form)}}
+            {{ form (form) }} 
+            {{form_end(form)}}         
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}
+</html>

@@ -15,24 +15,26 @@ date_default_timezone_set("Asia/Ho_Chi_Minh");
 class CartController extends AbstractController
 {
     /**
-     * @Route("/cart{id}", name="cart_page", methods={"POST"})
+     * @Route("/cart", name="cart_page")
      */
-    public function cartAction(ManagerRegistry $res, ProductRepository $proRepo, CartRepository $cartRepo, $id): Response
+    public function cartAction(): Response
     {
-        $cart = new Cart();
-        $entity = $res->getManager();
-        $user = $this->get('security.token_storage')->getToken()->getUser();
-        $user->getId();
-        $product = $proRepo->find($id);
+        // $cart = new Cart();
+        // $entity = $res->getManager();
+        // $user = $this->get('security.token_storage')->getToken()->getUser();
+        // $user->getId();
+        // $product = $proRepo->find($id);
 
-        $cart->setQuantity_Pro(1);
-        $cart->setUser($user);
-        $cart->setProducts($product);
+        // $cart->setQuantity_Pro(1);
+        // $cart->setUser($user);
+        // $cart->setProducts($product);
 
-        $entity->persist($cart);
-        $entity->flush();
+        // $entity->persist($cart);
+        // $entity->flush();
 
-        return $this->render('cart/index.html.twig');
+        return $this->render('cart/index.html.twig', [
+            'controller_name' => 'CartController',
+        ]);
     }
 
     // /**

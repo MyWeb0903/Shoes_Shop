@@ -15,7 +15,6 @@
             <thead>
                 <tr>
                     <th>User name</th>
-                    <th>Password</th>
                     <th>Full name</th>
                     <th>Email</th>
                     <th>Gender</th>
@@ -28,13 +27,12 @@
                 {% for pro in profile %}
                     <tr>
                         <td>{{pro.username}}</td>
-                        <td>{{pro.password}}</td>
                         <td>{{pro.Fullname}}</td>
                         <td>{{pro.Email}}</td>
                         <td>{{pro.Gender}}</td>
                         <td>{{pro.Birthday|date('y-m-d')}}</td>
                         <td>{{pro.Address}}</td>
-                        <td><a href="">Update Password</a></td>
+                        <td><a href="{{path ('change_Pass', {'id' : pro.id})}}">Update Password</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

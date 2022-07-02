@@ -1,0 +1,51 @@
+{# {% extends 'base.html.twig' %} #}
+<html>
+{% block title %}{% endblock %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    body{
+        background: url('./Image/Background-shoe-shop.jpg');
+    }
+    .cover{
+        
+    }
+    h1{
+        color: white;
+        text-align: center;
+        margin-top: 40px;
+    }
+    .cover-form{
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
+        margin-top: -40px;
+        margin-bottom: -15px;
+    }
+    .register_class{
+        width: 400px;
+        margin-left: 560px;
+        color: black;  
+        color: white;
+        height: 760px;
+    }
+</style>
+
+<body>
+    <div class="cover">
+        <div class="cover-form">
+            <h1>Register</h1>
+            {{form_start(register_form, {'attr': {'id': 'register_form_post', 'class': 'register_class'}})}}
+                {{ form (register_form) }} 
+            {{form_end(register_form)}}
+        </div>
+    </div>
+
+</body>
+
+{% endblock %}
+</html>

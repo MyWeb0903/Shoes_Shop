@@ -43,6 +43,7 @@
             <li><a href="{{path ('product_page')}}" data-after="Projects">Products <i class="fa-solid fa-socks"></i></a></li>
             <li><a href="{{path ('lover_page')}}" data-after="Projects">Lover <i class="bi bi-heart-fill"></i></a></li>
             <li><a href="{{path ('cart_page')}}" data-after="About">Cart <i class="bi bi-bag-heart-fill"></i></a></li>
+            {% if is_granted('ROLE_ADMIN')%}
             <li><a href="#" data-after="About">Management <i class="bi bi-kanban-fill"></i></a>
                 <ul>
                     <li><a href="#">Orders</a></li>
@@ -50,8 +51,16 @@
                     <li><a href="#">Acout</a></li>
                 </ul>
             </li>
+            {% endif %}
+            {% if app.user %}
+            <li><a href="#" data-after="Hi">Hi <i class=""></i>{{app.user.userIdentifier}}</a></li>
+            <li><a href="{{path ('app_logout')}}" data-after="Contact"><i class="bi bi-box-arrow-right"></i></a></li>
+            {% else %}
             <li><a href="{{path ('app_login')}}" data-after="Contact">Login <i class="bi bi-box-arrow-in-right"></i></a></li>
             <li><a href="{{path ('app_signup')}}" data-after="Contact">Signup <i class="bi bi-box-arrow-left"></i></a></li>
+            {% endif %}
+
+
           </ul>
         </div>
       </div>

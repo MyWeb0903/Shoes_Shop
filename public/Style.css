@@ -94,7 +94,7 @@ p {
 }
 
 #header .nav-list ul a {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: 0.2rem;
     text-decoration: none;
@@ -123,7 +123,7 @@ p {
 }
 
 #header .nav-list ul li:hover a {
-    color: #f0b504;
+    color: #eab105;
 }
 
 #header .hamburger {
@@ -187,6 +187,42 @@ p {
 #header .hamburger.active .bar::after {
     top: 0;
 }
+
+
+/*  */
+
+#header .nav-list ul li {
+    float: left;
+    display: inline-block;
+    line-height: 0px;
+}
+
+#header .nav-list ul ul {
+    display: inline-block;
+    width: 100px;
+}
+
+#header .nav-list ul ul li {
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+
+#header .nav-list ul ul {
+    display: none;
+}
+
+#header .nav-list ul li:hover>ul {
+    display: inline-table;
+}
+
+#header .nav-list ul ul a:hover {
+    color: cyan;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #33ffff, 0 0 5px #66ffff;
+}
+
+
+/*  */
 
 
 /* End Header section */
@@ -556,8 +592,8 @@ p {
 #footer .footer {
     min-height: 200px;
     flex-direction: column;
-    padding-top: 50px;
-    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 #footer h2 {
@@ -571,7 +607,7 @@ p {
 
 #footer .social-icon {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom: -10px;
 }
 
 #footer .social-item {
@@ -745,7 +781,7 @@ p {
 
 /* Media Query For Desktop */
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 700px) {
     /* header */
     #header .hamburger {
         display: none;
@@ -761,7 +797,7 @@ p {
         display: inline-block;
     }
     #header .nav-list ul li a {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     #header .nav-list ul a:after {
         display: none;

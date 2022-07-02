@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +15,9 @@ textarea {
     position: relative;
     width: 100%;
     min-height: 100vh;
-    padding: 2rem;
+    padding: 0rem;
     /* background-color: #fafafa; */
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,17 +145,6 @@ textarea.input {
     transition: 0.3s;
     margin: 0;
     width: 100%;
-    margin-top: 10px;
-}
-
-#btn-back {
-    text-decoration: none;
-    color: #1abc9c;
-}
-
-#btn-back:hover {
-    background-color: transparent;
-    color: #fff;
 }
 
 .btn:hover {

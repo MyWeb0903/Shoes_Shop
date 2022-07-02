@@ -92,7 +92,7 @@ body {
 
 .products-preview .preview {
     display: none;
-    padding: 2rem;
+    padding: 0.1rem;
     text-align: center;
     background: #fff;
     position: relative;
@@ -102,10 +102,12 @@ body {
 
 .products-preview .preview.active {
     display: inline-block;
+    width: 300px;
 }
 
 .products-preview .preview img {
-    height: 25rem;
+    height: 14rem;
+    width: 14rem;
 }
 
 .products-preview .preview .fa-times {
@@ -123,7 +125,7 @@ body {
 
 .products-preview .preview h3 {
     color: #444;
-    padding: .5rem 0;
+    padding: 0rem;
     font-size: 2.5rem;
 }
 
@@ -142,15 +144,15 @@ body {
 
 .products-preview .preview p {
     line-height: 1.5;
-    padding: 1rem 0;
+    padding: 0rem;
     font-size: 1.6rem;
     color: #777;
 }
 
 .products-preview .preview .price {
-    padding: 1rem 0;
+    padding: 0;
     font-size: 2.5rem;
-    color: #27ae60;
+    color: #f9b41e;
 }
 
 .products-preview .preview .buttons {
@@ -190,7 +192,8 @@ body {
 
 @media (max-width:768px) {
     .products-preview .preview img {
-        height: 25rem;
+        height: 26rem;
+        width: 26rem;
     }
 }
 

@@ -38,7 +38,6 @@ p {
     letter-spacing: 0.05rem;
 }
 
-<<<<<<< HEAD
 .section-title {
     font-size: 4rem;
     font-weight: 300;
@@ -76,12 +75,6 @@ p {
     font-size: 3rem;
     text-transform: uppercase;
     color: white;
-=======
-.brand a img {
-    height: 100px;
-    width: 100px;
-    position: relative;
->>>>>>> Huynh
 }
 
 
@@ -844,11 +837,8 @@ p {
         display: inline-block;
     }
     #header .nav-list ul li a {
-<<<<<<< HEAD
         font-size: 1.8rem;
-=======
         font-size: 1.2rem;
->>>>>>> Huynh
     }
     #header .nav-list ul a:after {
         display: none;

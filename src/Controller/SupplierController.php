@@ -16,10 +16,11 @@ class SupplierController extends AbstractController
     /**
      * @Route("/supplier", name="app_supplier")
      */
-    public function index(): Response
+    public function index(SupplierRepository $repo): Response
     {
-        return $this->render('supplier/index.html.twig', [
-            'controller_name' => 'SupplierController',
+        $supplier = $repo->findAll();
+        return $this->render('supManager/index.html.twig', [
+            'supplier' => $supplier
         ]);
     }
 
@@ -81,7 +82,7 @@ class SupplierController extends AbstractController
     }
 
     /**
-    * @Route("/deleteSupplier/{id}", name="deleteSupplier", methods={"DELETE"})
+    * @Route("/deleteSupplier/{id}", name="deleteSupplier")
     */
     public function deleteAction(ManagerRegistry $res, Request $req, SupplierRepository $repo, $id): Response
     {

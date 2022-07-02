@@ -200,11 +200,14 @@ p {
 #header .nav-list ul ul {
     display: inline-block;
     width: 100px;
-    left: 100px;
 }
 
 #header .nav-list ul ul li {
     padding-bottom: 10px;
+}
+
+#header .nav-list ul ul li {
+    background-image: red;
 }
 
 #header .nav-list ul ul {
@@ -807,7 +810,7 @@ p {
         flex-basis: 22%;
         margin: 1.5%;
     }
-    .greeting{
+    .greeting {
         margin-top: 8px;
     }
 }

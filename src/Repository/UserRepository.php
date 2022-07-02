@@ -93,4 +93,19 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
            ->getResult()
        ;
    }
+
+
+    /**
+    * @return User[] Returns an array of User objects
+    */
+    public function getUserAccount($user): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.username, u.password, u.Fullname, u.Email, u.Gender, u.Address, u.Birthday')
+            ->where('u.username = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 }

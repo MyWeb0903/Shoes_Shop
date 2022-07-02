@@ -71,9 +71,10 @@ class CartRepository extends ServiceEntityRepository
    public function getCart($user): array
    {
        return $this->createQueryBuilder('c')
-            ->select('c.Quantity_Pro, c.user')
+            ->select('c.Quantity_Pro, c.user, p.Name, p.Image')
             ->Where('c.user = :user')
             ->setParameter('user', $user)
+            ->innerJoin('c.products', 'p')
             ->getQuery()
             ->getArrayResult()
        ;

@@ -1,0 +1,45 @@
+<html>
+{% block title %}{% endblock %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+{% block body %}
+<style>
+
+</style>
+
+<body>
+    <div class="container-fluid">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>User name</th>
+                    <th>Password</th>
+                    <th>Full name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Birthday</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pro in profile %}
+                    <tr>
+                        <td>{{pro.username}}</td>
+                        <td>{{pro.password}}</td>
+                        <td>{{pro.Fullname}}</td>
+                        <td>{{pro.Email}}</td>
+                        <td>{{pro.Gender}}</td>
+                        <td>{{pro.Birthday|date('y-m-d')}}</td>
+                        <td>{{pro.Address}}</td>
+                        <td><a href="">Update Password</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}
+</html>

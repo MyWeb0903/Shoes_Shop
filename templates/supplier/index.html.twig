@@ -1,11 +1,32 @@
-{% extends 'base.html.twig' %}
+<html>
 
 {% block title %}{% endblock %}
-
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
 {% block body %}
-    <div class="container-fluid" style="width: 500px">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
+<style>
+    body{
+        background: url('./Image/Background-shoe-shop.jpg');   
+    }
+    .cover{
+        margin-top: 240px;
+    }
+    .container-fluid{
+        background: rgba(0, 0, 0, 0.8);
+        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
+        color: white;
+    }
+</style>
+<body>
+    <div class="cover">
+        <div class="container-fluid" style="width: 500px">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
     </div>
+</body> 
 {% endblock %}
+</html>

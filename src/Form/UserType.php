@@ -74,11 +74,11 @@ class UserType extends AbstractType
                     ]
             ])
             ->add('Gender', ChoiceType::class, [
-                                        'choices' => [
-                                                'Gender' => [
-                                                    'Male' => 'Male',
-                                                    'Female' => 'Female'
-                                                    ]],
+                'choices' => [
+                    'Gender' => [
+                    'Male' => 'Male',
+                    'Female' => 'Female'
+                 ]],
             ])
             ->add('Birthday', DateTimeType::class, [
                 'widget' => 'single_text'

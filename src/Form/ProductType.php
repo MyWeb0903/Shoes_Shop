@@ -28,7 +28,10 @@ class ProductType extends AbstractType
         ->add('Quantity', TextType::class)
         ->add('Price', TextType::class)
         ->add('Detail', TextType::class)
-        ->add('Image', FileType::class)
+        ->add('Image', FileType::class, [
+            'label' => 'Image',
+            'data_class' => null
+        ])
         ->add('Supplier_ID', EntityType::class, [
             'class' => Supplier::class,
             'choice_label' => 'name',

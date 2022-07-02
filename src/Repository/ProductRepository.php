@@ -71,7 +71,7 @@ class ProductRepository extends ServiceEntityRepository
     public function getProduct(): array
     {
         return $this->createQueryBuilder('p')
-         ->select('p.Image, p.Name, p.Price')
+         ->select('p.Image, p.Name, p.Price, p.Quantity, p.Detail')
          ->getQuery()
          ->getResult()
         ;
@@ -106,4 +106,5 @@ class ProductRepository extends ServiceEntityRepository
          ->getArrayResult()
         ;
     }
+
 }

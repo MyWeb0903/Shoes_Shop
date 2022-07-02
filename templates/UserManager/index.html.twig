@@ -1,0 +1,54 @@
+<html>
+
+{% block title %}{% endblock %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+{% block body %}
+<style>
+    body{
+        background: url('./Image/Background-shoe-shop.jpg');    
+    }
+    table{
+        background-color: white;
+        margin-top: 50px;
+    }
+</style>
+<body>
+    <div class="container-fluid">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User name</th>
+                    <th>Full name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Birthday</th>
+                    <th>Address</th>
+                    <th>Roles</th>
+                    <th style="width:185px;" class="action"><a style="color: #272727;" href="{{path ('add_admin')}}">
+                        <i class="glyphicon glyphicon-plus"></i> Add new account</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in user %}
+                    <tr>
+                        <td>{{u.id}}</td>
+                        <td>{{u.username}}</td>
+                        <td>{{u.Fullname}}</td>
+                        <td>{{u.Email}}</td>
+                        <td>{{u.Gender}}</td>
+                        <td>{{u.Birthday|date('y-m-d')}}</td>
+                        <td>{{u.Address}}</td>
+                        <td>{{u.roles ? u.roles|json_encode : ''}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}\
+</html>

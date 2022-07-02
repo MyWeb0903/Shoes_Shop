@@ -1,0 +1,55 @@
+<html>
+
+{% block title %}{% endblock %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    
+    body{
+        background: url('./Image/Background-shoe-shop.jpg');    
+    }
+    table{
+        background-color: white;
+        margin-top: 50px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Detail</th>
+                    <th  style="width:160px;"><a style="color: #272727;" href="{{path ('addProduct')}}" >
+                        <i class="glyphicon glyphicon-plus"></i> Add new product</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in product %}
+                    <tr>
+                        <td>{{p.id}}</td>
+                        <td>{{p.Name}}</td>
+                        <td>{{p.Quantity}}</td>
+                        <td>{{p.Price}}</td>
+                        <td>{{p.Image}}</td>
+                        <td>{{p.Detail}}</td>
+                        <td><a href="{{path ('editProduct', {'id' : p.id})}}">Update</a> | <a href="{{path ('deleteProduct', {'id' : p.id})}}">Delete</a>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock %}
+</html>

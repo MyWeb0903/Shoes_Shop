@@ -38,10 +38,50 @@ p {
     letter-spacing: 0.05rem;
 }
 
+<<<<<<< HEAD
+.section-title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+.section-title span {
+    color: crimson;
+}
+
+.cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: white;
+    background-color: transparent;
+    border: 2px solid crimson;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-top: 30px;
+    transition: 0.3s ease;
+    transition-property: background-color, color;
+}
+
+.cta:hover {
+    color: white;
+    background-color: crimson;
+}
+
+.brand h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: white;
+=======
 .brand a img {
     height: 100px;
     width: 100px;
     position: relative;
+>>>>>>> Huynh
 }
 
 
@@ -102,6 +142,13 @@ p {
     text-transform: uppercase;
     padding: 20px;
     display: block;
+}
+
+.brand a img {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #header .nav-list ul a::after {
@@ -797,7 +844,11 @@ p {
         display: inline-block;
     }
     #header .nav-list ul li a {
+<<<<<<< HEAD
+        font-size: 1.8rem;
+=======
         font-size: 1.2rem;
+>>>>>>> Huynh
     }
     #header .nav-list ul a:after {
         display: none;

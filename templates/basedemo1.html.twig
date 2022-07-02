@@ -3,12 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
+  {# <meta http-equiv="X-UA-Compatible" content="IE=edge"> #}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
   <link rel="icon" type="image/x-icon" href="./Image/ShoeIcon.ico">
-  <script src="https://kit.fontawesome.com/df8e5c3257.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  {# <link rel="stylesheet" href="product.css"> #}
+  {# <script src="product.js" defer></script> #}
+  {# <script src="https://kit.fontawesome.com/df8e5c3257.js" crossorigin="anonymous"></script> #}
   <link rel="stylesheet" href="Style.css">
   {# <link rel=" stylesheet" href="Base.css"> #}
 
@@ -23,6 +27,7 @@
 </head>
 
 <body>
+    {% block header %}
   <!-- Header -->
   <section id="header">
     <div class="header container">
@@ -60,6 +65,26 @@
   <script src="./app.js"></script>
 </body>
 </section>
+<<<<<<< HEAD:templates/basedemo.html.twig
+{% endblock %}
+
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+
+        {# {% block footer %}
+            <footer class="footer">
+                <div>
+                    &copy; Copyright: 27-6-2022<br>
+                    Shoe Store Online., HD-Vietnam Branch<br>
+                    Address: P8 - Dinh Tien Hoang - TP Vinh Long<br>
+                    Tel: 0931927908<br>
+                    Created by: Do Huu Duy
+                </div>
+            </footer>
+        {% endblock %} #}
+</html>
+=======
 
 {% block body %}
 
@@ -91,4 +116,5 @@
 </html>
 
 
+>>>>>>> Huynh:templates/basedemo1.html.twig
 

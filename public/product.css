@@ -20,13 +20,13 @@ body {
     background: #eee;
 }
 
-.container-product {
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 2rem;
 }
 
-.container-product .title {
+.container .title {
     font-size: 3.5rem;
     color: #444;
     margin-bottom: 3rem;
@@ -34,13 +34,13 @@ body {
     text-align: center;
 }
 
-.container-product .products-container {
+.container .products-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 2rem;
 }
 
-.container-product .products-container .product {
+.container .products-container .product {
     text-align: center;
     padding: 3rem 2rem;
     background: #fff;
@@ -50,30 +50,30 @@ body {
     cursor: pointer;
 }
 
-.container-product .products-container .product:hover {
+.container .products-container .product:hover {
     outline: .2rem solid #222;
     outline-offset: 0;
 }
 
-.container-product .products-container .product img {
-    height: 23rem;
+.container .products-container .product img {
+    height: 25rem;
 }
 
-.container-product .products-container .product:hover img {
+.container .products-container .product:hover img {
     transform: scale(.9);
 }
 
-.container-product .products-container .product h3 {
+.container .products-container .product h3 {
     padding: .5rem 0;
     font-size: 2rem;
     color: #444;
 }
 
-.container-product .products-container .product:hover h3 {
+.container .products-container .product:hover h3 {
     color: #27ae60;
 }
 
-.container-product .products-container .product .price {
+.container .products-container .product .price {
     font-size: 2rem;
     color: #444;
 }
@@ -92,7 +92,7 @@ body {
 
 .products-preview .preview {
     display: none;
-    padding: 0.1rem;
+    padding: 2rem;
     text-align: center;
     background: #fff;
     position: relative;
@@ -102,12 +102,11 @@ body {
 
 .products-preview .preview.active {
     display: inline-block;
-    width: 300px;
+    width: 376px;
 }
 
 .products-preview .preview img {
-    height: 14rem;
-    width: 14rem;
+    height: 30rem;
 }
 
 .products-preview .preview .fa-times {
@@ -125,12 +124,12 @@ body {
 
 .products-preview .preview h3 {
     color: #444;
-    padding: 0rem;
+    padding: .5rem 0;
     font-size: 2.5rem;
 }
 
 .products-preview .preview .stars {
-    padding: 1rem 0;
+    padding: 0rem;
     font-size: 1.7rem;
 }
 
@@ -144,15 +143,15 @@ body {
 
 .products-preview .preview p {
     line-height: 1.5;
-    padding: 0rem;
+    padding: 1rem 0;
     font-size: 1.6rem;
     color: #777;
 }
 
 .products-preview .preview .price {
-    padding: 0;
+    padding: 1rem 0;
     font-size: 2.5rem;
-    color: #f9b41e;
+    color: #27ae60;
 }
 
 .products-preview .preview .buttons {
@@ -192,8 +191,7 @@ body {
 
 @media (max-width:768px) {
     .products-preview .preview img {
-        height: 26rem;
-        width: 26rem;
+        height: 25rem;
     }
 }
 

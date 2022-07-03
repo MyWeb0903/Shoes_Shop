@@ -55,21 +55,22 @@ class Product
      */
     private $Supplier_ID;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Cart::class, inversedBy="products")
-     */
-    private $Cart_ID;
 
     /**
      * @ORM\ManyToMany(targetEntity=User::class, mappedBy="Product_ID")
      */
     private $users;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Contain::class, mappedBy="product")
+     */
+    private $Contains;
+
     public function __construct()
     {
         $this->OrderDetail_ID = new ArrayCollection();
-        $this->Cart_ID = new ArrayCollection();
         $this->users = new ArrayCollection();
+        $this->Contains = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -180,30 +181,6 @@ class Product
     }
 
     /**
-     * @return Collection<int, Cart>
-     */
-    public function getCartID(): Collection
-    {
-        return $this->Cart_ID;
-    }
-
-    public function addCartID(Cart $cartID): self
-    {
-        if (!$this->Cart_ID->contains($cartID)) {
-            $this->Cart_ID[] = $cartID;
-        }
-
-        return $this;
-    }
-
-    public function removeCartID(Cart $cartID): self
-    {
-        $this->Cart_ID->removeElement($cartID);
-
-        return $this;
-    }
-
-    /**
      * @return Collection<int, User>
      */
     public function getUsers(): Collection
@@ -225,6 +202,36 @@ class Product
     {
         if ($this->users->removeElement($user)) {
             $user->removeProductID($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Contain>
+     */
+    public function getContains(): Collection
+    {
+        return $this->Contains;
+    }
+
+    public function addContain(Contain $contain): self
+    {
+        if (!$this->Contains->contains($contain)) {
+            $this->Contains[] = $contain;
+            $contain->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContain(Contain $contain): self
+    {
+        if ($this->Contains->removeElement($contain)) {
+            // set the owning side to null (unless already changed)
+            if ($contain->getProduct() === $this) {
+                $contain->setProduct(null);
+            }
         }
 
         return $this;

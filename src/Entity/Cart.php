@@ -19,40 +19,56 @@ class Cart
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $Quantity_Pro;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Cart_ID")
+     * @ORM\OneToMany(targetEntity=Contain::class, mappedBy="cart")
+     */
+    private $Contains;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Product::class, mappedBy="Cart_ID")
-     */
-    private $products;
-
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->Contains = new ArrayCollection();
     }
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getQuantityPro(): ?int
+
+    /**
+     * @return Collection<int, Contain>
+     */
+    public function getContains(): Collection
     {
-        return $this->Quantity_Pro;
+        return $this->Contains;
     }
 
-    public function setQuantityPro(int $Quantity_Pro): self
+    public function addContain(Contain $contain): self
     {
-        $this->Quantity_Pro = $Quantity_Pro;
+        if (!$this->Contains->contains($contain)) {
+            $this->Contains[] = $contain;
+            $contain->setCart($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContain(Contain $contain): self
+    {
+        if ($this->Contains->removeElement($contain)) {
+            // set the owning side to null (unless already changed)
+            if ($contain->getCart() === $this) {
+                $contain->setCart(null);
+            }
+        }
 
         return $this;
     }
@@ -62,36 +78,9 @@ class Cart
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
         $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Product>
-     */
-    public function getProducts(): Collection
-    {
-        return $this->products;
-    }
-
-    public function addProduct(Product $product): self
-    {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->addCartID($this);
-        }
-
-        return $this;
-    }
-
-    public function removeProduct(Product $product): self
-    {
-        if ($this->products->removeElement($product)) {
-            $product->removeCartID($this);
-        }
 
         return $this;
     }

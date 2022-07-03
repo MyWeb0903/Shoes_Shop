@@ -33,13 +33,13 @@ class ProfileController extends AbstractController
     public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, $id, 
     UserPasswordHasherInterface $hasher): Response
     {   
-        $user = $repo->find($id);// animal by id
+        $user = $repo->find($id);
         $form = $this->createForm(UpdatePasswordType::class, $user);
 
         $form->handleRequest($req);
         $entity = $res->getManager();
 
-        //handleform when user clicks submit button
+       
         if($form->isSubmitted() && $form->isValid()){
             $user->setPassword($hasher->hashPassword($user, 
             $form->get('password')->getData()));

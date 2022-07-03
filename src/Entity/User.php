@@ -72,10 +72,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $Order_ID;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Cart::class, mappedBy="user")
-     */
-    private $Cart_ID;
 
     /**
      * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
@@ -275,35 +271,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Cart>
-     */
-    public function getCartID(): Collection
-    {
-        return $this->Cart_ID;
-    }
-
-    public function addCartID(Cart $cartID): self
-    {
-        if (!$this->Cart_ID->contains($cartID)) {
-            $this->Cart_ID[] = $cartID;
-            $cartID->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCartID(Cart $cartID): self
-    {
-        if ($this->Cart_ID->removeElement($cartID)) {
-            // set the owning side to null (unless already changed)
-            if ($cartID->getUser() === $this) {
-                $cartID->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Product>

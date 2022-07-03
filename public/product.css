@@ -24,6 +24,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 6rem 2rem;
+    margin-bottom: 0px;
 }
 
 .container-product .title {
@@ -51,7 +52,7 @@ body {
 }
 
 .container-product .products-container .product:hover {
-    outline: .2rem solid #222;
+    outline: .2rem solid #fb5533;
     outline-offset: 0;
 }
 
@@ -70,7 +71,13 @@ body {
 }
 
 .container-product .products-container .product:hover h3 {
-    color: #27ae60;
+    color: #fb5533;
+    ;
+}
+
+.container-product .products-container .product:hover .price {
+    font-size: 2rem;
+    color: #fb5533;
 }
 
 .container-product .products-container .product .price {
@@ -107,14 +114,14 @@ body {
 }
 
 .products-preview .preview img {
-    height: 14rem;
-    width: 14rem;
+    height: 26rem;
+    width: 26rem;
 }
 
 .products-preview .preview .fa-times {
     position: absolute;
-    top: 20rem;
-    right: 2.5rem;
+    top: 1rem;
+    right: 1.5rem;
     cursor: pointer;
     color: #444;
     font-size: 4rem;
@@ -122,6 +129,7 @@ body {
 
 .products-preview .preview .fa-times:hover {
     transform: rotate(90deg);
+    color: #fe512e;
 }
 
 .products-preview .preview h3 {
@@ -130,30 +138,34 @@ body {
     font-size: 2.5rem;
 }
 
+.container-product .title {
+    color: #fb5533;
+}
+
 .products-preview .preview .stars {
     padding: 1rem 0;
     font-size: 1.7rem;
 }
 
 .products-preview .preview .stars i {
-    color: #27ae60;
+    color: #fe512e;
 }
 
 .products-preview .preview .stars span {
-    color: #999;
+    color: #fe512e;
 }
 
 .products-preview .preview p {
     line-height: 1.5;
     padding: 0rem;
     font-size: 1.6rem;
-    color: #777;
+    color: #000000;
 }
 
 .products-preview .preview .price {
     padding: 0;
     font-size: 2.5rem;
-    color: #f9b41e;
+    color: #fe512e;
 }
 
 .products-preview .preview .buttons {
@@ -167,22 +179,29 @@ body {
     flex: 1 1 16rem;
     padding: 1rem;
     font-size: 1.8rem;
-    color: #444;
-    border: .1rem solid #444;
+    color: rgb(0, 0, 0);
+    border: none;
 }
 
 .products-preview .preview .buttons a.cart {
-    background: #444;
-    color: #fff;
+    background: #f87e4a;
+    color: rgb(255, 255, 255);
 }
 
 .products-preview .preview .buttons a.cart:hover {
-    background: #111;
+    background: #fe512e;
+    box-shadow: 0 0 3px #fe512e, 0 0 10px #fe512e;
+    ;
+}
+
+.products-preview .preview .buttons a.buy {
+    background: #f87e4a;
+    color: rgb(255, 255, 255);
 }
 
 .products-preview .preview .buttons a.buy:hover {
-    background: #444;
-    color: #fff;
+    background: #ff4d00;
+    box-shadow: 0 0 3px #fe512e, 0 0 10px #fe512e;
 }
 
 @media (max-width:991px) {

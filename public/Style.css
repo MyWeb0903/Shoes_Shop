@@ -62,7 +62,7 @@ header .nav-list ul ul li .greeting {
 
 #header .header {
     min-height: 8vh;
-    background-color: #A27B5C;
+    background-color: #fb5533;
     transition: 0.3s ease background-color;
 }
 
@@ -79,7 +79,7 @@ header .nav-list ul ul li .greeting {
 #header .nav-list ul {
     list-style: none;
     position: absolute;
-    background-color: #D0C9C0;
+    background-color: #fe512e;
     width: 100vw;
     height: 100vh;
     left: 100%;
@@ -102,7 +102,7 @@ header .nav-list ul ul li .greeting {
     font-weight: 500;
     letter-spacing: 0.2rem;
     text-decoration: none;
-    color: #860014;
+    color: #ffffff;
     text-transform: uppercase;
     padding: 20px;
     display: block;
@@ -111,11 +111,11 @@ header .nav-list ul ul li .greeting {
 #header .nav-list ul a::after {
     content: attr(data-after);
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
-    color: #DF7861;
-    font-size: 10rem;
+    color: #ffffff;
+    font-size: 8rem;
     letter-spacing: 50px;
     z-index: -1;
     transition: 0.3s ease letter-spacing;
@@ -127,7 +127,10 @@ header .nav-list ul ul li .greeting {
 }
 
 #header .nav-list ul li:hover a {
-    color: #F0A500;
+    background-color: white;
+    color: #fb5533;
+    border-radius: 50px;
+    border: none;
 }
 
 #header .hamburger {
@@ -207,7 +210,10 @@ header .nav-list ul ul li .greeting {
 }
 
 #header .nav-list ul ul li {
-    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    width: 140px;
+    margin-left: 15px;
 }
 
 #header .nav-list ul ul {
@@ -219,9 +225,9 @@ header .nav-list ul ul li .greeting {
 }
 
 #header .nav-list ul ul a:hover {
-    color: cyan;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #33ffff, 0 0 5px #66ffff;
+    color: rgb#fb5533;
+    border-radius: 3px;
+    box-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff;
 }
 
 
@@ -249,7 +255,7 @@ header .nav-list ul ul li .greeting {
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #F7ECDE;
+    background-color: #ffffff;
     opacity: 0.7;
     z-index: -1;
 }
@@ -589,7 +595,8 @@ header .nav-list ul ul li .greeting {
 /* Footer */
 
 #footer {
-    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    background: white;
+    border-top: 2px solid #fe512e;
 }
 
 #footer .footer {
@@ -600,12 +607,16 @@ header .nav-list ul ul li .greeting {
 }
 
 #footer h2 {
-    color: white;
+    color: #fe512e;
     font-weight: 500;
-    font-size: 1.8rem;
+    font-size: 2rem;
     letter-spacing: 0.1rem;
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+#footer h1 {
+    color: #fe512e;
 }
 
 #footer .social-icon {
@@ -629,7 +640,7 @@ header .nav-list ul ul li .greeting {
 }
 
 #footer p {
-    color: white;
+    color: #fe512e;
     font-size: 1.3rem;
 }
 
@@ -682,7 +693,7 @@ header .nav-list ul ul li .greeting {
 
 @media only screen and (min-width: 768px) {
     .cta {
-        font-size: 2.5rem;
+        font-size: 2rem;
         padding: 20px 60px;
     }
     h1.section-title {
@@ -784,7 +795,37 @@ header .nav-list ul ul li .greeting {
 
 /* Media Query For Desktop */
 
-@media only screen and (min-width: 1216px) {
+@media only screen and (min-width: 1300px) {
+    #header .nav-list ul li a {
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 1300px) {
+    #header .nav-list ul li a {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 1035px) {
+    #header .nav-list ul li a {
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    #header .nav-list ul li a {
+        font-size: 0.8rem;
+    }
+}
+
+@media only screen and (max-width: 830px) {
+    #header .nav-list ul li a {
+        font-size: 0.5rem;
+    }
+}
+
+@media only screen and (min-width: 730px) {
     /* header */
     #header .hamburger {
         display: none;

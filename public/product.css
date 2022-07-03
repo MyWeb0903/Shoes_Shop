@@ -23,7 +23,7 @@ body {
 .container-product {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 6rem 2rem;
 }
 
 .container-product .title {
@@ -103,6 +103,7 @@ body {
 .products-preview .preview.active {
     display: inline-block;
     width: 338px;
+    bottom: -60px;
 }
 
 .products-preview .preview img {
@@ -112,8 +113,8 @@ body {
 
 .products-preview .preview .fa-times {
     position: absolute;
-    top: 1rem;
-    right: 1.5rem;
+    top: 20rem;
+    right: 2.5rem;
     cursor: pointer;
     color: #444;
     font-size: 4rem;
@@ -200,5 +201,11 @@ body {
 @media (max-width:450px) {
     html {
         font-size: 50%;
+    }
+}
+
+@media (max-height:720x) {
+    .preview img {
+        display: none;
     }
 }

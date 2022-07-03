@@ -62,7 +62,7 @@ header .nav-list ul ul li .greeting {
 
 #header .header {
     min-height: 8vh;
-    background-color: #F0E4D7;
+    background-color: #A27B5C;
     transition: 0.3s ease background-color;
 }
 
@@ -102,7 +102,7 @@ header .nav-list ul ul li .greeting {
     font-weight: 500;
     letter-spacing: 0.2rem;
     text-decoration: none;
-    color: #8E3200;
+    color: #860014;
     text-transform: uppercase;
     padding: 20px;
     display: block;
@@ -238,7 +238,7 @@ header .nav-list ul ul li .greeting {
     background-size: cover;
     background-position: top center;
     position: relative;
-    z-index: 1;
+    z-index: 10;
     padding-top: 100px;
 }
 

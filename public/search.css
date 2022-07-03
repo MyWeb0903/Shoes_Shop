@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -6,53 +5,70 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.box .search-box {
+.search {
     position: relative;
-    height: 50px;
-    max-width: 50px;
-    /* margin: auto; */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-#check:checked~.search-box {
-    max-width: 380px;
-}
-
-.search-box input {
-    position: absolute;
-    height: 100%;
+    float: right;
     width: 100%;
-    border-radius: 25px;
-    background: #fff;
+    margin-top: 3px;
+    /* background: red; */
+    z-index: 1;
+}
+
+.search-bar {
+    position: relative;
+    max-width: 100%;
+    height: 40px;
+    /* max-width: 700px; */
+    display: flex;
+    background: transparent;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+    backdrop-filter: blur(4px) saturate(180%);
+    bottom: 2px;
+    line-height: 0px;
+    margin: 0px;
+    margin-right: 55px;
+    margin-left: 55px;
+    border: 1px solid black;
+}
+
+.search-bar input {
+    /* position: absolute; */
+    background: transparent;
+    border: 0;
     outline: none;
-    border: none;
-    padding-left: 20px;
-    font-size: 18px;
-}
-
-.search-box .icon {
-    position: absolute;
-    right: -2px;
-    top: 0;
-    width: 50px;
-    background: #FFF;
-    height: 100%;
-    text-align: center;
-    line-height: 50px;
-    color: #FF676D;
+    padding: 24px 20px;
     font-size: 20px;
-    border-radius: 25px;
+    color: #cac7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-#check:checked~.search-box .icon {
-    background: #FF676D;
-    color: #FFF;
-    width: 80px;
-    border-radius: 0 25px 25px 0;
+::placeholder {
+    color: #e86c00;
 }
 
-#check {
-    display: none;
+.search-bar button {
+    position: absolute;
+    border: 0;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    cursor: pointer;
+    margin-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0px;
+    z-index: 0;
+}
+
+@media only screen and (min-width: 1216px) {
+    .search {
+        /* top: 50px; */
+    }
 }

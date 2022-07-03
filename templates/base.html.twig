@@ -32,14 +32,21 @@
               {# <h1><span>D</span>HC <span>S</span>hop</h1> #}
               <img src="./Image/DHC.png" id="DHC" class="responsive">
             </a>
-            
+            {# <div class="box">
+              <input type="checkbox" id="check">
+              <div class="search-box">
+                <input type="text" placeholder="Type here...">
+                <label for="check" class="icon">
+                  <i class="bi bi-search"></i>
+                </label>
+              </div>
+            </div> #}
           </div>
           
           <div class="nav-list">
             
             <div class="hamburger">
               <div class="bar"></div>
-              
             </div>
             <ul>
               <li>
@@ -49,13 +56,13 @@
                 </a>
               </li>
               <li>
-                <a href="{{ path ('about_page') }}" data-after="About">
+                <a href="{{ path ('about_page') }}" data-after="Service">
                   About 
                   <i class="bi bi-info-circle-fill"></i>
                 </a>
               </li>
               <li>
-                <a href="{{ path ('product_page') }}" data-after="Products">
+                <a href="{{ path ('product_page') }}" data-after="Projects">
                   Products 
                   <i class="fa-solid fa-socks"></i>
                 </a>
@@ -63,7 +70,7 @@
               {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
                   <li>
-                    <a href="#" data-after="Management">
+                    <a href="#" data-after="About">
                       Management 
                       <i class="bi bi-kanban-fill"></i>
                     </a>
@@ -111,13 +118,13 @@
                   </li>
                 {% else %}
                   <li>
-                    <a href="" class="greeting" data-after="Welcome {{ app.user.userIdentifier }}">
+                    <a href="" class="greeting" {{ app.user.userIdentifier }}>
                       Welcome 
                       {{ app.user.userIdentifier }}
                     </a>
                   </li>
                   <li>
-                    <a href="{{ path ('app_logout') }}">
+                    <a href="{{ path ('app_logout') }}" data-after="Lougout">
                       <span class="glyphicon glyphicon-log-out"></span>
                       Logout
                     </a>

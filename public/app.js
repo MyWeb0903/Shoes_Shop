@@ -13,7 +13,7 @@ document.addEventListener('scroll', () => {
     if (scroll_position > 25) {
         header.style.backgroundColor = '#29323c';
     } else {
-        header.style.backgroundColor = '#112133';
+        header.style.backgroundColor = '#433D3C';
     }
 });
 

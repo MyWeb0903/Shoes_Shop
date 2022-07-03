@@ -62,7 +62,7 @@ header .nav-list ul ul li .greeting {
 
 #header .header {
     min-height: 8vh;
-    background-color: #112133;
+    background-color: #F0E4D7;
     transition: 0.3s ease background-color;
 }
 
@@ -127,7 +127,7 @@ header .nav-list ul ul li .greeting {
 }
 
 #header .nav-list ul li:hover a {
-    color: #eab105;
+    color: #F0A500;
 }
 
 #header .hamburger {

@@ -44,6 +44,10 @@ p {
     position: relative;
 }
 
+header .nav-list ul ul li .greeting {
+    background-image: red;
+}
+
 
 /* Header section */
 

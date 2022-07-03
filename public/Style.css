@@ -62,7 +62,7 @@ header .nav-list ul ul li .greeting {
 
 #header .header {
     min-height: 8vh;
-    background-color: #DCD7C9;
+    background-color: #112133;
     transition: 0.3s ease background-color;
 }
 
@@ -208,10 +208,6 @@ header .nav-list ul ul li .greeting {
 
 #header .nav-list ul ul li {
     padding-bottom: 10px;
-}
-
-#header .nav-list ul ul li {
-    background-image: red;
 }
 
 #header .nav-list ul ul {
@@ -788,7 +784,7 @@ header .nav-list ul ul li .greeting {
 
 /* Media Query For Desktop */
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 1216px) {
     /* header */
     #header .hamburger {
         display: none;

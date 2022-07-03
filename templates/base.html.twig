@@ -32,21 +32,14 @@
               {# <h1><span>D</span>HC <span>S</span>hop</h1> #}
               <img src="./Image/DHC.png" id="DHC" class="responsive">
             </a>
-            <div class="box">
-              <input type="checkbox" id="check">
-              <div class="search-box">
-                <input type="text" placeholder="Type here...">
-                <label for="check" class="icon">
-                  <i class="bi bi-search"></i>
-                </label>
-              </div>
-            </div>
+            
           </div>
           
           <div class="nav-list">
             
             <div class="hamburger">
               <div class="bar"></div>
+              
             </div>
             <ul>
               <li>
@@ -56,13 +49,13 @@
                 </a>
               </li>
               <li>
-                <a href="{{ path ('about_page') }}" data-after="Service">
+                <a href="{{ path ('about_page') }}" data-after="About">
                   About 
                   <i class="bi bi-info-circle-fill"></i>
                 </a>
               </li>
               <li>
-                <a href="{{ path ('product_page') }}" data-after="Projects">
+                <a href="{{ path ('product_page') }}" data-after="Products">
                   Products 
                   <i class="fa-solid fa-socks"></i>
                 </a>
@@ -70,7 +63,7 @@
               {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
                   <li>
-                    <a href="#" data-after="About">
+                    <a href="#" data-after="Management">
                       Management 
                       <i class="bi bi-kanban-fill"></i>
                     </a>
@@ -83,20 +76,20 @@
                   </li>
                 {% else %}
                   <li>
-                    <a href="{{ path ('lover_page') }}" data-after="Projects">
+                    <a href="{{ path ('lover_page') }}" data-after="Lover">
                       Lover 
                       <i class="bi bi-heart-fill"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="{{ path ('cart_page') }}" data-after="About">
+                    <a href="{{ path ('cart_page') }}" data-after="Cart">
                       Cart 
                       <i class="bi bi-bag-heart-fill"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="{{ path ('profile_page') }}">
-                      My profire 
+                    <a href="{{ path ('profile_page') }}" data-after="My profile">
+                      My profile 
                       <i class="bi bi-person-circle"></i>
                     </a>
                   </li>
@@ -105,20 +98,20 @@
               {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
                   <li>
-                    <a href="" class="greeting">
+                    <a href="" class="greeting" data-after="{{ app.user.userIdentifier }}">
                       Welcome admin 
                       {{ app.user.userIdentifier }}
                     </a>
                   </li>
                   <li>
-                    <a href="{{ path ('app_logout') }}">
+                    <a href="{{ path ('app_logout') }}" data-after="Logout">
                       <span class="glyphicon glyphicon-log-out"></span>
-                      Log out
+                      Logout
                     </a>
                   </li>
                 {% else %}
                   <li>
-                    <a href="" class="greeting">
+                    <a href="" class="greeting" data-after="Welcome {{ app.user.userIdentifier }}">
                       Welcome 
                       {{ app.user.userIdentifier }}
                     </a>
@@ -126,19 +119,19 @@
                   <li>
                     <a href="{{ path ('app_logout') }}">
                       <span class="glyphicon glyphicon-log-out"></span>
-                      Log out
+                      Logout
                     </a>
                   </li>
                 {% endif %}
               {% else %}
                 <li>
-                  <a href="{{ path ('app_login') }}" data-after="Contact">
+                  <a href="{{ path ('app_login') }}" data-after="Login">
                     Login 
                     <i class="bi bi-box-arrow-in-right"></i>
                   </a>
                 </li>
                 <li>
-                  <a href="{{ path ('app_signup') }}" data-after="Contact">
+                  <a href="{{ path ('app_signup') }}" data-after="Signup">
                     Signup 
                     <i class="bi bi-box-arrow-left"></i>
                   </a>

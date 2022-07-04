@@ -104,17 +104,18 @@ class CartRepository extends ServiceEntityRepository
     }
 
 
-    //        /**
-    // * @return Cart[] Returns an array of Cart objects
-    // */
-    // public function getCartID($user): array
-    // {
-    //     return $this->createQueryBuilder('c')
-    //          ->select('c.id')
-    //          ->where('c.id = :user')
-    //          ->setParameter('user', $user)
-    //          ->getQuery()
-    //          ->getArrayResult()
-    //     ;
-    // }
+           /**
+    * @return Cart[] Returns an array of Cart objects
+    */
+    public function getUserID($cid): array
+    {
+        return $this->createQueryBuilder('c')
+             ->select('u.id as ID')
+             ->innerJoin('c.user', 'u')
+             ->where('c.id = :cid')
+             ->setParameter('cid', $cid)
+             ->getQuery()
+             ->getArrayResult()
+        ;
+    }
 }

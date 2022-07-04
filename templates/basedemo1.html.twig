@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+<div>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -20,9 +21,7 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
-</head>
 
-<body>
   <!-- Header -->
   <section id="header">
     <div class="header container">
@@ -77,13 +76,17 @@
     </div>
     {# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> #}
   <script src="./app.js"></script>
-</body>
 </section>
+</div>
+</head>
 
-{% block body %}
-
-{% endblock %}
-
+<body>
+<main>
+<div>
+{% block body %} {% endblock %}
+</div>
+</main>
+</body>
 
 {% block footer %}
        <section id="footer">
@@ -104,7 +107,7 @@
             <p>Copyright © 2020 DHC. All rights reserved</p>
         </div>
     </section>
-        {% endblock %}
+{% endblock %}
 
          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </html>

@@ -795,37 +795,14 @@ header .nav-list ul ul li .greeting {
 
 /* Media Query For Desktop */
 
-@media only screen and (min-width: 1300px) {
+
+/* @media only screen and (max-width: 1180px) {
     #header .nav-list ul li a {
         font-size: 1.5rem;
     }
-}
+} */
 
-@media only screen and (max-width: 1300px) {
-    #header .nav-list ul li a {
-        font-size: 1.2rem;
-    }
-}
-
-@media only screen and (max-width: 1035px) {
-    #header .nav-list ul li a {
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (max-width: 920px) {
-    #header .nav-list ul li a {
-        font-size: 0.8rem;
-    }
-}
-
-@media only screen and (max-width: 830px) {
-    #header .nav-list ul li a {
-        font-size: 0.5rem;
-    }
-}
-
-@media only screen and (min-width: 730px) {
+@media only screen and (min-width: 1180px) {
     /* header */
     #header .hamburger {
         display: none;

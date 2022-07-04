@@ -28,6 +28,44 @@ class ProfileController extends AbstractController
     }
 
     /**
+     * @Route("/password", name="password")
+     */
+    public function passwordAction(): Response
+    {   
+        return $this->render('profile/confirmOldPass.html.twig', [
+            'controller_name' => 'Controller',
+        ]);
+    }
+
+
+    /**
+     * @Route("/passwordold", name="passwordold")
+     */
+    public function passwordOldAction(UserRepository $repo, Request $req, UserPasswordHasherInterface $hasher): Response
+    {   
+        $user = $this->getUser();
+        // $oldPass = $req -> request -> get('txt');
+
+        $get = $repo->getpass($user);
+
+        // $getOldPass = $hasher->hashPassword($user, $oldPass);
+
+        // if($getOldPass == $get){
+        //     return $this->redirectToRoute('change_Pass');
+        // }
+        // else{
+        //     return $this->json('Password incorrectly!');
+        // }
+
+return $this->json($get);
+
+        // return $this->render('profile/confirmOldPass.html.twig', [
+        //     'controller_name' => 'Controller',
+        // ]);
+    }
+
+
+    /**
      * @Route("/changePass/{id}", name="change_Pass")
      */
     public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, $id, 

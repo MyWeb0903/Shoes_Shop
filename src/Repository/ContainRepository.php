@@ -83,5 +83,38 @@ class ContainRepository extends ServiceEntityRepository
         ;
    }
 
+   
+   /**
+    * @return Contain[] Returns an array of Contain objects
+    */
+   public function countContain($caID): array
+   {
+       return $this->createQueryBuilder('c')
+            ->select('Count(c.id) as CountCart')
+            ->innerJoin('c.cart', 'ca')
+            ->where('ca.id = :id')
+            ->setParameter('id', $caID)
+            ->getQuery()
+            ->getResult()
+       ;
+   }
+
+
+      /**
+    * @return Contain[] Returns an array of Contain objects
+    */
+    public function getProID($caID): array
+    {
+        return $this->createQueryBuilder('c')
+             ->select('c.Qty_Product as quantity, p.id as ProductID, p.Quantity as ProQty')
+             ->innerJoin('c.cart', 'ca')
+             ->where('ca.id = :id')
+             ->setParameter('id', $caID)
+             ->innerJoin('c.product', 'p')
+             ->getQuery()
+             ->getResult()
+        ;
+    }
+
 
 }

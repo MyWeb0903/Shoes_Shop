@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Repository\OrderRepository;
 use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,21 +14,16 @@ class OrderManagerController extends AbstractController
     /**
      * @Route("/ordermanager", name="order_manager")
      */
-    public function order_managerAction(): Response
+    public function order_managerAction(OrderRepository $repo): Response
     {
+        // $user = $this->getUser();
+        $order = $repo->findAll();
+        // $userID = $uRepo->getUserID($user);
+        // $getID = $userID[0]['User_ID'];
         return $this->render('OrderManager/index.html.twig', [
-            'controller_name' => 'OrderManagerController',
+            'order' => $order
+            // 'userID' => $getID
         ]);
     }
 
-    // /**
-    //  * @Route("/adminManager/{id}", name="get_catemanager")
-    //  */
-    // public function getCateManagerAction(ProductRepository $repo, $id): Response
-    // {
-    //     $product = $repo->find($id);
-    //     return $this->render('CateManager/index.html.twig', [
-    //         'p' => $product
-    //     ]);
-    // }
 }

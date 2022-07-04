@@ -61,7 +61,7 @@
 
             {% if app.user %}
               {% if is_granted('ROLE_ADMIN') %}
-                <li><a href="" class="greeting"> Welcome{{ app.user.userIdentifier }} </a></li>
+                <li><a href="" class="greeting"> Welcome {{ app.user.userIdentifier }} </a></li>
                 <li><a href="{{path ('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
               {% else %}
                 <li><a href="" class="greeting"> Welcome {{ app.user.userIdentifier }} </a></li>

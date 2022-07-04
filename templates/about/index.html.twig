@@ -1,33 +1,112 @@
-{% extends 'base.html.twig' %}
-
+{% extends "basedemo1.html.twig" %}
 {% block title %}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 
-    .image{
-        width: 327px;
-        margin-left: 200px;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+    <link rel="icon" type="image/x-icon" href="./image/ShoeIcon.ico">
+    <link rel="stylesheet" type="text/css" href="./About.css">
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section id="hero">
+    <div class="container">
+      <span class="big-circle"></span>
+      {# <img src="./Image/shape.png" class="square" alt="" /> #}
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text" style="text-align: justify">
+            Dear valued customers,
 
-<div class="example-wrapper">
-    <div>
-        <div>
-            Online Shoe-Shop web is a website that I created to introduction to everyone about my products.<br>
-            The branch located at P8, Dinh Tien Hoang Road, Vinh Long City.<br>
-            My branch is established in 2021.<br>
-            Contact us: 0931927908<br>
-            My website sells shoes and all of them made in Vietname. With the desire to create good shoe products for everyone. Especially is students, teenager and someone who prefer them. 
-            Our products offer a guarantee of quality and affordable prices for everyone.
-            Come to us to be able to choose for you a suitable pair of shoes to cherish your feet.
+            Online Shoe-Shop web is a website that I created to introduction to everyone about my products
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="./Image/location.png" class="icon" alt="" />
+              <p>The branch located at P8, Dinh Tien Hoang Road, Vinh Long City</p>
+            </div>
+            <div class="information">
+              <img src="./Image/email.png" class="icon" alt="" />
+              <p>shoesstore@gmail.com</p>
+            </div>
+            <div class="information">
+              <img src="./Image/phone.png" class="icon" alt="" />
+              <p>0931-927-908</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div>
-            <img class="image" src="./Image/Totalpfshoe.jpg">
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          {# <form action="" method="post" autocomplete="off">
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input" />
+              <label for="">Username</label>
+              <span>Username</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input" />
+              <label for="">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" />
+              <label for="">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input"></textarea>
+              <label for="">Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" name="submit" value="Send" class="btn" />
+            <button class="btn btn-primary"><a href="{{path ('home_page')}}" id="btn-back">Back</button></a>
+          </form> #}
+          <div style="margin-left: 10px;
+                      margin-top: 69px;
+                      color: white;">
+              My website sells shoes and all of them made in Vietname. With the desire to create good shoe products for everyone. Especially is students, teenager and someone who prefer them. 
+              Our products offer a guarantee of quality and affordable prices for everyone.
+              Come to us to be able to choose for you a suitable pair of shoes to cherish your feet.
+          </div>
         </div>
+      </div>
     </div>
-</div>
+   
+    </div>
+     </section>
+  </body>
+
+</html>
 {% endblock %}

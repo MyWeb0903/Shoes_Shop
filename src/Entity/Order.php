@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -47,6 +49,22 @@ class Order
      * @ORM\Column(type="string", length=10)
      */
     private $Phone;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="Order_ID")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToMany(targetEntity=OrderDetail::class, mappedBy="Order_ID")
+     */
+    private $OrderDetail_ID;
+
+    public function __construct()
+    {
+        $this->OrderDetail_ID = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,6 +139,48 @@ class Order
     public function setPhone(string $Phone): self
     {
         $this->Phone = $Phone;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, OrderDetail>
+     */
+    public function getOrderDetailID(): Collection
+    {
+        return $this->OrderDetail_ID;
+    }
+
+    public function addOrderDetailID(OrderDetail $orderDetailID): self
+    {
+        if (!$this->OrderDetail_ID->contains($orderDetailID)) {
+            $this->OrderDetail_ID[] = $orderDetailID;
+            $orderDetailID->setOrderID($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrderDetailID(OrderDetail $orderDetailID): self
+    {
+        if ($this->OrderDetail_ID->removeElement($orderDetailID)) {
+            // set the owning side to null (unless already changed)
+            if ($orderDetailID->getOrderID() === $this) {
+                $orderDetailID->setOrderID(null);
+            }
+        }
 
         return $this;
     }

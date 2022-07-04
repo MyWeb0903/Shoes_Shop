@@ -80,4 +80,64 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+//    /**
+//     * @return User[] Returns an array of User objects
+//     */
+//    public function getAccount(): array
+//    {
+//        return $this->createQueryBuilder('u')
+//             ->select('u.id, u.username, u.Fullname, u.Email, u.Gender, u.Address, u.Birthday, u.roles')
+//            ->getQuery()
+//            ->getResult()
+//        ;
+//    }
+
+
+    /**
+    * @return User[] Returns an array of User objects
+    */
+    public function getUserAccount($user): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.id, u.username, u.password, u.Fullname, u.Email, u.Gender, u.Address, u.Birthday')
+            ->where('u.id = :user')
+            ->setParameter('user', $user->getId())
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    /**
+    * @return User[] Returns an array of User objects
+    */
+    public function get($user): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.Address as address, u.Phone as phone')
+            ->where('u.id = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+        /**
+    * @return User[] Returns an array of User objects
+    */
+    public function getpass($user): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.password')
+            ->where('u.username = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    
+
+    
 }

@@ -63,4 +63,65 @@ class ProductRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+    public function getProduct(): array
+    {
+        return $this->createQueryBuilder('p')
+         ->select('p.Image, p.Name, p.Price, p.Quantity, p.Detail')
+         ->getQuery()
+         ->getResult()
+        ;
+    }
+
+
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+    public function getProductById($id): array
+    {
+        return $this->createQueryBuilder('p')
+         ->select('p.Image, p.Name, p.Price, p.Detail')
+         ->where('id : = id')
+         ->setParameter('id', $id)
+         ->getQuery()
+         ->getResult()
+        ;
+    }
+
+
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+    public function getProductByName($search): array
+    {
+        return $this->createQueryBuilder('p')
+         ->select('p.Image, p.Name, p.Price, p.Detail')
+         ->where('p.Name like :search')
+         ->setParameter('search', "%".$search."%")
+         ->getQuery()
+         ->getArrayResult()
+        ;
+    }
+
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+    public function getPro($proID): array
+    {
+        return $this->createQueryBuilder('p')
+         ->select('p.id as ProductID')
+         ->innerJoin('p.contains', 'cont')
+         ->where('cont.product = :proID')
+         ->setParameter('proID', $proID)
+         ->getQuery()
+         ->getArrayResult()
+        ;
+    }
+
+
+
 }

@@ -1,0 +1,55 @@
+{% extends 'basedemo1.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+<style>
+    .cover-order{
+        margin-bottom: 10px;
+    }
+    .total{
+        margin-top: 150px;
+        margin-left: 20px;
+    }
+    #btn-order{
+        margin-left: 20px;
+    }
+    .cover{
+        display: inline-block;
+        margin-top: -2px;
+        margin-left: 20px;
+    }
+    img{
+        width: 300px;
+        height: 300px;
+    }
+</style>
+
+
+<body>
+    <div class="cover-order">
+        <h4 class="total">Total {{total|number_format(0, '.', ',')}} <span>&#8363;</span></h4>
+        <a  id="btn-order" href="{{path ('add_order', {'total': total})}}" class="btn btn-primary" style= "background-color: rgba(13,92,182,255);" type="submit" name="payment">Order</a> 
+    </div>
+    {% for c in cart %}
+        <div class="cover">
+            <div>
+                <img src="./Image/{{c.Image}}"/>
+
+                <div>
+                    <h3>{{c.Name}}</h3>
+                    <h5>{{c.Quantity}}</h5>
+                    <h5>{{c.Price|number_format(0, '.', ',')}} <span>&#8363;</span></h5>
+                </div>
+                <div>
+                    <a href="{{path ('update_cart', {'id' : c.id})}}"><button class="btn btn-primary">Update</button></a>
+                    <a href="{{path ('delete_cart', {'id' : c.id})}}"><button class="btn btn-primary">Delete</button></a>
+                </div>
+            </div>
+        </div>
+   {% endfor %}
+</body>
+{% endblock %} 
+
+
+

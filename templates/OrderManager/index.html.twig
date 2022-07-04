@@ -1,0 +1,56 @@
+
+{% block title %}{% endblock %}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+</head>
+{% block body %}
+<style>
+    body{
+        background: url('./Image/Background-shoe-shop.jpg');    
+    }
+    table{
+        background-color: white;
+        margin-top: 50px;
+    }
+</style>
+
+<body>
+    <div>
+        <div class="container-fluid">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">OrderDate</th>
+                        <th scope="col">DeliveryDate</th>
+                        <th scope="col">Payment</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">User</th>
+                        <th  style="width:160px;"><a style="color: #272727;" href="#" >
+                            <i class="glyphicon glyphicon-plus"></i>Action</a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for o in order %}
+                        <tr>
+                            <td>{{o.id}}</td>
+                            <td>{{o.OrderDate|date('y-m-d')}}</td>
+                            <td>{{o.DeliveryDate}}</td>
+                            <td>{{o.Payment}}</td>
+                            <td>{{o.Address}}</td>
+                            <td>{{o.Status}}</td>
+                            <td>{{o.Phone}}</td>
+                            {# <td>{{o.User}}</td> #}
+                            <td><a href="#">Confirm</a>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+{% endblock %}

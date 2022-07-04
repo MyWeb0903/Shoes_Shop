@@ -63,4 +63,59 @@ class CartRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+    /**
+    * @return Cart[] Returns an array of Cart objects
+    */
+   public function showCart($user, $cid): array
+   {
+       return $this->createQueryBuilder('c')
+            ->select('p.Image, p.Name, cd.Qty_Product as Quantity, p.Price, cd.id as id')
+            ->innerJoin('c.user', 'u')
+            ->innerJoin('c.Contains', 'cd')
+            ->innerJoin('cd.product', 'p')
+            ->Where('c.user = :uid')
+            ->setParameter('uid', $user)
+            ->andWhere('c.id = :cid')
+            ->setParameter('cid', $cid)
+            ->getQuery()
+            ->getArrayResult()
+       ;
+   }
+
+       /**
+    * @return Cart[] Returns an array of Cart objects
+    */
+    public function sumPrice($user, $cid): array
+    {
+        return $this->createQueryBuilder('c')
+             ->select('Sum(p.Price * cd.Qty_Product) as Total')
+             ->innerJoin('c.user', 'u')
+             ->innerJoin('c.Contains', 'cd')
+             ->innerJoin('cd.product', 'p')
+             ->Where('c.user = :uid')
+             ->setParameter('uid', $user)
+             ->andWhere('c.id = :cid')
+             ->setParameter('cid', $cid)
+             ->getQuery()
+             ->getArrayResult()
+        ;
+    }
+
+
+           /**
+    * @return Cart[] Returns an array of Cart objects
+    */
+    public function getUserID($cid): array
+    {
+        return $this->createQueryBuilder('c')
+             ->select('u.id as ID')
+             ->innerJoin('c.user', 'u')
+             ->where('c.id = :cid')
+             ->setParameter('cid', $cid)
+             ->getQuery()
+             ->getArrayResult()
+        ;
+    }
 }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CartRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -17,24 +19,68 @@ class Cart
      */
     private $id;
 
+
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\OneToMany(targetEntity=Contain::class, mappedBy="cart")
      */
-    private $Quantity_Pro;
+    private $Contains;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->Contains = new ArrayCollection();
+    }
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getQuantityPro(): ?int
+
+    /**
+     * @return Collection<int, Contain>
+     */
+    public function getContains(): Collection
     {
-        return $this->Quantity_Pro;
+        return $this->Contains;
     }
 
-    public function setQuantityPro(int $Quantity_Pro): self
+    public function addContain(Contain $contain): self
     {
-        $this->Quantity_Pro = $Quantity_Pro;
+        if (!$this->Contains->contains($contain)) {
+            $this->Contains[] = $contain;
+            $contain->setCart($this);
+        }
+
+        return $this;
+    }
+
+    public function removeContain(Contain $contain): self
+    {
+        if ($this->Contains->removeElement($contain)) {
+            // set the owning side to null (unless already changed)
+            if ($contain->getCart() === $this) {
+                $contain->setCart(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

@@ -99,7 +99,7 @@ class ProductRepository extends ServiceEntityRepository
     public function getProductByName($search): array
     {
         return $this->createQueryBuilder('p')
-         ->select('p.Image, p.Name, p.Price, p.Detail')
+         ->select('p.id, p.Image, p.Name, p.Price, p.Detail')
          ->where('p.Name like :search')
          ->setParameter('search', "%".$search."%")
          ->getQuery()

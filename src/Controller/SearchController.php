@@ -19,7 +19,7 @@ class SearchController extends AbstractController
         $product = $repo->getProductByName($search);
 
         return $this->render('search/index.html.twig', [
-            'product' => $product
+            'products' => $product
         ]);
     }
 

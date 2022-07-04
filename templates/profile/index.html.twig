@@ -6,7 +6,15 @@
 </head>
 {% block body %}
 <style>
-
+    body{
+        background: url('../Image/Background-shoe-shop.jpg');
+    }
+    .container-fluid{
+        margin-top: 300px;
+    }
+    table{
+        background-color: white;
+    }
 </style>
 
 <body>
@@ -32,7 +40,7 @@
                         <td>{{pro.Gender}}</td>
                         <td>{{pro.Birthday|date('y-m-d')}}</td>
                         <td>{{pro.Address}}</td>
-                        <td><a href="{{path ('change_Pass', {'id' : pro.id})}}">Update Password</a></td>
+                        <td><a href="{{path ('password')}}">Update Password</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

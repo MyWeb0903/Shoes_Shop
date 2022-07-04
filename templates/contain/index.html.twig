@@ -1,4 +1,5 @@
-{# {% extends "fileName.html.twig" %} #}
+<html>
+
 {% block title %}{% endblock %}
 
 
@@ -68,7 +69,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                        <a class="navbar-brand" href="{{path ('home_page')}}"><img src="../Image/DHC.png" class="logo"></a>
+                        <a class="navbar-brand" href="Home.php"><img src="../Image/DHC.jpg" class="logo"></a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
@@ -79,18 +80,21 @@
             </nav>
 
             <div id="wrap">
+            {% for c in contain %}
                 <div class="total-detail">
                     <div class="detail">
-                        <img src="../Image/{{p.Image}}">
+                        <img src="./Image/{{c.Image}}">
                     </div>
                     <div class="detail-info">
-                        <p class="name-img">{{p.Name}}</p>
-                        <h4 class="price"><span>&#8363;</span>{{p.Price}}</h4>
-                        <P>{{p.Detail}}</P>
+                        <p class="name-img">{{c.Name}}</p>
+                        <h4 class="price"><span>&#8363;</span>{{c.Qty_Product}}</h4>
+                        <P>{{c.Price}}</P>
                     </div>
                 </div>
+            {% endfor %}
             </div>
         </div>
     </div>
 </body>
 {% endblock %}
+</html>

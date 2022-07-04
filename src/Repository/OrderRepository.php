@@ -63,4 +63,20 @@ class OrderRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+   /**
+    * @return Order[] Returns an array of Order objects
+    */
+   public function getOrderID($user): array
+   {
+       return $this->createQueryBuilder('o')
+            ->select('Max(o.id) as OrderID')
+            ->innerJoin('o.user', 'u')
+            ->where('u.id = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult()
+       ;
+   }
 }

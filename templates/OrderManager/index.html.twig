@@ -29,19 +29,25 @@
                         <th scope="col">Status</th>
                         <th scope="col">Phone</th>
                         <th scope="col">User</th>
+                        <th  style="width:160px;"><a style="color: #272727;" href="#" >
+                            <i class="glyphicon glyphicon-plus"></i>Action</a>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {% for o in order %}
+                        <tr>
+                            <td>{{o.id}}</td>
+                            <td>{{o.OrderDate|date('y-m-d')}}</td>
+                            <td>{{o.DeliveryDate}}</td>
+                            <td>{{o.Payment}}</td>
+                            <td>{{o.Address}}</td>
+                            <td>{{o.Status}}</td>
+                            <td>{{o.Phone}}</td>
+                            {# <td>{{o.User}}</td> #}
+                            <td><a href="#">Confirm</a>
+                        </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>

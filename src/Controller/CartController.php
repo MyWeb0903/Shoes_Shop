@@ -8,6 +8,7 @@ use App\Repository\ProductRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -15,48 +16,21 @@ date_default_timezone_set("Asia/Ho_Chi_Minh");
 class CartController extends AbstractController
 {
     /**
-     * @Route("/cart", name="cart_page")
+     * @Route("/showcart", name="showcart")
      */
-    public function cartAction(): Response
+    public function cartAction(CartRepository $repo): Response
     {
-        // $cart = new Cart();
-        // $entity = $res->getManager();
-        // $user = $this->get('security.token_storage')->getToken()->getUser();
-        // $user->getId();
-        // $product = $proRepo->find($id);
+        $user = $this->getUser();
 
-        // $cart->setQuantity_Pro(1);
-        // $cart->setUser($user);
-        // $cart->setProducts($product);
+        $cart = $repo->findOneBy(['user' => $user]);
+        $ca = $repo->showCart($user, $cart);
 
-        // $entity->persist($cart);
-        // $entity->flush();
+        $price = $repo->sumPrice($user, $cart);
+        $total = $price[0]['Total'];
 
         return $this->render('cart/index.html.twig', [
-            'controller_name' => 'CartController',
+            'cart' => $ca,
+            'total' => $total
         ]);
     }
-
-    // /**
-    //  * @Route("/product/{id}", name="get_cart")
-    //  */
-    // public function getCartAction(ProductRepository $repo, $id): Response
-    // {
-    //     $product = $repo->find($id);
-    //     return $this->render('cart/index.html.twig', [
-    //         'p' => $product
-    //     ]);
-    // }
-
-    // /**
-    //  * @Route("/showCart", name="showCart")
-    //  */
-    // public function showCartAction(CartRepository $repo): Response
-    // {
-    //     $user = $this->get('security.token_storage')->getToken()->getUser();
-    //     $cart = $repo->getCart($user);
-    //     return $this->render('cart/index.html.twig', [
-    //         'cart' => $cart
-    //     ]);
-    // }
 }

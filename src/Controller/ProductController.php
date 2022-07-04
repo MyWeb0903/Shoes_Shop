@@ -52,12 +52,12 @@ class ProductController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()){
             $data = $form->getData();
-            $file = $form->get('Image')->getData()->getClientOriginalName();
+            $imageFile = $form->get('Image')->getData()->getClientOriginalName();
             $product->setName($data->getName());
             $product->setQuantity($data->getQuantity());
             $product->setPrice($data->getPrice());
             $product->setDetail($data->getDetail());
-            $product->setImage($data->getImage());
+            $product->setImage($imageFile);
             $product->setSupplierID($data->getSupplierID());
 
             $entity->persist($product);

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\Type\UpdatePasswordType;
+use App\Repository\CartRepository;
 use App\Repository\UserRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -41,38 +42,37 @@ class ProfileController extends AbstractController
     /**
      * @Route("/passwordold", name="passwordold")
      */
-    public function passwordOldAction(UserRepository $repo, Request $req, UserPasswordHasherInterface $hasher): Response
+    public function passwordOldAction(Request $req, UserPasswordHasherInterface $hasher): Response
     {   
         $user = $this->getUser();
-        // $oldPass = $req -> request -> get('txt');
+        $oldPass = $req -> request -> get('txt');
 
-        $get = $repo->getpass($user);
-
-        // $getOldPass = $hasher->hashPassword($user, $oldPass);
-
-        // if($getOldPass == $get){
-        //     return $this->redirectToRoute('change_Pass');
-        // }
-        // else{
-        //     return $this->json('Password incorrectly!');
-        // }
-
-return $this->json($get);
-
-        // return $this->render('profile/confirmOldPass.html.twig', [
-        //     'controller_name' => 'Controller',
-        // ]);
+        $get = $hasher->isPasswordValid($user, $oldPass);
+        $n = 0;
+        if($get == true){
+            $n = 1;
+        }
+        
+        return $this->redirectToRoute('change_Pass');
     }
 
 
     /**
-     * @Route("/changePass/{id}", name="change_Pass")
+     * @Route("/changePass", name="change_Pass")
      */
-    public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, $id, 
-    UserPasswordHasherInterface $hasher): Response
+    public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, 
+    UserPasswordHasherInterface $hasher, CartRepository $cRepo): Response
     {   
-        $user = $repo->find($id);
+        $user = $this->getUser();
+        $cart = $cRepo->findOneBy(['user' => $user]);
+        $n = $cRepo->getUserID($cart);
+
+        $k = $n[0]['ID'];
+
+        $user = $repo->find($k);
         $form = $this->createForm(UpdatePasswordType::class, $user);
+
+
 
         $form->handleRequest($req);
         $entity = $res->getManager();
@@ -85,9 +85,7 @@ return $this->json($get);
             $entity->persist($user);
             $entity->flush();
 
-            return $this->json([
-                'id' => $user->getId()
-            ]);
+            return $this->redirectToRoute('profile_page');
         }
 
         return $this->render('profile/ChangePass.html.twig', [

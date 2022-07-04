@@ -107,4 +107,21 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
 
+    /**
+    * @return Product[] Returns an array of Product objects
+    */
+    public function getPro($proID): array
+    {
+        return $this->createQueryBuilder('p')
+         ->select('p.id as ProductID')
+         ->innerJoin('p.contains', 'cont')
+         ->where('cont.product = :proID')
+         ->setParameter('proID', $proID)
+         ->getQuery()
+         ->getArrayResult()
+        ;
+    }
+
+
+
 }

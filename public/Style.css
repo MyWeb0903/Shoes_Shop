@@ -111,11 +111,11 @@ header .nav-list ul ul li .greeting {
 #header .nav-list ul a::after {
     content: attr(data-after);
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     color: #ffffff;
-    font-size: 7rem;
+    font-size: 8rem;
     letter-spacing: 50px;
     z-index: -1;
     transition: 0.3s ease letter-spacing;

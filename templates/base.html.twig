@@ -1,78 +1,184 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./Base.css">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <link rel="icon" type="image/x-icon" href="./Image/ShoeIcon.ico">
+    <script src="https://kit.fontawesome.com/df8e5c3257.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="search.css" type="text/css">
+    {# <link rel=" stylesheet" href="Base.css"> #}
+    <title>
+      My Website
+    </title>
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+    {% block javascripts %}
+      {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+  </head>
+  <body>
+    <!-- Header -->
+    <section id="header">
+      <div class="header container">
+        <div class="nav-bar">
+          <div class="brand">
+          
+            <a href="{{ path ('home_page') }}">
+              {# <h1><span>D</span>HC <span>S</span>hop</h1> #}
+              <img src="./Image/DHC.png" id="DHC" class="responsive">
+            </a>
+           
+          </div>
+          
+          <div class="nav-list">
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block header %}
-            <nav class="navbar navbar-default" id="navbar">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" 
-                        data-toggle="collapse" data-target="#myNavbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{path ('home_page')}}"><img src="./Image/DHC.jpg"></a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{path ('home_page')}}">Home</a></li>
-                            <li><a href="{{path ('about_page')}}">About us</a></li>
-                            <li><a href="{{path ('product_page')}}">Product</a></li>
-                            <li><a href="#">Love <i class="bi bi-heart-fill"></i></a></li>
-                            <li><a href="#">Cart <i class="bi bi-cart-check-fill"></i></a></li>
-                         </ul>
-
-                        
-                        <ul class="nav navbar-nav navbar-right">
-                            {% if app.user %}
-                                   <li><a href="#"> You are logged in as {{ app.user.userIdentifier }}</a></li>
-                                    <li><a href="{{ path('app_logout') }}" class="glyphicon glyphicon-log-out">Logout</a></li>
-                            {% else %}
-                                    <li><a href="{{ path('app_login') }} "><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                                    <li><a href="{{ path('app_signup') }}"><span class="glyphicon gluphicon-user"></span> Sign Up</a></li>
-                            {% endif %}
-                            
-                            
-                        </ul> 
-                    </div>
-            </nav>
-        {% endblock %}
-
-
-        <main>
-        {% block body %}{% endblock %}
-        </main>
-
-
-         {% block footer %}
-            <footer class="footer">
-                <div>
-                    &copy; Copyright: 27-6-2022<br>
-                    Shoe Store Online., HD-Vietnam Branch<br>
-                    Address: P8 - Dinh Tien Hoang - TP Vinh Long<br>
-                    Tel: 0931927908<br>
-                    Created by: Do Huu Duy
-                </div>
-            </footer>
-        {% endblock %}
-
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+            <div class="hamburger">
+            
+              <div class="bar"></div>
+            </div>
+            <ul>
+              <li>
+                <a href="{{ path ('home_page') }}" data-after="Home">
+                  Home 
+                  <i class="bi bi-house-heart-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{ path ('about_page') }}" data-after="">
+                  About 
+                  <i class="bi bi-info-circle-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="{{ path ('product_page') }}" data-after="Products">
+                  Products 
+                  <i class="fa-solid fa-socks"></i>
+                </a>
+              </li>
+              {% if app.user %}
+                {% if is_granted('ROLE_ADMIN') %}
+                  <li>
+                    <a href="#" data-after="About">
+                      Management 
+                      <i class="bi bi-kanban-fill"></i>
+                    </a>
+                    <ul>
+                      <li><a href="{{ path ('pro_manager') }}">Products</a></li>
+                      <li><a href="{{ path ('order_manager') }}">Orders</a></li>
+                      <li><a href="{{ path ('app_supplier') }}">Supliers</a></li>
+                      <li><a href="{{ path ('user_manager') }}">Account</a></li>
+                    </ul>
+                  </li>
+                {% else %}
+                  <li>
+                    <a href="{{ path ('lover_page') }}" data-after="Lover">
+                      Lover 
+                      <i class="bi bi-heart-fill"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path ('showcart') }}" data-after="Cart">
+                      Cart 
+                      <i class="bi bi-bag-heart-fill"></i>
+                    </a>
+                  </li>
+                {% endif %}
+              {% endif %}
+              {% if app.user %}
+                {% if is_granted('ROLE_ADMIN') %}
+                  <li>
+                    <a href="{{ path ('profile_page') }}"data-after="{{ app.user.userIdentifier }}">
+                      Welcome admin 
+                       <span class="bi bi-person-circle"></span>
+                    </a>
+                    
+                  </li>
+                  <li>
+                    <a href="{{ path ('app_logout') }}" data-after="Logout">           
+                      Logout<span class="glyphicon glyphicon-log-out"></span>
+                    </a>
+                  </li>
+                  
+                {% else %}
+                  <li>
+                     <a href="{{ path ('profile_page') }}"data-after="{{ app.user.userIdentifier }}">
+                      Welcome {{ app.user.userIdentifier }}
+                       <span class="bi bi-person-circle"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path ('app_logout') }}" data-after="Lougout">
+                      
+                      Logout <span class="glyphicon glyphicon-log-out"></span>
+                    </a>
+                  </li>
+                {% endif %}
+              {% else %}
+                <li>
+                  <a href="{{ path ('app_login') }}" data-after="Login">
+                    Login 
+                    <i class="bi bi-box-arrow-in-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="{{ path ('app_signup') }}" data-after="Signup">
+                    Signup 
+                    <i class="bi bi-box-arrow-left"></i>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+     
+      {# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> #}
+      <script src="./app.js"></script>
     </body>
+  </body>
 </html>
+</section>
+{% block body %}{% endblock %}
+
+{% block footer %}
+<section id="footer">
+  <div class="footer container">
+    <div class="brand">
+      <h1>
+        <span>
+          DHC
+        </span>
+        S h
+        <span>
+          o
+        </span>
+        p
+      </h1>
+    </div>
+    <h2 class="text-center">
+      Shoe Store Online., HD-Vietnam Branch
+      <br>
+      Address: P8 - Dinh Tien Hoang - TP Vinh Long
+      <br>
+      Tel: 0931927908
+      <br>
+      Created by: DHC Shop
+    </h2>
+    <div class="social-icon">
+      <div class="social-item">
+        <a href="#">
+          <img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png" />
+        </a>
+      </div>
+    </div>
+    <p>
+      Copyright © 2020 DHC. All rights reserved
+    </p>
+  </div>
+</section><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script></html>
+{% endblock %}

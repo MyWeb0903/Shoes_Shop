@@ -37,102 +37,6 @@
           
           <div class="nav-list">
 
-<<<<<<< HEAD
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}{% endblock %}</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
-        <script src="https://kit.fontawesome.com/df8e5c3257.js" crossorigin="anonymous"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="./Base.css">
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block header %}
-            <nav class="navbar navbar-default" id="navbar">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" 
-                        data-toggle="collapse" data-target="#myNavbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{path ('home_page')}}"><img src="./Image/DHC.jpg" style="height: 140px" id="logo"></a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li><a href="{{path ('home_page')}}">Home</a></li>
-                            <li><a href="{{path ('about_page')}}">About us</a></li>
-                            <li><a href="{{path ('product_page')}}">Product</a></li>
-                            {% if app.user %}
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <li><a href="{{path ('admin_page')}}">Admin</a></li>
-                                {% else %}
-                                <li><a href="{{path ('lover_page')}}">Lover <i class="bi bi-heart-fill"></i></a></li>
-                                {# <li><a href="{{path ('cart')}}">Cart <i class="bi bi-cart-check-fill"></i></a></li> #}
-                                <li><a href="{{path ('profile_page')}}">My Profire <i class="bi bi-person-circle"></i></a></li>
-                            {# {% endif %} #}
-                                {% endif %}
-                            {# {% if app.user %} #}
-                                
-                            {% endif %}
-                         </ul>
-
-                        
-                        <ul class="nav navbar-nav navbar-right">
-
-                            {% if app.user %}
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <li><a href=""> You are logged in as admin: {{ app.user.userIdentifier }} </a></li>
-                                    <li><a href="{{path ('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                                {% else %}
-                                    <li><a href=""> You are logged in as user: {{ app.user.userIdentifier }} </a></li>
-                                    <li><a href="{{path ('app_logout')}}"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                                {% endif %}
-
-                            {% else  %}
-
-                                <li><a href="{{path ('app_login')}}"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
-                                <li><a href="{{path ('app_signup')}}"><span class="glyphicon gluphicon-sign-up"></span> Sign up</a></li>
-
-                            {% endif %}
-
-                            
-                        </ul> 
-                    </div>
-            </nav>
-        {% endblock %}
-
-
-        <main>
-        {% block body %}{% endblock %}
-        </main>
-
-
-         {% block footer %}
-            <footer class="footer">
-                <div>
-                    &copy; Copyright: 27-6-2022<br>
-                    Shoe Store Online., HD-Vietnam Branch<br>
-                    Address: P8 - Dinh Tien Hoang - TP Vinh Long<br>
-                    Tel: 0931927908<br>
-                    Created by: Do Huu Duy
-                </div>
-            </footer>
-        {% endblock %}
-
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-=======
             <div class="hamburger">
             
               <div class="bar"></div>
@@ -178,7 +82,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="{{ path ('cart_page') }}" data-after="Cart">
+                    <a href="{{ path ('showcart') }}" data-after="Cart">
                       Cart 
                       <i class="bi bi-bag-heart-fill"></i>
                     </a>
@@ -235,7 +139,6 @@
      
       {# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> #}
       <script src="./app.js"></script>
->>>>>>> Huynh
     </body>
   </body>
 </html>

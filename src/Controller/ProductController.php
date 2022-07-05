@@ -13,7 +13,7 @@ class ProductController extends AbstractController
     /**
      * @Route("/product", name="product_page")
      */
-    public function productAction(ProductRepository $product): Response
+    public function productAction(ProductRepository $repo): Response
     {
         $product = $repo->findAll();
         

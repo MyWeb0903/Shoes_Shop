@@ -3,22 +3,17 @@
 namespace App\Controller;
 
 use App\Entity\Product;
-use App\Form\Type\ProductType;
 use App\Repository\ProductRepository;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\ConstraintValidatorInterface;
 
 class ProductController extends AbstractController
 {
     /**
      * @Route("/product", name="product_page")
      */
-    public function productAction(ProductRepository $repo): Response
+    public function productAction(ProductRepository $product): Response
     {
         $product = $repo->findAll();
         

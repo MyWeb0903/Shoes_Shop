@@ -43,6 +43,11 @@ class Feadback
      */
     private $User;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Product_Name;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class Feadback
     public function setUser(?User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    public function getProductName(): ?string
+    {
+        return $this->Product_Name;
+    }
+
+    public function setProductName(string $Product_Name): self
+    {
+        $this->Product_Name = $Product_Name;
 
         return $this;
     }

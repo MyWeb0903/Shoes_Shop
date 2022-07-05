@@ -20,10 +20,10 @@ class FeadbackController extends AbstractController
      */
     public function feadbackAction(FeadbackRepository $repo): Response
     {
-        $feadback = $repo->findAll();
+        $feedback = $repo->findAll();
 
         return $this->render('feadback/index.html.twig', [
-            'feadback' => $feadback
+            'feedback' => $feedback
         ]);
     }
 
@@ -36,6 +36,7 @@ class FeadbackController extends AbstractController
         $getEmail = $req ->request -> get('email-txt');
         $getPhone = $req ->request -> get('phone-txt');
         $getMess = $req ->request -> get('message-txt');
+        $getProName = $req ->request -> get('product-txt');
 
         $user = $this->getUser();
        
@@ -46,6 +47,7 @@ class FeadbackController extends AbstractController
         $feadback->setUsername($getUname);
         $feadback->setEmail($getEmail);
         $feadback->setPhone($getPhone);
+        $feadback->setProductName($getProName);
         $feadback->setMessage($getMess);
         $feadback->setUser($user);
 

@@ -25,16 +25,18 @@
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Product Name</th>
                         <th scope="col">Message</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {% for f in feadback %}
+                    {% for f in feedback %}
                         <tr>
                             <td>{{f.id}}</td>
                             <td>{{f.Username}}</td>
                             <td>{{f.Email}}</td>
                             <td>{{f.Phone}}</td>
+                            <td>{{f.ProductName}}</td>
                             <td>{{f.Message}}</td>
                         </tr>
                     {% endfor %}

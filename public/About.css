@@ -257,7 +257,7 @@ textarea.input {
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: linear-gradient(to bottom, #f95e3e, #fe512e);
+    background: linear-gradient(to bottom, #f7ecec, #f39482);
     bottom: 50%;
     right: 50%;
     transform: translate(-40%, 38%);

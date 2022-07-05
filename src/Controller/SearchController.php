@@ -17,9 +17,12 @@ class SearchController extends AbstractController
     {
         $search = $req -> request -> get('search-txt');
         $product = $repo->getProductByName($search);
+        $keyword = count($product);
 
         return $this->render('search/index.html.twig', [
-            'products' => $product
+            'products' => $product,
+            'keyword' => $keyword,
+            'search' => $search
         ]);
     }
 

@@ -21,7 +21,7 @@
   </div>
 <div class="container-product">
 
-   <h3 class="title"> ALL PRODUCTS </h3>
+   <h3 class="title">The keyword: {{search}}  {{keyword}} item(s) </h3>
 
    <div class="products-container">
 {% for product in products %}
@@ -50,7 +50,8 @@
          <span>( 250 )</span>
       </div>
       <p>{{product.Detail}}</p>
-      <div class="price">{{product.Price|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+      <div class="price">{{product.Price|number_format(0, '.', ',')}}<span> &#8363;</span>
+        </div>
       <div class="buttons">
          <a href="#" class="buy">buy now</a>
          <a href="#" class="cart">add to cart</a>

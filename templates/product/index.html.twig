@@ -52,7 +52,7 @@
                 <div>
                     <a href="{{path ('detail_page', {'id' : p.id})}}"><h3>{{p.Name}}</h3></a>
                     <h5>{{p.Price|number_format(0, '.', ',')}} <span>&#8363;</span></h5>
-                    <a href="#" class="text-decoration-none"><button class="btn btn-primary" name="btn-like">Like <i class="bi bi-suit-heart"></button></i></a>
+                    <a href="{{path ('get_lover', {'id' : p.id})}}" class="text-decoration-none"><button class="btn btn-primary" name="btn-like">Like <i class="bi bi-suit-heart"></button></i></a>
                     <form action="{{path ('cart_page', {'id' : p.id})}}" method="POST">
                         <button class="btn btn-primary" type="submit" name="btn-add">Add to cart <i class="bi bi-cart4"></i></button>
                     </form>

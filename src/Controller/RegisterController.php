@@ -44,7 +44,7 @@ class RegisterController extends AbstractController
         $cart->setUser($user);
         $entityManager->persist($cart);
         $entityManager->flush();
-        return new Response('You have successfully created a user with id '.$user->getId());
+        return $this->redirectToRoute('app_login');
 
       }
 
@@ -80,7 +80,7 @@ class RegisterController extends AbstractController
 
         $entityManager->persist($user);
         $entityManager->flush();
-        return new Response('You have successfully created a user with id '.$user->getId());
+        return $this->redirectToRoute('user_manager');
 
       }
 

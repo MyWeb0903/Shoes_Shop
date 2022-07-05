@@ -28,7 +28,7 @@
                         <th scope="col">Address</th>
                         <th scope="col">Status</th>
                         <th scope="col">Phone</th>
-                        <th scope="col">User</th>
+                        {# <th scope="col">User</th> #}
                         <th  style="width:160px;"><a style="color: #272727;" href="#" >
                             <i class="glyphicon glyphicon-plus"></i>Action</a>
                         </th>
@@ -44,7 +44,7 @@
                             <td>{{o.Address}}</td>
                             <td>{{o.Status}}</td>
                             <td>{{o.Phone}}</td>
-                            {# <td>{{o.User}}</td> #}
+                            {# <td>{{ user }}</td> #}
                             <td><a href="#">Confirm</a>
                         </tr>
                     {% endfor %}

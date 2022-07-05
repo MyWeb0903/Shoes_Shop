@@ -43,9 +43,7 @@ class SupplierController extends AbstractController
             $entity->persist($supplier);
             $entity->flush();
 
-            return $this->json([
-                'id' => $supplier->getId()
-            ]);
+            return $this->redirectToRoute('app_supplier');
         }
         return $this->render('supplier/index.html.twig', [
             'form' => $form->createView()

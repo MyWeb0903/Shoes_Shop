@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About us</title>
     <link rel="icon" type="image/x-icon" href="./image/ShoeIcon.ico">
-    <link rel="stylesheet" type="text/css" href="./About.css">
+    <link rel="stylesheet" type="text/css" href="./about.css">
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
@@ -26,8 +26,11 @@
           <h3 class="title">Let's get in touch</h3>
           <p class="text" style="text-align: justify">
             Dear valued customers,
-
-            Online Shoe-Shop web is a website that I created to introduction to everyone about my products
+            Online Shoe-Shop Web is a website that we created to introduce our products to everyone. 
+            Our website sells shoes, all made in Vietnam with the desire to create good shoe products for everyone
+            especially for students, teenagers, and anyone who prefers them. 
+            Our products offer a guarantee of quality and affordable prices for everyone. 
+            Come to us so we can choose for you a suitable pair of shoes to cherish your feet.
           </p>
 
           <div class="info">
@@ -68,36 +71,23 @@
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="" method="post" autocomplete="off">
+          <form action="{{path ('add_feadback')}}" method="post" autocomplete="off">
             <h3 class="title">Contact us</h3>
             <div class="input-container">
-              <input type="text" name="name" class="input" placeholder="Username"/>
+              <input type="text" name="user-txt" class="input" placeholder="Username"/>
             </div>
             <div class="input-container">
-              <input type="email" name="email" class="input" placeholder="Email"/>
+              <input type="email" name="email-txt" class="input" placeholder="Email"/>
             </div>
             <div class="input-container">
-              <input type="tel" name="phone" class="input" placeholder="Phone"/>
+              <input type="tel" name="phone-txt" class="input" placeholder="Phone"/>
             </div>
             <div class="input-container textarea" >
-              <textarea name="message" class="input" placeholder="Messeges"></textarea>
+              <textarea name="message-txt" class="input" placeholder="Messeges"></textarea>
             </div>
             <input type="submit" name="submit" value="Send" class="btn" />
-<<<<<<< HEAD
             <a href="{{path ('home_page')}}" class="btn">Back</a>
           </form>
-=======
-            <button class="btn btn-primary"><a href="{{path ('home_page')}}" id="btn-back">Back</button></a>
-          </form> #}
-          <div style="margin-left: 10px;
-                      margin-top: 69px;
-                      color: white;">
-              My website sells shoes and all of them made in Vietname. With the desire to create good shoe products for everyone. Especially is students, teenager and someone who prefer them. 
-              Our products offer a guarantee of quality and affordable prices for everyone.
-              Come to us to be able to choose for you a suitable pair of shoes to cherish your feet.
-          </div>
->>>>>>> 1d09cb8ff4dbf9bf6410659bfbd699be14a0c30a
-        </div>
       </div>
     </div>
    

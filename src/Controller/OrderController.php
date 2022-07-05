@@ -29,23 +29,6 @@ class OrderController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/countCart", name="countCartAction")
-    //  */
-    // public function countCartAction(ContainRepository $repo, CartRepository $cartRepo, ProductRepository $proRepo,
-    //     OrderRepository $orderRepo): Response
-    // {
-    //     $user = $this->getUser();
-    //     $cart = $cartRepo->findOneBy(['user' => $user]);
-    //     // $getCart = $repo->getProID($cart);
-    //     // $cont = $proRepo->ProductID($getCart);
-    //     $OrderID = $orderRepo->getOrderID($user);
-    //     $id = $OrderID[0]['OrderID'];
-
-        
-    //     // $cont = $repo->findAllContain($cart);
-    //     return $this->json($id);
-    // }
 
     /**
      * @Route("/addOrder", name="add_order")
@@ -68,12 +51,14 @@ class OrderController extends AbstractController
 
         $address = $get[0]['address'];
         $phone = $get[0]['phone'];
+        $client = $get[0]['Client'];
 
         $order->setOrderDate($curDate);
         $order->setPayment($getCart[0]['Total']);
         $order->setAddress($address);
         $order->setPhone($phone);
         $order->setUser($user);
+        $order->setClient($client);
 
 
         $entity->persist($order);

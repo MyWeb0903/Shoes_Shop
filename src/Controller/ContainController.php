@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContainController extends AbstractController
 {
     /**
-     * @Route("/contain/{id}", name="cart_page", methods={"POST"})
+     * @Route("/contain/{id}", name="cart_page")
      */
     public function addCartAction(ProductRepository $repo, $id, ManagerRegistry $res,
         CartRepository $cartRepo, ContainRepository $contRepo): Response
@@ -93,9 +93,7 @@ class ContainController extends AbstractController
             $entity->persist($contain);
             $entity->flush();
 
-            return $this->json([
-                'id' => $contain->getId()
-            ]);
+            return $this->redirectToRoute('showcart');
         } 
         
         return $this->render('contain/UpdateCart.html.twig', [

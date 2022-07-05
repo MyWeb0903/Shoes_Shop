@@ -61,6 +61,11 @@ class Order
      */
     private $OrderDetail_ID;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Client;
+
     public function __construct()
     {
         $this->OrderDetail_ID = new ArrayCollection();
@@ -181,6 +186,18 @@ class Order
                 $orderDetailID->setOrderID(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getClient(): ?string
+    {
+        return $this->Client;
+    }
+
+    public function setClient(string $Client): self
+    {
+        $this->Client = $Client;
 
         return $this;
     }

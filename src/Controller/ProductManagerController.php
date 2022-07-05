@@ -48,9 +48,7 @@ class ProductManagerController extends AbstractController
             $entity->persist($product);
             $entity->flush();
 
-            return $this->json([
-                'id' => $product->getId()
-            ]);
+            return $this->redirectToRoute('pro_manager');
         }
 
         return $this->render("product/editProduct.html.twig",[
@@ -74,7 +72,7 @@ class ProductManagerController extends AbstractController
         $entity->remove($product);
         $entity->flush();
 
-        return $this->json("Delete a project successfully with id". $id);
+        return $this->redirectToRoute('pro_manager');
     }
 
 

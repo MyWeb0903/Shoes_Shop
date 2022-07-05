@@ -26,7 +26,7 @@ class RegisterController extends AbstractController
 
       $form->handleRequest($request);
       
-      $humanCheck = $form->get('agreeTerms')->getData();
+      $humanCheck = $form->get('humanCheck')->getData();
 
       if($form->isSubmitted() && $form->isValid() && $humanCheck){
         

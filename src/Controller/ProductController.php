@@ -24,8 +24,9 @@ class ProductController extends AbstractController
     {
         $product = $repo->findAll();
         
+     
         return $this->render('product/index.html.twig', [
-            'product' => $product
+            'products' => $product
         ]);
     }
 
@@ -36,7 +37,7 @@ class ProductController extends AbstractController
     {
         $product = $repo->find($id);
         return $this->render('product/detail.html.twig', [
-            'p' => $product
+            'product' => $product
         ]);
     }
 
@@ -65,9 +66,7 @@ class ProductController extends AbstractController
             $entity->persist($product);
             $entity->flush();
 
-            return $this->json([
-                'id' => $product->getId()
-            ]);
+            return $this->redirectToRoute('pro_manager');
         }
 
         return $this->render('product/addProduct.html.twig', [

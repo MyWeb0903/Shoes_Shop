@@ -72,7 +72,7 @@ class ProductManagerController extends AbstractController
         $entity->remove($product);
         $entity->flush();
 
-        return $this->json("Delete a project successfully with id". $id);
+        return $this->redirectToRoute('pro_manager');
     }
 
 

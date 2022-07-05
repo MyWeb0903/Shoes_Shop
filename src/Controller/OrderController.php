@@ -51,12 +51,14 @@ class OrderController extends AbstractController
 
         $address = $get[0]['address'];
         $phone = $get[0]['phone'];
+        $client = $get[0]['Client'];
 
         $order->setOrderDate($curDate);
         $order->setPayment($getCart[0]['Total']);
         $order->setAddress($address);
         $order->setPhone($phone);
         $order->setUser($user);
+        $order->setClient($client);
 
 
         $entity->persist($order);

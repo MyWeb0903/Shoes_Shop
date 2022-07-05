@@ -1,65 +1,63 @@
-{% extends 'basedemo1.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}{% endblock %}
 
 {% block body %}
-<style>
-    img{
-        width: 300px;
-        height: 300px;
-        margin-top: 10px;
-    }
-    .row{
-        margin-left: 112px;
-    }
-    h4{
-        margin-left: 17px;
-        margin-top: -42px;
-    }
-    #cover{
-        margin-bottom: 10px;
-    }
-    .form-search{
-        display: flex;
-        margin-top: 100px;
-    }
-    .form-group{
-        width: 250px;
-        margin-left: 124px;
-    }
-    form{
-        margin-left: 75px;
-        margin-top: -35px;
-    }
-    .btn{
-        height: 35px;
-    }
-</style>
-<body>
-<div class="row">
-<form action="{{path ('search_page')}}" method="post" class="form-search">
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" name="search-txt">
-    </div>
-    <button type="submit" class="btn btn-default" name="btn-search"><i class="bi bi-search"></i></button>
-</form>
-    <h4>All Products</h4> 
-    {% for p in product %}
-        <div class="col-md-4" style="width: 303px" id="cover"> 
-            <div>
-                <img src="./Image/{{p.Image}}"/>
 
-                <div>
-                    <a href="{{path ('detail_page', {'id' : p.id})}}"><h3>{{p.Name}}</h3></a>
-                    <h5>{{p.Price|number_format(0, '.', ',')}} <span>&#8363;</span></h5>
-                    <a href="{{path ('get_lover', {'id' : p.id})}}" class="text-decoration-none"><button class="btn btn-primary" name="btn-like">Like <i class="bi bi-suit-heart"></button></i></a>
-                    <form action="{{path ('cart_page', {'id' : p.id})}}" method="POST">
-                        <button class="btn btn-primary" type="submit" name="btn-add">Add to cart <i class="bi bi-cart4"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
+<head>
+
+    <link rel="stylesheet" href="product.css">
+    <script src="product.js" defer></script>
+
+</head>
+
+<body>
+<section id="hero">
+    <div class="search">
+      <form action="{{path('search_page')}}" method="post" class="search-bar" >
+         <input type="text" class="" placeholder="Search" name="search-txt">
+         <button type="summit"><i class="bi bi-search"></i></button>
+      </form>
+  </div>
+<div class="container-product">
+
+   <h3 class="title"> ALL PRODUCTS </h3>
+
+   <div class="products-container">
+{% for product in products %}
+      <div class="product" data-name="{{product.id}}">
+         <img src="./Image/{{product.Image}}" alt="">
+         <h3>{{product.Name}}</h3>
+         <div class="price">{{product.Price|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+      </div>
+{% endfor %}
+   </div>
+
 </div>
+
+<div class="products-preview">
+{% for product in products %}
+   <div class="preview" data-target="{{product.id}}">
+      <i class="fas fa-times"></i>
+      <img src="./Image/{{product.Image}}" alt="">
+      <h3></h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+         <span>( 250 )</span>
+      </div>
+      <p>{{product.Detail}}</p>
+      <div class="price">{{product.Price|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+      <div class="buttons">
+         <a href="{{path ('cart_page', {'id' : product.id})}}" class="cart">add to cart <i class="bi bi-bag-heart-fill"></i></a>
+      </div>
+   </div>
+{% endfor %}
+</div>
+</section>
 </body>
+
 {% endblock %}

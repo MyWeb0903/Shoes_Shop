@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20220702045257 extends AbstractMigration
+final class Version20220705061143 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,12 +20,12 @@ final class Version20220702045257 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE cart DROP INDEX IDX_BA388B7A76ED395, ADD UNIQUE INDEX UNIQ_BA388B7A76ED395 (user_id)');
+        $this->addSql('ALTER TABLE `order` ADD client VARCHAR(255) NOT NULL, CHANGE delivery_date delivery_date DATE NOT NULL, CHANGE status status VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE cart DROP INDEX UNIQ_BA388B7A76ED395, ADD INDEX IDX_BA388B7A76ED395 (user_id)');
+        $this->addSql('ALTER TABLE `order` DROP client, CHANGE delivery_date delivery_date DATE DEFAULT NULL, CHANGE status status VARCHAR(255) DEFAULT NULL');
     }
 }

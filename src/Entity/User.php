@@ -72,17 +72,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $Order_ID;
 
-
     /**
-     * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
+     * @ORM\OneToMany(targetEntity=Feadback::class, mappedBy="User")
      */
-    private $Product_ID;
+    private $feadbacks;
+
+
+    // /**
+    //  * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
+    //  */
+    // private $Product_ID;
 
     public function __construct()
     {
         $this->Order_ID = new ArrayCollection();
         $this->Cart_ID = new ArrayCollection();
-        $this->Product_ID = new ArrayCollection();
+        // $this->Product_ID = new ArrayCollection();
+        $this->feadbacks = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -272,26 +278,56 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
+    // /**
+    //  * @return Collection<int, Product>
+    //  */
+    // public function getProductID(): Collection
+    // {
+    //     return $this->Product_ID;
+    // }
+
+    // public function addProductID(Product $productID): self
+    // {
+    //     if (!$this->Product_ID->contains($productID)) {
+    //         $this->Product_ID[] = $productID;
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeProductID(Product $productID): self
+    // {
+    //     $this->Product_ID->removeElement($productID);
+
+    //     return $this;
+    // }
+
     /**
-     * @return Collection<int, Product>
+     * @return Collection<int, Feadback>
      */
-    public function getProductID(): Collection
+    public function getFeadbacks(): Collection
     {
-        return $this->Product_ID;
+        return $this->feadbacks;
     }
 
-    public function addProductID(Product $productID): self
+    public function addFeadback(Feadback $feadback): self
     {
-        if (!$this->Product_ID->contains($productID)) {
-            $this->Product_ID[] = $productID;
+        if (!$this->feadbacks->contains($feadback)) {
+            $this->feadbacks[] = $feadback;
+            $feadback->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeProductID(Product $productID): self
+    public function removeFeadback(Feadback $feadback): self
     {
-        $this->Product_ID->removeElement($productID);
+        if ($this->feadbacks->removeElement($feadback)) {
+            // set the owning side to null (unless already changed)
+            if ($feadback->getUser() === $this) {
+                $feadback->setUser(null);
+            }
+        }
 
         return $this;
     }

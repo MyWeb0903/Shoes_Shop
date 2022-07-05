@@ -30,21 +30,21 @@ class LoverController extends AbstractController
     // {
     //     $entity = $res->getManager();
 
-    //     $user = $this->getUser();
-    //     $cart = $cRepo->findOneBy(['user' => $user]);
-    //     $n = $cRepo->getUserID($cart);
-    //     $k = $n[0]['ID'];
+    //     // $user = $this->getUser();
+    //     // $cart = $cRepo->findOneBy(['user' => $user]);
+    //     // $n = $cRepo->getUserID($cart);
+    //     // $k = $n[0]['ID'];
 
     //     $p1 = $entity->getRepository(Product::class)->find($id);
-    //     $p2 = $entity->getRepository(User::class)->find($k);
+    //     // $p2 = $entity->getRepository(User::class)->find($k);
 
-    //     $product = new Product();
+    //     // $product = new Product();
     //     $uID = new User();
 
-    //     $product->addUser($p2);
+    //     // $product->addUser($p2);
     //     $uID->addProductID($p1);
 
-    //     $entity->persist($product);
+    //     // $entity->persist($product);
     //     $entity->persist($uID);
     //     $entity->flush();
 

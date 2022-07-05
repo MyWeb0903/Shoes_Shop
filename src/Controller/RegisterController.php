@@ -33,7 +33,7 @@ class RegisterController extends AbstractController
 
       if($form->isSubmitted() && $form->isValid() && $humanCheck){
         
-
+        
         $user->setPassword($hasher->hashPassword($user, 
         $form->get('password')->getData()));
 

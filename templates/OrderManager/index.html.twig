@@ -1,11 +1,11 @@
-
+{% extends 'base.html.twig' %}
 {% block title %}{% endblock %}
-<head>
+{# <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-</head>
+</head> #}
 {% block body %}
-<style>
+{# <style>
     body{
         background: url('./Image/Background-shoe-shop.jpg');    
     }
@@ -13,10 +13,10 @@
         background-color: white;
         margin-top: 50px;
     }
-</style>
+</style> #}
 
 <body>
-    <div>
+    <section id="hero">
         <div class="container-fluid">
             <table class="table table-striped table-hover">
                 <thead>
@@ -28,7 +28,7 @@
                         <th scope="col">Address</th>
                         <th scope="col">Status</th>
                         <th scope="col">Phone</th>
-                        {# <th scope="col">User</th> #}
+                        <th scope="col">Client</th>
                         <th  style="width:160px;"><a style="color: #272727;" href="#" >
                             <i class="glyphicon glyphicon-plus"></i>Action</a>
                         </th>
@@ -39,18 +39,19 @@
                         <tr>
                             <td>{{o.id}}</td>
                             <td>{{o.OrderDate|date('y-m-d')}}</td>
-                            <td>{{o.DeliveryDate}}</td>
+                            <td>{{o.DeliveryDate|date('y-m-d')}}</td>
                             <td>{{o.Payment}}</td>
                             <td>{{o.Address}}</td>
                             <td>{{o.Status}}</td>
                             <td>{{o.Phone}}</td>
-                            {# <td>{{ user }}</td> #}
-                            <td><a href="#">Confirm</a>
+                            <td>{{o.Client}}</td>
+                            <td><a href="{{path ('confirm', {'id' : o.id})}}">Confirm</a>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
+    </section>
 </body>
 {% endblock %}

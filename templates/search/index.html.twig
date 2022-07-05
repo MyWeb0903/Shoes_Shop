@@ -53,8 +53,8 @@
       <div class="price">{{product.Price|number_format(0, '.', ',')}}<span> &#8363;</span>
         </div>
       <div class="buttons">
-         <a href="#" class="buy">buy now</a>
-         <a href="#" class="cart">add to cart</a>
+         {# <a href="#" class="buy">buy now</a> #}
+         <a href="{{path ('cart_page', {'id' : product.id})}}" class="cart">add to cart</a>
       </div>
    </div>
 {% endfor %}

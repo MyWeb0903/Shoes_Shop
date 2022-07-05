@@ -72,19 +72,21 @@
                       <li><a href="{{ path ('order_manager') }}">Orders</a></li>
                       <li><a href="{{ path ('app_supplier') }}">Supliers</a></li>
                       <li><a href="{{ path ('user_manager') }}">Account</a></li>
+                      <li><a href="{{path ('app_feadback')}}">Feedback</a></li>
                     </ul>
                   </li>
                 {% else %}
                   <li>
-                    <a href="{{ path ('lover_page') }}" data-after="Lover">
-                      Lover 
-                      <i class="bi bi-heart-fill"></i>
-                    </a>
-                  </li>
-                  <li>
                     <a href="{{ path ('showcart') }}" data-after="Cart">
                       Cart 
                       <i class="bi bi-bag-heart-fill"></i>
+                    </a>
+                  </li>
+
+                   <li>
+                    <a href="{{ path ('profile_page') }}" data-after="Cart">
+                      My Profile
+                      <span class="bi bi-person-circle"></span>
                     </a>
                   </li>
                 {% endif %}
@@ -92,7 +94,7 @@
               {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
                   <li>
-                    <a href="{{ path ('profile_page') }}"data-after="{{ app.user.userIdentifier }}">
+                    <a href="#"data-after="{{ app.user.userIdentifier }}">
                       Welcome admin 
                        <span class="bi bi-person-circle"></span>
                     </a>
@@ -106,7 +108,7 @@
                   
                 {% else %}
                   <li>
-                     <a href="{{ path ('profile_page') }}"data-after="{{ app.user.userIdentifier }}">
+                     <a href="{{path ('profile_page')}}"data-after="{{ app.user.userIdentifier }}">
                       Welcome {{ app.user.userIdentifier }}
                        <span class="bi bi-person-circle"></span>
                     </a>

@@ -1,0 +1,504 @@
+[33mcommit 7e9e305afcc2f419c6f973e1b2ef32c3aadb8343[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Tue Jul 5 04:15:48 2022 +0700
+
+    Huynh: Display data from the database on the interface of the home, product, and search pages.
+
+[33mcommit e7e9045929c732b418ff678d104a30fedd49cfee[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Tue Jul 5 02:28:31 2022 +0700
+
+    Huynh
+
+[33mcommit 835b34f864b4cc63c9035865633d9467d991ad98[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 22:31:12 2022 +0700
+
+    Huynh
+
+[33mcommit d231c6f62116533f67afe2e0ea5da660ac552271[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 21:43:11 2022 +0700
+
+    Huynh
+
+[33mcommit 7191d3e4e587c753fe03139ef82ba888c34d1a88[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 21:28:29 2022 +0700
+
+    Huynh
+
+[33mcommit ae65db34a7f5456d133c44a4942412aa44386cbc[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 21:23:27 2022 +0700
+
+    Huynh
+
+[33mcommit 6a4a20c80f39dd82943211609b0a6a8417718931[m
+Merge: 0430dce ca2d483
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 20:44:08 2022 +0700
+
+    Huynh
+
+[33mcommit ca2d48306102ec3e7cec03e23d174dfe89fa98e4[m
+Merge: 1d09cb8 f81fd08
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Mon Jul 4 20:27:09 2022 +0700
+
+    Merge branch 'master' of https://github.com/MyWeb0903/Shoes_Shop
+
+[33mcommit 1d09cb8ff4dbf9bf6410659bfbd699be14a0c30a[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Mon Jul 4 20:16:07 2022 +0700
+
+    Duy C15. Create change password successfully
+
+[33mcommit 0430dce8a2d1da0b301ba3c611ea86521a0e5106[m
+Merge: b0e42e0 189669c
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 20:11:27 2022 +0700
+
+    Merge branch 'master' into Huynh
+
+[33mcommit b0e42e00a64828e2527d42f8c07ab715559e31e9[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 20:09:59 2022 +0700
+
+    Huynh
+
+[33mcommit 189669c2e9a750fd4e2434a36280d259110f7d71[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 20:07:13 2022 +0700
+
+    Huynh: Delete basedemo1.html.twig
+
+[33mcommit c1ddf0e26b6dbc53985b5fa20b4e8fdeef0765ec[m
+Merge: 87fb05e 37c6b25
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 20:03:12 2022 +0700
+
+    Huynh
+
+[33mcommit f81fd089762c6af463c6f0913e34afd5452e0c45[m
+Author: chinhnguyenabout <105283795+chinhnguyenabout@users.noreply.github.com>
+Date:   Mon Jul 4 05:38:23 2022 -0700
+
+    C3 Chinh, Edit Product Manager page
+
+[33mcommit 37c6b25c18eb656870eac6edb523bdea1c185398[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 18:27:19 2022 +0700
+
+    Huynh: merge
+
+[33mcommit 1f26a0bd0e956886b13f18e28c2e8bc1b9c6f30c[m
+Merge: dc5db36 5b92528
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 17:55:16 2022 +0700
+
+    Huynh:
+
+[33mcommit dc5db3678333053baea58e5052725ffb22deb251[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Mon Jul 4 13:30:48 2022 +0700
+
+    Duy C14. Create order features
+
+[33mcommit 5b925287a5fc999b7a4f5f6c5a21ac2d13bc664f[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 06:43:30 2022 +0700
+
+    Huynh: Update icon for the web
+
+[33mcommit 362cb6a92a9e5c14726f827242b52d5b4f1a154e[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 06:34:51 2022 +0700
+
+    Huynh: Design home and about page
+
+[33mcommit a8efef774f8c8729c6af9321c4f03cd6fa8bbe37[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Mon Jul 4 01:30:20 2022 +0700
+
+    Huynh: create search bar
+
+[33mcommit b549bca68f9e23a01e1866e23d6e2734f553cdac[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sun Jul 3 19:23:20 2022 +0700
+
+    Huynh
+
+[33mcommit 87fb05e9d9a15ae2a5806af0d78e06b08a6bf07a[m
+Merge: aaba120 0a58413
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sun Jul 3 18:00:28 2022 +0700
+
+    Huynh
+
+[33mcommit 9da345960dd00481c18ace195aacf1eaf00f0032[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sun Jul 3 17:48:34 2022 +0700
+
+    Huynh: commit
+
+[33mcommit ea8808ab986101e56ad4159be921bb7838a89226[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sun Jul 3 16:28:58 2022 +0700
+
+    Huynh: commit
+
+[33mcommit 0a5841323e5e09fa5ee1b152342fec671a148ce8[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Sun Jul 3 12:14:00 2022 +0700
+
+    Duy C13. Create CRUD Cart page
+
+[33mcommit b06d64238c7aa0a2a9746118d11d185573b21508[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 12:56:52 2022 +0700
+
+    Huynh: Create search bar
+
+[33mcommit aaba120baac2498724a4dc62666df4db1c562159[m
+Merge: 9491052 7b1337a
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 10:19:23 2022 +0700
+
+    Huynh
+
+[33mcommit 7b1337a4be5ca958bf4f974b1178c9fe972e85a1[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Sat Jul 2 10:12:37 2022 +0700
+
+    Duy
+
+[33mcommit 94910528d1a1c12693750afd90f45653af6ca44e[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 10:09:16 2022 +0700
+
+    Huynh
+
+[33mcommit 3a83530a77d18705d3335ffd1bd60a781c4e4d52[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Sat Jul 2 09:37:50 2022 +0700
+
+    Duy
+
+[33mcommit 85f38db24a7d9c7bb1c211008001eefe23032671[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Sat Jul 2 09:32:16 2022 +0700
+
+    duy
+
+[33mcommit 90208a5e1e7e88c55e3082497b9a52fb519c789d[m
+Merge: 6592ab5 d183559
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Sat Jul 2 09:31:54 2022 +0700
+
+    Duy
+
+[33mcommit d183559991ec3563e58183ba98ae992d438f4c5a[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Sat Jul 2 09:24:01 2022 +0700
+
+    Duy C12. Create change password feature
+
+[33mcommit 6592ab50a335c2d0f35e900639efb92717c0d42f[m
+Merge: 65a740b 3491725
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:54:36 2022 +0700
+
+    Huynh: Merge with branch master
+
+[33mcommit 65a740b627e1c01460c40853a659062c50ecb18b[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:51:06 2022 +0700
+
+    Huynh
+
+[33mcommit 3491725434dd0f58f328ebb6cb6d5f85d834970d[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:43:45 2022 +0700
+
+    Huynh: commit
+
+[33mcommit 0e843685668148dd97e52a755bde0a07788e103c[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:38:04 2022 +0700
+
+    Huynh: haizzz
+
+[33mcommit 8d13e49a15aa2264027d1db687bc994ff625c44a[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:33:55 2022 +0700
+
+    Huynh
+
+[33mcommit c73909c2df4ea4d0b00daee8e1eb8b85542369fc[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:28:55 2022 +0700
+
+    Huynh
+
+[33mcommit 1f72933dda3e30d3e9762c6fed157d37aabd9558[m
+Merge: 6a0c3d2 4fc4129
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:16:46 2022 +0700
+
+    Huynh
+
+[33mcommit 6a0c3d249ed7287c22c3f0433624d9ff4a23feb3[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 08:15:39 2022 +0700
+
+    Huynh
+
+[33mcommit 4fc4129ba199e724c4b5f58f607c862dba68b8eb[m
+Merge: c1a907c 3683423
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 07:44:17 2022 +0700
+
+    Huynh: Merge
+
+[33mcommit 9f73a37a6e8847ad26838904589995fc9ee9afb2[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Sat Jul 2 07:27:58 2022 +0700
+
+    Duy
+
+[33mcommit 3683423d7a22fd544f61044eff24c89518275759[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Sat Jul 2 07:26:30 2022 +0700
+
+    Huynh: Design home and about page
+
+[33mcommit 0cc96266075b774d2edee749fd898a42dcf7b422[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Fri Jul 1 18:47:56 2022 +0700
+
+    Duy C11. Create crud for product and supplier feature and account, order management
+
+[33mcommit 03363275c171239ba7f25ee9b80043a000a3491a[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Fri Jul 1 04:18:21 2022 +0700
+
+    Huynh: Design home and about page with CSS
+
+[33mcommit 61841b8f09f3d91c9a3518adee63c17ffc59ba08[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Thu Jun 30 23:53:14 2022 +0700
+
+    Huynh Create a responsive web navbar and home page, fix css style, create js product and css product, and design home page.
+
+[33mcommit 5417137b4f195a6a67bd86687968964e8b64a471[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Thu Jun 30 17:10:40 2022 +0700
+
+    Huynh: Design Nav-bar
+
+[33mcommit c1a907cdad5be8b27f821b1f5ffb6121ca4580f5[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Thu Jun 30 16:38:10 2022 +0700
+
+    Huynh
+
+[33mcommit 673394e5d1d1763fcb977aa7a29e447ee72e82e3[m
+Merge: af975bf fc7575b
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Thu Jun 30 15:13:48 2022 +0700
+
+    Duy C11. solve conflict
+
+[33mcommit fc7575be9bc794f62634479206e04da0de313c1f[m
+Author: chinhnguyenabout <chinhnngcc200312@fpt.edu.vn>
+Date:   Thu Jun 30 01:23:44 2022 -0700
+
+    C1 Chinh, Create interface for product management, user management, order management, supplier management
+
+[33mcommit af975bf8d9bfb26cfd2f7cd068964c77051d4763[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Thu Jun 30 15:10:46 2022 +0700
+
+    Duy
+
+[33mcommit 0373f0182dd171230505cda9aed6c03f5d4f0229[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Thu Jun 30 15:02:09 2022 +0700
+
+    Duy
+
+[33mcommit 7c511f78b538142a0118bedcc8895b35db3c4c57[m
+Merge: 75e4555 016bf92
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Thu Jun 30 14:09:25 2022 +0700
+
+    Duy C10. Solve conflict
+
+[33mcommit 016bf9242e2aa1a736a932e6de9ba5c5276ccfbe[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Thu Jun 30 14:05:08 2022 +0700
+
+    Duy C9. Create search feature and create add product, supplier form
+
+[33mcommit 75e455529337d7180ce333d71c1c3d64bee2d2ea[m
+Merge: ff05592 61ad55a
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Thu Jun 30 13:53:30 2022 +0700
+
+    Merge branch 'master' of https://github.com/MyWeb0903/Shoes_Shop
+
+[33mcommit ff05592175e89827e20d3fcb2c41bcc7c6f36888[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Thu Jun 30 13:48:43 2022 +0700
+
+    Huynh: Change CSS
+
+[33mcommit 61ad55ada9cab46316a3f89b6120a8c942150b7e[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Wed Jun 29 20:34:02 2022 +0700
+
+    Duy C8. Edit Login page
+
+[33mcommit 5cce53752ff8e58c92e28860986bf1635ae29305[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Wed Jun 29 10:30:28 2022 +0700
+
+    Duy C7. Create and edit Detail page
+
+[33mcommit e08162bee8bc87adccbdac3fc6514a31f2437292[m
+Merge: bc73daf f928e70
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Wed Jun 29 09:24:53 2022 +0700
+
+    Merge branch 'Duy'
+
+[33mcommit f928e70adcfa212b0d30e731f683a08abda18876[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Wed Jun 29 09:18:56 2022 +0700
+
+    Duy
+
+[33mcommit bc73dafcd67e3751941da543ad07f49fc18390b1[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Wed Jun 29 09:13:51 2022 +0700
+
+    Huynh: Edit about us page
+
+[33mcommit d8a1b1425ec6b049adf398135a51e1b49ea67ca9[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Wed Jun 29 06:37:44 2022 +0700
+
+    Huynh: Fix the product page and change the appearance of the about us page.
+
+[33mcommit e6f00f744e98dcebfe12055ae4fe3e4018dd2f43[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Wed Jun 29 06:04:16 2022 +0700
+
+    Huynh: Add ChoiceType for gender form, add login and logout functions, and show a notification in the nav-bar when the user is logged in.
+
+[33mcommit 5f8ca929fc3209d88e4eef3b538f1966afaeb62f[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Wed Jun 29 06:01:18 2022 +0700
+
+    Huynh: Add ChoiceType for gender form, add login and logout functions, and show a notification in the nav-bar when the user is logged in.
+
+[33mcommit 622f48a0783b42ccbc142551f64d523e7510e48a[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Wed Jun 29 03:39:08 2022 +0700
+
+    Huynh: Create login form, edit register form
+
+[33mcommit aeb15ac967f28c5bf1360e780a4b9a0fdbbf56e4[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 21:44:48 2022 +0700
+
+    Duy C6. Edit Sign Up page
+
+[33mcommit ffaaf80e08e75f291ddd752c1899d9587752467d[m
+Merge: 0c5d25d 8086444
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Tue Jun 28 14:21:06 2022 +0700
+
+    Merge branch 'Huynh'
+
+[33mcommit 0c5d25d59c44ea8f60b67fee5ea38583e1da352f[m
+Merge: e7dc984 19d9dc5
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Tue Jun 28 14:20:54 2022 +0700
+
+    Merge remote-tracking branch 'refs/remotes/origin/master'
+
+[33mcommit 808644420ccb8d2c827cb8530b700eaaca69eacb[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Tue Jun 28 14:19:36 2022 +0700
+
+    Huynh C3: Create register form
+
+[33mcommit 19d9dc5cc50413963743e86fa8e34c55811fc96d[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 14:09:37 2022 +0700
+
+    Duy C5. Edit Product page and create Lover, Cart page
+
+[33mcommit e7dc984d92935689cb1d784be82619a120fffecf[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Tue Jun 28 13:43:29 2022 +0700
+
+    Huynh C2: Create User Form
+
+[33mcommit 93e4b9227565e3cd6c83e65b39e656cfe8029337[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 13:18:28 2022 +0700
+
+    Duy C4. Update database and make foreign key
+
+[33mcommit b3001190a721e28efeb2f179b6eb43cfac0285df[m
+Merge: f947355 09f72aa
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 13:05:22 2022 +0700
+
+    Merge branch 'master' of https://github.com/MyWeb0903/Shoes_Shop
+
+[33mcommit f947355408833ac97a530316eb82330deb94ca0c[m
+Merge: f4b16c4 02e90e5
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 13:04:06 2022 +0700
+
+    Merge branch 'Duy'
+
+[33mcommit 02e90e52e1cf9e2786926766faa39841acd691c1[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 13:03:50 2022 +0700
+
+    Duy C3. Create Home, About, Product page
+
+[33mcommit 09f72aa78d42223f46780568333d109bf64980a0[m
+Author: TranChiHuynh200065 <huynhtcgcc200065@fpt.edu.vn>
+Date:   Tue Jun 28 12:59:42 2022 +0700
+
+    Huynh C1: Create security user
+
+[33mcommit f4b16c473c57b29a5018c8e408e216325e1f5a49[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 12:43:43 2022 +0700
+
+    Duy C2. Create database
+
+[33mcommit a22a8763c1196605b5b669c905bb81f3364f4ec0[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 12:13:38 2022 +0700
+
+    Duy C1
+
+[33mcommit d88fb89532669d11d4983de0e6ba47904e392171[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 12:09:43 2022 +0700
+
+    Add webapp packages
+
+[33mcommit 654ae9fffb2e7010a16f59a44c00a45fb4c43669[m
+Author: carlduy2002 <duydhgcc200018@fpt.edu.vn>
+Date:   Tue Jun 28 12:09:15 2022 +0700
+
+    Add initial set of files

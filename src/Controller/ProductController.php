@@ -22,6 +22,7 @@ class ProductController extends AbstractController
     {
         $product = $repo->findAll();
         
+     
         return $this->render('product/index.html.twig', [
             'products' => $product
         ]);
@@ -34,7 +35,7 @@ class ProductController extends AbstractController
     {
         $product = $repo->find($id);
         return $this->render('product/detail.html.twig', [
-            'p' => $product
+            'product' => $product
         ]);
     }
 

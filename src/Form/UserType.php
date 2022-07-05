@@ -87,7 +87,7 @@ class UserType extends AbstractType
             ->add('Birthday', DateTimeType::class, [
                 'widget' => 'single_text'
             ])
-            ->add('agreeTerms', CheckboxType::class, ['mapped' => false,
+            ->add('humanCheck', CheckboxType::class, ['mapped' => false,
                 'label' => 'You are not a robot',
                 'attr' => [
                    

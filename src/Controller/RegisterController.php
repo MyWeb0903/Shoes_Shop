@@ -26,9 +26,9 @@ class RegisterController extends AbstractController
 
       $form->handleRequest($request);
       
-      $agreeTerms = $form->get('agreeTerms')->getData();
+      $humanCheck = $form->get('agreeTerms')->getData();
 
-      if($form->isSubmitted() && $form->isValid() && $agreeTerms){
+      if($form->isSubmitted() && $form->isValid() && $humanCheck){
         
         // $user->setPassword($hasher->hashPassword($user, $form->get('password')->getData()));
         
@@ -89,3 +89,5 @@ class RegisterController extends AbstractController
       ]);
     }
 }
+
+

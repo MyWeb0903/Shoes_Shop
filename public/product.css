@@ -58,7 +58,7 @@ body {
 }
 
 .container-product .products-container .product img {
-    height: 23rem;
+    max-height: 34rem;
 }
 
 .container-product .products-container .product:hover img {

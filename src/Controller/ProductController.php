@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\Type\ProductType;
 use App\Repository\ProductRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,20 +26,9 @@ class ProductController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/product/{id}", name="detail_page")
-     */
-    public function detailAction(ProductRepository $repo, $id): Response
-    {
-        $product = $repo->find($id);
-        return $this->render('product/detail.html.twig', [
-            'product' => $product
-        ]);
-    }
-
 
     /**
-     * @Route("/addProduct", name="addProduct")
+     * @Route("/addProduct", name="add_Product")
      */
     public function addProductAction(ManagerRegistry $res, Request $req): Response
     {

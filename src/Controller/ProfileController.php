@@ -42,18 +42,22 @@ class ProfileController extends AbstractController
     /**
      * @Route("/passwordold", name="passwordold")
      */
-    public function passwordOldAction(Request $req, UserPasswordHasherInterface $hasher): Response
+    public function passwordOldAction(Request $req, UserPasswordHasherInterface $hasher, UserRepository $repo): Response
     {   
         $user = $this->getUser();
-        $oldPass = $req -> request -> get('txt');
+        $oldPass = $req -> request -> get('oldpass-txt');
+
+        $k = $repo->getpass($user);
+        $pass = $k[0]['Pass'];
 
         $get = $hasher->isPasswordValid($user, $oldPass);
-        $n = 0;
-        if($get == true){
-            $n = 1;
+
+        if($get == $pass){
+            return $this->redirectToRoute('change_Pass');
         }
-        
-        return $this->redirectToRoute('change_Pass');
+        else{
+            return $this->redirectToRoute('error_change_pass');
+        }  
     }
 
 
@@ -93,5 +97,4 @@ class ProfileController extends AbstractController
         ]);
     }
 
-    
 }

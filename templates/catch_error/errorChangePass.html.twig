@@ -13,29 +13,32 @@
     body{
         background: url('../Image/Background-shoe-shop.jpg');   
         background-size: auto;
-        background-position-y: -80px;  
+        background-position-y: -80px; 
     }
     .container-fluid{
         margin-left: 200px;
-        width: 360px;
-        height: 195px;
+        width: 350px;
+        height: 115px;
         background: rgba(0, 0, 0, 0.8);
         box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
     }
     .btn{
         width: 100px;
-        margin-left: 110px;
+        margin-left: 100px;
     }
     h1{
         color: #F5F5F5;
+        margin-left: 20px;
     }
 </style>
 <body>
     <div class="example-wrapper">
         <div class="container-fluid">
-            <h1>You need login to continue processing</h1>
-            <a href="{{path ('app_login')}}"><button class="btn btn-primary">OK</button></a>
+            <h1>Invalid Password</h1>
+            <a href="{{path ('password')}}"><button class="btn btn-primary">OK</button></a>
         </div>
     </div>
 </body>
 {% endblock %}
+
+

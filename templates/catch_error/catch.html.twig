@@ -17,14 +17,14 @@
     }
     .container-fluid{
         margin-left: 200px;
-        width: 360px;
+        width: 415px;
         height: 195px;
         background: rgba(0, 0, 0, 0.8);
         box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
     }
     .btn{
         width: 100px;
-        margin-left: 110px;
+        margin-left: 130px;
     }
     h1{
         color: #F5F5F5;
@@ -33,9 +33,11 @@
 <body>
     <div class="example-wrapper">
         <div class="container-fluid">
-            <h1>You need login to continue processing</h1>
+            <h1>You cannot perform this action with admin role</h1>
             <a href="{{path ('app_login')}}"><button class="btn btn-primary">OK</button></a>
         </div>
     </div>
 </body>
 {% endblock %}
+
+

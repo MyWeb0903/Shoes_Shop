@@ -1,13 +1,7 @@
-{# {% extends "base.html.twig" %} #}
-<html>
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</head>
+{% extends "base.html.twig" %}
+
 {% block body %}
-<style>
+{# <style>
     body{
         background: url('../Image/Background-shoe-shop.jpg');
     }
@@ -21,15 +15,14 @@
     form{
         color: white;
     }
-</style>
+</style> #}
 <body>
     <div class="cover">
         <div class="container-fluid" style="width: 500px">
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_end(form) }}
-         </div>
+        </div>
     </div>
 </body>
 {% endblock %}
-</html>

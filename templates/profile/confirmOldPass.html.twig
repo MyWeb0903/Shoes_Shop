@@ -1,28 +1,23 @@
 {# {% extends "basedemo1.html.twig" %} #}
 {% block title %}{% endblock %}
 
-
+{% extends "base.html.twig" %}
 {% block body %}
-<head>
+{# <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</head>
+</head>#}
 <style>
-    body{
-        background: url('../Image/Background-shoe-shop.jpg');
-    }
     .cover{
-        background: rgba(0, 0, 0, 0.8);
-        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
-        margin-top: 300px;
-        margin-left: 632px;
-        width: 300px;
-        height: 120px;
+        margin-top: 100px;
+        margin-left: 577px;
+        width: 330px;
+        height: 209px;
     }
     h3{
-        color: white;
+        color: black;
         margin-left: 20px;
     }
     form{
@@ -36,13 +31,13 @@
         margin-left: 100px;
         margin-top: 10px;
     }
-</style>
+</style> 
 <body>
     <div class="cover">
-       <div class="cover-form">
+       <div class="container-fluid">
             <h3>Enter your old password</h3>
             <form action="{{path ('passwordold')}}" method="POST">
-                <input type="text" name="txt"></input>
+                <input type="password" name="oldpass-txt"></input>
                 <button class="btn btn-primary">OK</button>
             </form>
        </div>

@@ -28,7 +28,7 @@ class CartController extends AbstractController
         $price = $repo->sumPrice($user, $cart);
         $total = $price[0]['Total'];
 
-        return $this->render('cart/indexdemo.html.twig', [
+        return $this->render('cart/index.html.twig', [
             'cart' => $ca,
             'total' => $total
         ]);

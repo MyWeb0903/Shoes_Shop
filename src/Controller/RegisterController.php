@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Controller;
-
-use App\Entity\Cart;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -14,14 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RegisterController extends AbstractController
 {
-    /**
+      /**
      * @Route("/register",name="app_signup")
      */
-    public function registerAction(Request $request, EntityManagerInterface $entityManager,
-      UserPasswordHasherInterface $hasher): Response
+    public function showsAction(Request $request, EntityManagerInterface $entityManager,
+    UserPasswordHasherInterface $hasher): Response
     {
       $user = new User();
-      $cart = new Cart();
       $form = $this->createForm(UserType::class, $user, [
         'action' => $this->generateUrl('app_signup'),
         'method' => 'POST'
@@ -33,6 +30,7 @@ class RegisterController extends AbstractController
 
       if($form->isSubmitted() && $form->isValid() && $humanCheck){
         
+        // $user->setPassword($hasher->hashPassword($user, $form->get('password')->getData()));
         
         $user->setPassword($hasher->hashPassword($user, 
         $form->get('password')->getData()));
@@ -41,8 +39,10 @@ class RegisterController extends AbstractController
 
         $entityManager->persist($user);
         $entityManager->flush();
-        $cart->setUser($user);
-        $entityManager->persist($cart);
+        
+        // return new Response('You have successfully created a user with id '.$user->getId());
+        // $cart->setUser($user);
+        // $entityManager->persist($cart);
         $entityManager->flush();
         return $this->redirectToRoute('app_login');
 
@@ -89,3 +89,5 @@ class RegisterController extends AbstractController
       ]);
     }
 }
+
+

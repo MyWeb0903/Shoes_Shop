@@ -1,75 +1,55 @@
-<html>
-
-{% block title %}{% endblock %}
-<head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-</head>
-<style>
-    body{
-        background: url('./Image/Background-shoe-shop.jpg');
-    }
-    form{
-        background: rgba(0, 0, 0, 0.8);
-        box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
-        width: 400px;
-        margin-left: 530px;
-        color: white;
-        margin-top: 20px;
-    }
-    .cover-form{
-        width: 300px;
-        margin-left: 50px;
-        margin-top: 200px;
-    }
-    h1{
-        text-align: center;
-    }
-    .btn{
-        margin-left: 100px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-</style>
+{# {% extends 'base.html.twig' %} #}
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">The username or password is incorrect</div>
-    {% endif %}
+<head>
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+    <link rel="stylesheet" type="text/css" href="login.css">
+
+</head>
+
+<body>
+
+    <section id="hero">
+        <div class="imgBx">
+            <img src="./image/backgroundlogin.jpg">
         </div>
-    {% endif %}
-    <div class="cover">
-        <div class="cover-form">
-            <h1 class="h3 mb-3 font-weight-normal">Login Form</h1>
-            <label for="inputUsername">Username</label>
-            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
-            <label for="inputPassword">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-            <input type="hidden" name="_csrf_token"
-                value="{{ csrf_token('authenticate') }}"
-            >
-
-            {#
-                Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                See https://symfony.com/doc/current/security/remember_me.html
-
-                <div class="checkbox mb-3">
-                    <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
-                    </label>
-                </div>
-            #}
-
-            <button class="btn btn-lg btn-primary" type="submit">
-                Sign in
-            </button>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Login</h2>
+                <form method="post">
+                    <div class="inputBx">
+                        <label for="inputUsername">Username</label>
+                        <input type="text" id="inputUsername" name="username" value="{{ last_username }}" autocomplete="username" required autofocus
+                         required oninvalid="setCustomValidity('Please enter the username here!')" oninput="setCustomValidity('')">
+                    </div>
+                    <div class="inputBx">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="" name="password" id="inputPassword" autocomplete="current-password" required
+                        required oninvalid="setCustomValidity('Please enter the password here!')" oninput="setCustomValidity('')">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    </div>
+                    <div class="remember">
+                        {% if error %}
+                        <div class="alert alert-danger" style="margin-bottom: 15px; color:black">The username or password is incorrect again! </div>
+                        {% endif %}
+                        <labe><input type="checkbox" name="_remember_me">Remember me</labe>
+                    </div>
+                    <div class="inputBx">
+                        <input type="submit" value="Sign in" class="btn btn" name="">
+                    </div>
+                    <div class="inputBx">
+                        <p>Don't have an account? <a href="{{path('app_signup')}}">Sign up</a></p>
+                        <p><a href="{{path('home_page')}}">Back home</a></p>
+                    </div>
+                </form>
+                <h3>Login with social media</h3>
+                <ul class="sci">
+                    <li><img src="https://img.icons8.com/bubbles/100/000000/facebook-new.png"></li>
+                    <li><img src="https://img.icons8.com/bubbles/100/000000/instagram-new.png"></li>
+                    <li><img src="https://img.icons8.com/bubbles/100/000000/behance.png"></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</form>
+    </section>
+</body>
 {% endblock %}
-</html>
+{% block footer %} {% endblock %}

@@ -6,7 +6,7 @@
 
 <head>
 
-    <link rel="stylesheet" href="product.css">
+    <link rel="stylesheet" href="cart.css">
     <script src="product.js" defer></script>
 
 </head>
@@ -22,15 +22,16 @@
 <div class="container-product">
 
    <h3 class="title"> MY CART  <i class="bi bi-bag-heart-fill"></i> </h3>
-   <h3 class="title"> Total {{total|number_format(0, '.', ',')}} <span>&#8363;</span></h3>
+   <h3 class="title" style="font-size:25px">Total quantity: {{totalQuantity}} piece(s)</h3>
+   <h3 class="title" style="font-size:25px"> Total price: {{total|number_format(0, '.', ',')}} <span>&#8363;</span></h3>
 
    <div class="products-container">
-{% for c in cart %}
-      <div class="product" data-name="{{c.id}}">
-         <img src="./Image/{{c.Image}}" alt="">
-         <h3>{{c.Name}}</h3>
-             <h3>Quantity: {{c.Quantity}}</h3>
-         <div class="price">{{(c.Price * c.Quantity)|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+{% for product in productList %}
+      <div class="product" data-name="{{product.id}}">
+         <img src="./Image/{{product.Image}}" alt="">
+         <h3>{{product.Name}}</h3>
+             <h3>Quantity: {{product.Quantity}}</h3>
+         <div class="price">{{(product.Price * product.Quantity)|number_format(0, '.', ',')}}<span> &#8363;</span></div>
       </div>
 {% endfor %}
    </div>
@@ -38,10 +39,10 @@
 </div>
 
 <div class="products-preview">
-{% for c in cart %}
-   <div class="preview" data-target="{{c.id}}">
+{% for product in productList %}
+   <div class="preview" data-target="{{product.id}}">
       <i class="fas fa-times"></i>
-      <img src="./Image/{{c.Image}}" alt="">
+      <img src="./Image/{{product.Image}}" alt="">
       <h3></h3>
       <div class="stars">
          <i class="fas fa-star"></i>
@@ -51,12 +52,12 @@
          <i class="fas fa-star-half-alt"></i>
          <span>( 250 )</span>
       </div>
-      <p>{{c.Detail}}</p>
-      <div class="price">{{c.Price|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+      <p>{{product.Detail}}</p>
+      <div class="price">{{product.Price|number_format(0, '.', ',')}}<span> &#8363;</span></div>
       <div class="buttons">
          {# <a href="#" class="buy">buy now</a> #}
-         <a href="{{path ('update_cart', {'id' : c.id})}}" class="cart">Update</a>
-        <a href="{{path ('delete_cart', {'id' : c.id})}}" class="cart">Delete</a>
+         <a href="{{path ('update_cart', {'id' : product.id})}}" class="cart">Update</a>
+        <a href="{{path ('delete_cart', {'id' : product.id})}}" class="cart">Delete</a>
         <a href="{{path ('add_order', {'total': total})}}" class="cart">Order</a>
       </div>
    </div>

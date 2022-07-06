@@ -68,17 +68,17 @@ class CartRepository extends ServiceEntityRepository
     /**
     * @return Cart[] Returns an array of Cart objects
     */
-   public function showCart($user, $cid): array
+   public function showCart($userId, $cartId): array
    {
-       return $this->createQueryBuilder('c')
-            ->select('p.Image, p.Name, p.Detail, cd.Qty_Product as Quantity, p.Price, cd.id as id')
-            ->innerJoin('c.user', 'u')
-            ->innerJoin('c.Contains', 'cd')
-            ->innerJoin('cd.product', 'p')
-            ->Where('c.user = :uid')
-            ->setParameter('uid', $user)
-            ->andWhere('c.id = :cid')
-            ->setParameter('cid', $cid)
+       return $this->createQueryBuilder('cart')
+            ->select('product.Name, product.id, product.Image, product.Price, product.Detail, contain.Qty_Product as Quantity')
+            ->innerJoin('cart.Contains', 'contain')
+            ->innerJoin('cart.user', 'user')
+            ->innerJoin('contain.product', 'product')
+            ->Where('cart.user = :userId')
+            ->setParameter('userId', $userId)
+            ->andWhere('cart.id = :cartId')
+            ->setParameter('cartId', $cartId)
             ->getQuery()
             ->getArrayResult()
        ;
@@ -87,19 +87,19 @@ class CartRepository extends ServiceEntityRepository
        /**
     * @return Cart[] Returns an array of Cart objects
     */
-    public function sumPrice($user, $cid): array
+    public function sumPrice($userId, $cartId): array
     {
-        return $this->createQueryBuilder('c')
-             ->select('Sum(p.Price * cd.Qty_Product) as Total')
-             ->innerJoin('c.user', 'u')
-             ->innerJoin('c.Contains', 'cd')
-             ->innerJoin('cd.product', 'p')
-             ->Where('c.user = :uid')
-             ->setParameter('uid', $user)
-             ->andWhere('c.id = :cid')
-             ->setParameter('cid', $cid)
-             ->getQuery()
-             ->getArrayResult()
+        return $this->createQueryBuilder('cart')
+            ->select('Sum(product.Price * contain.Qty_Product) as totalPrice, Sum(contain.Qty_Product) as totalQuantity')
+            ->innerJoin('cart.Contains', 'contain')
+            ->innerJoin('contain.product', 'product')
+            ->innerJoin('cart.user', 'user')
+            ->Where('cart.user = :userId')
+            ->setParameter('userId', $userId)
+            ->andWhere('cart.id = :cartId')
+            ->setParameter('cartId', $cartId)
+            ->getQuery()
+            ->getResult()
         ;
     }
 

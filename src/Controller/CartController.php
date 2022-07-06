@@ -23,14 +23,16 @@ class CartController extends AbstractController
         $user = $this->getUser();
 
         $cart = $repo->findOneBy(['user' => $user]);
-        $ca = $repo->showCart($user, $cart);
+        $productList = $repo->showCart($user, $cart);
 
-        $price = $repo->sumPrice($user, $cart);
-        $total = $price[0]['Total'];
+        $priceAndQuantity = $repo->sumPrice($user, $cart);
+        $totalPrice = $priceAndQuantity[0]['totalPrice'];
+        $totalQuantity =$priceAndQuantity[0]['totalQuantity'];
 
-        return $this->render('cart/index.html.twig', [
-            'cart' => $ca,
-            'total' => $total
+        return $this->render('cart/indexdemo.html.twig', [
+            'productList' => $productList,
+            'total' => $totalPrice,
+            'totalQuantity' => $totalQuantity
         ]);
 
         // return $this->array($total);

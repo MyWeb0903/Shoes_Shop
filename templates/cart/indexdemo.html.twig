@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<head>
+
+    <link rel="stylesheet" href="product.css">
+    <script src="product.js" defer></script>
+
+</head>
+
+<body>
+<section id="hero">
+    {# <div class="search">
+    <form action="{{path('search_page')}}" method="post" class="search-bar" >
+        <input type="text" class="" placeholder="Search" name="search-txt">
+        <button type="summit"><i class="bi bi-search"></i></button>
+    </form>
+  </div> #}
+<div class="container-product">
+
+   <h3 class="title"> MY CART  <i class="bi bi-bag-heart-fill"></i> </h3>
+   <h3 class="title"> Total {{total|number_format(0, '.', ',')}} <span>&#8363;</span></h3>
+
+   <div class="products-container">
+{% for c in cart %}
+      <div class="product" data-name="{{c.id}}">
+         <img src="./Image/{{c.Image}}" alt="">
+         <h3>{{c.Name}}</h3>
+             <h3>Quantity: {{c.Quantity}}</h3>
+         <div class="price">{{(c.Price * c.Quantity)|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+      </div>
+{% endfor %}
+   </div>
+
+</div>
+
+<div class="products-preview">
+{% for c in cart %}
+   <div class="preview" data-target="{{c.id}}">
+      <i class="fas fa-times"></i>
+      <img src="./Image/{{c.Image}}" alt="">
+      <h3></h3>
+      <div class="stars">
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star"></i>
+         <i class="fas fa-star-half-alt"></i>
+         <span>( 250 )</span>
+      </div>
+      <p>{{c.Detail}}</p>
+      <div class="price">{{c.Price|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+      <div class="buttons">
+         {# <a href="#" class="buy">buy now</a> #}
+         <a href="{{path ('update_cart', {'id' : c.id})}}" class="cart">Update</a>
+        <a href="{{path ('delete_cart', {'id' : c.id})}}" class="cart">Delete</a>
+        <a href="{{path ('add_order', {'total': total})}}" class="cart">Order</a>
+      </div>
+   </div>
+{% endfor %}
+</div>
+</section>
+</body>
+
+{% endblock %}

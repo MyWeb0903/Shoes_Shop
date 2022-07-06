@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -57,6 +58,7 @@ class UserType extends AbstractType
                     'placeholder' => 'Enter your email',
                     'required oninvalid' => 'this.setCustomValidity("Please enter the email here!")',
                      'oninput' => 'setCustomValidity("")'
+                     
                     ]
             ])
             ->add('Address', TextType::class, [
@@ -66,12 +68,14 @@ class UserType extends AbstractType
                      'oninput' => 'setCustomValidity("")'
                     ]
             ])
-            ->add('Phone', TextType::class, [
+            ->add('Phone', NumberType::class,[
                  'attr' => [
                     'placeholder' => 'Enter your phone number',
                     'required oninvalid' => 'this.setCustomValidity("Please enter the phone number here!")',
-                     'oninput' => 'setCustomValidity("")'
-                    ]
+                     'oninput' => 'setCustomValidity("")',
+                    'onkeydown'=>"javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
+                 ],
+                 
             ])
             ->add('Gender', ChoiceType::class, [
                 'choices' => [

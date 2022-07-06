@@ -150,8 +150,8 @@ section .contentBx .formBx .sci li:hover {
 }
 
 section .contentBx .formBx .sci li img {
-    transform: scale(0.5);
-    filter: invert(1);
+    transform: scale(0.6);
+    /* filter: invert(1); */
 }
 
 @media (max-width: 768px) {

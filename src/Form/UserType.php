@@ -39,7 +39,7 @@ class UserType extends AbstractType
                     'required oninvalid' => 'this.setCustomValidity("Please enter the password here!")',
                      'oninput' => 'setCustomValidity("")'
                     ]],
-                'second_options' => ['label' => 'Confirm the password', 'attr' => [
+                'second_options' => ['label' => 'Confirm password', 'attr' => [
                     'placeholder' => 'Confirm your password',
                     'required oninvalid' => 'this.setCustomValidity("Please confirm the password here!")',
                      'oninput' => 'setCustomValidity("")'

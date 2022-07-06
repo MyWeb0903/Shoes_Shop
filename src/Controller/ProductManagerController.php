@@ -75,15 +75,4 @@ class ProductManagerController extends AbstractController
         return $this->redirectToRoute('pro_manager');
     }
 
-
-    // /**
-    //  * @Route("/adminManager/{id}", name="get_catemanager")
-    //  */
-    // public function getCateManagerAction(ProductRepository $repo, $id): Response
-    // {
-    //     $product = $repo->find($id);
-    //     return $this->render('CateManager/index.html.twig', [
-    //         'p' => $product
-    //     ]);
-    // }
 }

@@ -53,7 +53,7 @@
                         <td >
                         <img <img src="./Image/{{c.Image}}" style="height: 100px; width: 100px;">
                        </td>
-                        <td></td>
+                        <td>{{(c.Price * c.Quantity)|number_format(0, '.', ',')}}</td>
                         <td><a style="color: #272727; margin-left:10px;" href="{{path ('update_cart', {'id' : c.id})}}" class="glyphicon glyphicon-pencil"></a> 
                         <a style="color: #272727; margin-left:10px;" href="{{path ('delete_cart', {'id' : c.id})}}" class="glyphicon glyphicon-remove"></a></td>    
                     </tr>
@@ -71,11 +71,11 @@
         </div>
     </div>
 </section>
-    <div class="cover-order">
+    {# <div class="cover-order">
         <h4 class="total">Total {{total|number_format(0, '.', ',')}} <span>&#8363;</span></h4>
         <a  id="btn-order" href="{{path ('add_order', {'total': total})}}" class="btn btn-primary" style= "background-color: rgba(13,92,182,255);" type="submit" name="payment">Order</a> 
-    </div>
-    {% for c in cart %}
+    </div> #}
+    {# {% for c in cart %}
         <div class="cover"
             <div>
                 <img src="./Image/{{c.Image}}"/>
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </div>
-   {% endfor %}
+   {% endfor %} #}
 </body>
 {% endblock %} 
 

@@ -40,7 +40,7 @@ class UpdatePasswordType extends AbstractType
         ->add('Ok', SubmitType::class, [
              'attr' => [
                 'class' => 'btn btn-success',
-                'style' => 'margin-left: 150px'
+                'style' => 'margin-left: 98px'
             ]
         ]);
     }

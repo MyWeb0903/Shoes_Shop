@@ -8,9 +8,14 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields = {"username"}, message ="Invalid username!")
+ * @UniqueEntity(fields = {"Email"}, message ="Invalid email!")
+ * @UniqueEntity(fields = {"Phone"}, message ="Invalid phone!")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -23,6 +28,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
      */
     private $username;
 
@@ -34,6 +40,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(
+     * min = 8,
+     * max = 30,
+     * minMessage = "Password must be from {{ limit }} more characters",
+     * maxMessage = "Password cannot be more than {{ limit }} characters",
+     * )
      */
     private $password;
 
@@ -43,7 +55,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $Fullname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $Email;
 
@@ -53,7 +65,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $Address;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, unique=true)
      */
     private $Phone;
 
@@ -78,16 +90,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $feadbacks;
 
 
-    // /**
-    //  * @ORM\ManyToMany(targetEntity=Product::class, inversedBy="users")
-    //  */
-    // private $Product_ID;
-
     public function __construct()
     {
         $this->Order_ID = new ArrayCollection();
         $this->Cart_ID = new ArrayCollection();
-        // $this->Product_ID = new ArrayCollection();
         $this->feadbacks = new ArrayCollection();
     }
 
@@ -277,30 +283,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-
-    // /**
-    //  * @return Collection<int, Product>
-    //  */
-    // public function getProductID(): Collection
-    // {
-    //     return $this->Product_ID;
-    // }
-
-    // public function addProductID(Product $productID): self
-    // {
-    //     if (!$this->Product_ID->contains($productID)) {
-    //         $this->Product_ID[] = $productID;
-    //     }
-
-    //     return $this;
-    // }
-
-    // public function removeProductID(Product $productID): self
-    // {
-    //     $this->Product_ID->removeElement($productID);
-
-    //     return $this;
-    // }
 
     /**
      * @return Collection<int, Feadback>

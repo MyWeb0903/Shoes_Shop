@@ -18,16 +18,22 @@
         box-shadow: 2px 2px 17px 10px rgba(255, 255, 255, 0.8);
         color: white;
     }
+    input{
+        margin-top: -42px;
+        margin-left: 65px;
+    }
     .btn{
-        margin-left: 55px;
+        margin-left: 32px;
     }
 </style>
 <body>
     <div class="cover">
-        <div class="container-fluid" style="width: 200px">
-            {{ form_start(form) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
+        <div class="container-fluid" style="width: 150px">
+            <div style="width: 60px">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
         </div>
     </div>
 </body> 

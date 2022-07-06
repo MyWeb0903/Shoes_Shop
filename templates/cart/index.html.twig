@@ -39,7 +39,7 @@
                 <div>
                     <h3>{{c.Name}}</h3>
                     <h5>{{c.Quantity}}</h5>
-                    <h5>{{c.Price|number_format(0, '.', ',')}} <span>&#8363;</span></h5>
+                    <h5>{{(c.Price * c.Quantity)|number_format(0, '.', ',')}} <span>&#8363;</span></h5>
                 </div>
                 <div>
                     <a href="{{path ('update_cart', {'id' : c.id})}}"><button class="btn btn-primary">Update</button></a>

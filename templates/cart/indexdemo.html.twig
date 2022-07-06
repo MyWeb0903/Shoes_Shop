@@ -30,7 +30,7 @@
          <img src="./Image/{{c.Image}}" alt="">
          <h3>{{c.Name}}</h3>
              <h3>Quantity: {{c.Quantity}}</h3>
-         <div class="price">{{c.Price|number_format(0, '.', ',')}}<span> &#8363;</span></div>
+         <div class="price">{{(c.Price * c.Quantity)|number_format(0, '.', ',')}}<span> &#8363;</span></div>
       </div>
 {% endfor %}
    </div>

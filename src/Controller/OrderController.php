@@ -7,6 +7,7 @@ use App\Entity\OrderDetail;
 use App\Form\Type\OrderType;
 use App\Repository\CartRepository;
 use App\Repository\ContainRepository;
+use App\Repository\OrderDetailRepository;
 use App\Repository\OrderRepository;
 use App\Repository\ProductRepository;
 use App\Repository\UserRepository;
@@ -106,6 +107,24 @@ class OrderController extends AbstractController
         }
 
         return  $this->redirectToRoute('product_page');
+    }
+
+
+
+    /**
+     * @Route("/orderDetail/{id}", name="Show_OrderDetail")
+     */
+    public function OrderDetailAction(OrderDetailRepository $repo, $id): Response
+    {
+        $show = $repo->showOrderdetail($id);
+        // $orderID = $show[0]['Order_ID'];
+        // $proID = $show[0]['Pro_ID'];
+
+        return $this->render('OrderManager/OrderDetail.html.twig', [
+            'order' => $show
+            // 'orderID' => $orderID,
+            // 'proID' => $proID
+        ]);
     }
 
 }

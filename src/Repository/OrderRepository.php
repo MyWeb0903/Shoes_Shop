@@ -81,17 +81,4 @@ class OrderRepository extends ServiceEntityRepository
    }
 
 
-     /**
-    * @return Order[] Returns an array of Order objects
-    */
-    public function getUserID(): array
-    {
-        return $this->createQueryBuilder('o')
-             ->select('u.id as ID')
-             ->innerJoin('o.user', 'u')
-             ->getQuery()
-             ->getResult()
-        ;
-    }
-
 }

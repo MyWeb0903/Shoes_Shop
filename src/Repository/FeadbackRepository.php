@@ -65,18 +65,18 @@ class FeadbackRepository extends ServiceEntityRepository
 //    }
 
 
-   /**
-    * @return Feadback[] Returns an array of Feadback objects
-    */
-   public function showUID(): array
-   {
-       return $this->createQueryBuilder('f')
-            ->select('u.id as ID')
-            ->innerJoin('f.User', 'u')
-            ->getQuery()
-            ->getResult()
-       ;
-   }
+//    /**
+//     * @return Feadback[] Returns an array of Feadback objects
+//     */
+//    public function showUID(): array
+//    {
+//        return $this->createQueryBuilder('f')
+//             ->select('u.id as ID')
+//             ->innerJoin('f.User', 'u')
+//             ->getQuery()
+//             ->getResult()
+//        ;
+//    }
 
 
 }

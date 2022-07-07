@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controller;
+
+use App\Entity\Cart;
 use App\Entity\User;
 use App\Form\UserType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -19,6 +21,7 @@ class RegisterController extends AbstractController
     UserPasswordHasherInterface $hasher): Response
     {
       $user = new User();
+      $cart = new Cart();
       $form = $this->createForm(UserType::class, $user, [
         'action' => $this->generateUrl('app_signup'),
         'method' => 'POST'
@@ -41,8 +44,8 @@ class RegisterController extends AbstractController
         $entityManager->flush();
         
         // return new Response('You have successfully created a user with id '.$user->getId());
-        // $cart->setUser($user);
-        // $entityManager->persist($cart);
+        $cart->setUser($user);
+        $entityManager->persist($cart);
         $entityManager->flush();
         return $this->redirectToRoute('app_login');
 

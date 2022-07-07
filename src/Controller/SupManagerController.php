@@ -19,14 +19,4 @@ class SupManagerController extends AbstractController
         ]);
     }
 
-    // /**
-    //  * @Route("/adminManager/{id}", name="get_catemanager")
-    //  */
-    // public function getCateManagerAction(ProductRepository $repo, $id): Response
-    // {
-    //     $product = $repo->find($id);
-    //     return $this->render('CateManager/index.html.twig', [
-    //         'p' => $product
-    //     ]);
-    // }
 }

@@ -70,7 +70,7 @@ class UserType extends AbstractType
                  'attr' => [
                     'placeholder' => 'Enter your phone number',
                     'required oninvalid' => 'this.setCustomValidity("Please enter the phone number here!")',
-                     'oninput' => 'setCustomValidity("")'
+                    'oninput' => 'setCustomValidity("")', 'onkeydown'=>"javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
                     ]
             ])
             ->add('Gender', ChoiceType::class, [

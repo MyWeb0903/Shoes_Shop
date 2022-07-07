@@ -18,21 +18,50 @@ class ProfileController extends AbstractController
     /**
      * @Route("/profile", name="profile_page")
      */
-    public function profireAction(UserRepository $repo): Response
+    public function profileAction(UserRepository $repo): Response
     {
         $user = $this->getUser();
         // $user = $get;
-        $profile = $repo->getUserAccount($user);
-        return $this->render('profile/index.html.twig', [
-            'profile' => $profile
+        $profiles = $repo->getUserAccount($user);
+        return $this->render('profile/indedemo.html.twig', [
+            'profiles' => $profiles
         ]);
     }
+
+
+    /**
+     * @Route("/updateProfile", name="update_profile", methods={"POST"})
+     */
+    public function UpdateProfileAction(UserRepository $repo, Request $req, ManagerRegistry $res): Response
+    {
+        $entity = $res->getManager();
+        $user = $this->getUser();
+        $findUser = $repo->find($user);
+
+        $fullname = $req->request->get('txt-fullname');
+        $email = $req->request->get('txt-email');
+        $address = $req->request->get('txt-address');
+        $gender = $req->request->get('sele-gender');
+        $phone = $req->request->get('txt-phone');
+
+        $findUser->setFullname($fullname);
+        $findUser->setEmail($email);
+        $findUser->setAddress($address);
+        $findUser->setGender($gender);
+        $findUser->setPhone($phone);
+
+
+        $entity->persist($findUser);
+        $entity->flush();
+        return $this->redirectToRoute('profile_page');
+    }
+
 
     /**
      * @Route("/password", name="password")
      */
     public function passwordAction(): Response
-    {   
+    {
         return $this->render('profile/confirmOldPass.html.twig', [
             'controller_name' => 'Controller',
         ]);
@@ -43,30 +72,33 @@ class ProfileController extends AbstractController
      * @Route("/passwordold", name="passwordold")
      */
     public function passwordOldAction(Request $req, UserPasswordHasherInterface $hasher, UserRepository $repo): Response
-    {   
+    {
         $user = $this->getUser();
-        $oldPass = $req -> request -> get('oldpass-txt');
+        $oldPass = $req->request->get('oldpass-txt');
 
         $k = $repo->getpass($user);
         $pass = $k[0]['Pass'];
 
         $get = $hasher->isPasswordValid($user, $oldPass);
 
-        if($get == $pass){
+        if ($get == $pass) {
             return $this->redirectToRoute('change_Pass');
-        }
-        else{
+        } else {
             return $this->redirectToRoute('error_change_pass');
-        }  
+        }
     }
 
 
     /**
      * @Route("/changePass", name="change_Pass")
      */
-    public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, 
-    UserPasswordHasherInterface $hasher, CartRepository $cRepo): Response
-    {   
+    public function change_PassAction(
+        Request $req,
+        ManagerRegistry $res,
+        UserRepository $repo,
+        UserPasswordHasherInterface $hasher,
+        CartRepository $cRepo
+    ): Response {
         $user = $this->getUser();
         $cart = $cRepo->findOneBy(['user' => $user]);
         $n = $cRepo->getUserID($cart);
@@ -81,10 +113,12 @@ class ProfileController extends AbstractController
         $form->handleRequest($req);
         $entity = $res->getManager();
 
-       
-        if($form->isSubmitted() && $form->isValid()){
-            $user->setPassword($hasher->hashPassword($user, 
-            $form->get('password')->getData()));
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setPassword($hasher->hashPassword(
+                $user,
+                $form->get('password')->getData()
+            ));
 
             $entity->persist($user);
             $entity->flush();
@@ -96,5 +130,4 @@ class ProfileController extends AbstractController
             'form' => $form->createView()
         ]);
     }
-
 }

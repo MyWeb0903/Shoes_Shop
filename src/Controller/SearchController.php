@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +27,5 @@ class SearchController extends AbstractController
 
         ]);
     }
-
 
 }

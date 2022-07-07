@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update profile</title>
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="profile.css">
+
+</head>
+
+<body>
+<section id="hero">
+    <div class="update-profile">
+
+        <form action="{{path('update_profile')}}" method="post" enctype="multipart/form-data">
+     {% for profile in profiles %}
+            <img src="image/default-avatar.png">
+            <div class="flex">
+                <div class="inputBox">
+                    <span>Username :</span>
+                    <input type="text" name="" readonly="readonly" value="{{profile.username}}" class="box" required required oninvalid="setCustomValidity('Please enter the username here!')" oninput="setCustomValidity('')">
+                    <span>Full name :</span>
+                    <input type="text" name="txt-fullname" value="{{profile.Fullname}}" class="box" style="text-transform: capitalize">
+                    <span>Email :</span>
+                    <input type="email" name="txt-email" value="{{profile.Email}}" class="box">
+                    <span>Address :</span>
+                    <input type="text" name="txt-address" value="{{profile.Address}}" class="box">
+                    <span>Avatar :</span>
+                    <input type="file" name="" accept="image/jpg, image/jpeg, image/png" class="box">
+                    <span>Gender :</span>
+                    <select class="box" name="sele-gender">
+                        {# <option value="{{profile.Gender}}" disabled selected>Choose your gender</option> #}
+                        <option value="{{profile.Gender}}">{{profile.Gender}}</option>
+                        {% if profile.Gender == "Male" %}
+                            <option value="Female">Female</option>
+                        {% else %}
+                            <option value="Male">Male</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <input type="hidden" name="old_pass" value="">
+
+                    <span>Phone :</span>
+                    <input type="text" name="txt-phone" value="{{profile.Phone}}" onkeydown="javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'" placeholder="Enter previous password" class="box" />
+                    <span>Birthday :</span>
+                    <input type="text" readonly="readonly" value="{{profile.Birthday|date('y-m-d')}}" name="update_pass" class="box">
+                    <span>Old password :</span>
+                    <input type="password" name="txt-oldPassword" placeholder="Enter previous password" class="box">
+                    <span>New password :</span>
+                    <input type="password" name="txt-newPassword" placeholder="Enter new password" class="box">
+                    <span>Confirm password :</span>
+                    <input type="password" name="txt-passwordConfirm" placeholder="Confirm new password" class="box">
+                </div>
+            </div>
+            <input type="submit" value="Update the profile" name="btn-updateProfile" class="btn">
+            <a href="#" class="delete-btn">Change the password</a>
+            <a type="submit" href="{{path('home_page')}}" class="delete-btn">Go back</a>
+    {% endfor %}
+        </form>
+
+    </div>
+</section>
+</body>
+
+
+{% endblock %}

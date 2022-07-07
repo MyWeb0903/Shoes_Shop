@@ -86,9 +86,16 @@
               {% endif %}
               {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
+                <li>
+                     <a href="{{path ('profile_page')}}"data-after="Profile ">
+                      My profile 
+                       <span class="bi bi-person-circle"></span>
+                    </a>
+                  </li>
                   <li>
+                    
                     <a href="{{path ('profile_page')}}"data-after="{{ app.user.userIdentifier }}">
-                      Hi {{ app.user.userIdentifier }}
+                      Hi, {{ app.user.userIdentifier }}
                        <span class="bi bi-person-circle"></span>
                     </a>
                     
@@ -100,9 +107,15 @@
                   </li>
                   
                 {% else %}
+                <li>
+                     <a href="{{path ('profile_page')}}"data-after="Profile ">
+                      My profile 
+                       <span class="bi bi-person-circle"></span>
+                    </a>
+                  </li>
                   <li>
                      <a href="{{path ('profile_page')}}"data-after="{{ app.user.userIdentifier }}">
-                      Hi {{ app.user.userIdentifier }}
+                      Hi, {{ app.user.userIdentifier }}
                        <span class="bi bi-person-circle"></span>
                     </a>
                   </li>

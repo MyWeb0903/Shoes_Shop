@@ -20,7 +20,9 @@ class UpdateCartType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('Qty_Product', TextType::class)
+        ->add('Qty_Product', TextType::class, [
+            'attr' => ['onkeydown'=>"javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
+        ]])
         ->add('OK', SubmitType::class, [
             'label' => 'OK'
         ]);

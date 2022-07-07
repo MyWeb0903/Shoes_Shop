@@ -21,29 +21,19 @@
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Order ID</th>
-                        <th scope="col">OrderDate</th>
-                        <th scope="col">DeliveryDate</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Client</th>
-                        <th  style="width:160px;">Action</th>
+                        <th scope="col">Product ID</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for o in order %}
                         <tr>
-                            <td>{{o.id}}</td>
-                            <td>{{o.OrderDate|date('y-m-d')}}</td>
-                            <td>{{o.DeliveryDate|date('y-m-d')}}</td>
-                            <td>{{o.Payment}}</td>
-                            <td>{{o.Address}}</td>
-                            <td>{{o.Status}}</td>
-                            <td>{{o.Phone}}</td>
-                            <td>{{o.Client}}</td>
-                            <td><a href="{{path ('confirm', {'id' : o.id})}}">Confirm</a>|<a href="{{path ('Show_OrderDetail', {'id' : o.id})}}">Detail</a>
+                            <td>{{o.ID}}</td>
+                            <td>{{o.Quantity}}</td>
+                            <td>{{o.OrderID}}</td>
+                            <td>{{o.ProID}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

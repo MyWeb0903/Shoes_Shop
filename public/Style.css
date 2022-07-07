@@ -216,11 +216,11 @@ header .nav-list ul ul li .greeting {
     margin-left: 15px;
 }
 
-#header .nav-list ul ul {
+#header .nav-list ul ul#mana {
     display: none;
 }
 
-#header .nav-list ul li:hover>ul {
+#header .nav-list ul li:hover>ul#mana {
     display: inline-table;
 }
 

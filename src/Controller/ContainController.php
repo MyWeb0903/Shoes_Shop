@@ -100,4 +100,16 @@ class ContainController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/sum", name="sum")
+     */
+    public function sumAction(ContainRepository $rep, CartRepository $cartRe): Response
+    {   
+        $user = $this->getUser();
+        $cart = $cartRe->findOneBy(['user'=>$user]);
+        $a = $rep->sumquantityPro($cart);
+        $n = $a[0]['sumPrice'];
+        return $this->json($n);
+    }
 }

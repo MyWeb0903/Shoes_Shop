@@ -32,5 +32,7 @@ class CartController extends AbstractController
             'cart' => $ca,
             'total' => $total
         ]);
+
+        // return $this->array($total);
     }
 }

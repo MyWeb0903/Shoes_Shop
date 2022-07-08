@@ -23,77 +23,125 @@ class ProfileController extends AbstractController
         $user = $this->getUser();
         // $user = $get;
         $profile = $repo->getUserAccount($user);
+        $message = "";
         return $this->render('profile/index.html.twig', [
-            'profile' => $profile
-        ]);
-    }
-
-    /**
-     * @Route("/password", name="password")
-     */
-    public function passwordAction(): Response
-    {   
-        return $this->render('profile/confirmOldPass.html.twig', [
-            'controller_name' => 'Controller',
+            'profiles' => $profile,
+            'message' => $message
         ]);
     }
 
 
-    /**
-     * @Route("/passwordold", name="passwordold")
-     */
-    public function passwordOldAction(Request $req, UserPasswordHasherInterface $hasher, UserRepository $repo): Response
-    {   
-        $user = $this->getUser();
-        $oldPass = $req->request->get('oldpass-txt');
-
-        $k = $repo->getpass($user);
-        $pass = $k[0]['Pass'];
-
-        $get = $hasher->isPasswordValid($user, $oldPass);
-        if($get == $pass){
-            return $this->redirectToRoute('change_Pass');
-        }
-        else{
-            return $this->redirectToRoute('error_change_pass');
-        }  
-    }
-
 
     /**
-     * @Route("/changePass", name="change_Pass")
+     * @Route("/update-profile", name="update_profile", methods={"POST"})
      */
-    public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, 
-    UserPasswordHasherInterface $hasher, CartRepository $cRepo): Response
-    {   
-        $user1 = $this->getUser();
-        $cart = $cRepo->findOneBy(['user' => $user1]);
-        $n = $cRepo->getUserID($cart);
-
-        $k = $n[0]['ID'];
-
-        $user = $repo->find($k);
-        $form = $this->createForm(UpdatePasswordType::class, $user1);
-
-
-
-        $form->handleRequest($req);
+    public function changePasswordAction(UserRepository $repo, Request $req, ManagerRegistry $res,
+     UserPasswordHasherInterface $hasher): Response
+    {
         $entity = $res->getManager();
+        $user = $this->getUser();
+        $findUser = $repo->find($user);
 
-       
-        if($form->isSubmitted() && $form->isValid()){
-            $user->setPassword($hasher->hashPassword($user, 
-            $form->get('password')->getData()));
+        $currentPassword = $req->request->get('txt-currentPassword');
+        $newPassword = $req->request->get('txt-newPassword');
+        $passwordConfirm = $req->request->get('txt-passwordConfirm');
 
-            $entity->persist($user);
+        if($currentPassword == "" or $newPassword == "" or $passwordConfirm == "")
+        {
+            $fullname = $req->request->get('txt-fullname');
+            $email = $req->request->get('txt-email');
+            $address = $req->request->get('txt-address');
+            $gender = $req->request->get('sele-gender');
+            $phone = $req->request->get('txt-phone');
+            $avatar = $req->request->get('img-avatar');
+
+            $findUser->setFullname($fullname);
+            $findUser->setEmail($email);
+            $findUser->setAddress($address);
+            $findUser->setGender($gender);
+            $findUser->setPhone($phone);
+
+            $entity->persist($findUser);
             $entity->flush();
 
-            return $this->redirectToRoute('profile_page');
+            $profiles = $repo->getUserAccount($user);
+            
+            $message = 'Update your profile successfully!';
+
+            return $this->render('profile/index.html.twig', [
+                        'message' => $message,
+                        'profiles' => $profiles,
+                        ]);
         }
 
-        return $this->render('profile/ChangePass.html.twig', [
-            'form' => $form->createView()
+        if($currentPassword != "" && $newPassword != "" && $passwordConfirm != "")
+        {
+            $password = $repo->getpass($user);
+            $getPassword =$password[0]['Pass'];
+            $getHasherPassword = $hasher->isPasswordValid($user, $currentPassword);
+
+            if($getHasherPassword == $getPassword)
+            {
+                if($newPassword == $passwordConfirm)
+                {
+                    $fullname = $req->request->get('txt-fullname');
+                    $email = $req->request->get('txt-email');
+                    $address = $req->request->get('txt-address');
+                    $gender = $req->request->get('sele-gender');
+                    $phone = $req->request->get('txt-phone');
+                    $avatar = $req->request->get('img-avatar');
+       
+
+                    $findUser->setFullname($fullname);
+                    $findUser->setEmail($email);
+                    $findUser->setAddress($address);
+                    $findUser->setGender($gender);
+                    $findUser->setPhone($phone);
+
+                    $findUser->setPassword($hasher->hashPassword($user, $newPassword));
+
+                    $entity->persist($findUser);
+                    $entity->flush();
+
+                    $profiles = $repo->getUserAccount($user);
+
+                        $message = "Update your password successfully!";
+
+                        return $this->render('profile/index.html.twig', [
+                        'message' => $message,
+                        'profiles' => $profiles,
+                        ]);
+                    }else
+                    {  
+                        $profiles = $repo->getUserAccount($user);
+                        $message = "Confirmation password does not match!";
+                        
+                        return $this->render('profile/index.html.twig', [
+                            'message' => $message,
+                            'profiles' => $profiles,
+                    ]);
+                }
+                
+            }else
+            {
+                $message = "Current password is incorrect!";
+                $profiles = $repo->getUserAccount($user);
+        
+                return $this->render('profile/index.html.twig', [
+                'message' => $message,
+                'profiles' => $profiles,
+                ]);
+            }
+        }
+        
+        $profiles = $repo->getUserAccount($user);
+        $message = "";
+         return $this->render('profile/index.html.twig', [
+            'message' => $message,
+            'profiles' => $profiles,
+
         ]);
     }
+
 
 }

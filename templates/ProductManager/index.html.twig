@@ -32,7 +32,7 @@
                         <td>{{p.id}}</td>
                         <td>{{p.Name}}</td>
                         <td>{{p.Quantity}}</td>
-                        <td>{{p.Price}}</td>
+                        <td>{{p.Price|number_format(0, '.', ',')}}<span>&#8363;</span></td>
                         <td >
                         <img src="./Image/{{p.Image}}" style="height: 100px; width: 100px;">
                        </td>

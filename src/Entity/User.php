@@ -65,6 +65,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=10, unique=true)
+     *  @Assert\Length(
+     * min = 10,
+     * max = 10,
+     * minMessage = "Phone must include {{ limit }} number",
+     * maxMessage = "Phone must include {{ limit }} number",
      */
     private $Phone;
 

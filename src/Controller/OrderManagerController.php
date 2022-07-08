@@ -36,7 +36,7 @@ class OrderManagerController extends AbstractController
 
         $date = New \DateTime();
         $status = 'Delivery';
-
+        
         $order->setDeliveryDate($date); 
         $order->setStatus($status);
 

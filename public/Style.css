@@ -229,6 +229,9 @@ header .nav-list ul ul li .greeting {
     border-radius: 3px;
     box-shadow: 0 0 10px #ffffff, 0 0 10px #ffffff;
 }
+.form-error-message{
+    color: black;
+}
 
 
 /*  */

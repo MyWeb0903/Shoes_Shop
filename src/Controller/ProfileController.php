@@ -66,14 +66,14 @@ class ProfileController extends AbstractController
     public function change_PassAction(Request $req, ManagerRegistry $res, UserRepository $repo, 
     UserPasswordHasherInterface $hasher, CartRepository $cRepo): Response
     {   
-        $user = $this->getUser();
-        $cart = $cRepo->findOneBy(['user' => $user]);
+        $user1 = $this->getUser();
+        $cart = $cRepo->findOneBy(['user' => $user1]);
         $n = $cRepo->getUserID($cart);
 
         $k = $n[0]['ID'];
 
         $user = $repo->find($k);
-        $form = $this->createForm(UpdatePasswordType::class, $user);
+        $form = $this->createForm(UpdatePasswordType::class, $user1);
 
 
 

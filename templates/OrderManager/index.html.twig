@@ -37,7 +37,11 @@
                         <tr>
                             <td>{{o.id}}</td>
                             <td>{{o.OrderDate|date('y-m-d')}}</td>
-                            <td>{{o.DeliveryDate|date('y-m-d')}}</td>
+                            {% if o.status != "" %}
+                                <td>{{o.DeliveryDate|date('y-m-d')}}</td>
+                            {% else %}
+                                <td>{{o.DeliveryDate}}</td>
+                            {% endif %}
                             <td>{{o.Payment}}</td>
                             <td>{{o.Address}}</td>
                             <td>{{o.Status}}</td>

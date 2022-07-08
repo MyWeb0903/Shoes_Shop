@@ -87,7 +87,7 @@
               {% if app.user %}
                 {% if is_granted('ROLE_ADMIN') %}
                   <li>
-                    <a href="{{path ('profile_page')}}"data-after="{{ app.user.userIdentifier }}">
+                    <a href="#"data-after="{{ app.user.userIdentifier }}">
                       Hi {{ app.user.userIdentifier }}
                        <span class="bi bi-person-circle"></span>
                     </a>

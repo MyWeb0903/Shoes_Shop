@@ -45,4 +45,12 @@ class CatchErrorController extends AbstractController
     {
         return $this->render('catch_error/catchOrderError.html.twig', []);
     }
+
+    /**
+     * @Route("catchSearch", name="catchSearch")
+     */
+    public function catchSearchAction(): Response
+    {
+        return $this->render('catch_error/catchSearch.html.twig', []);
+    }
 }

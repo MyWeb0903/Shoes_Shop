@@ -37,4 +37,12 @@ class CatchErrorController extends AbstractController
             'controller_name' => 'CatchErrorController',
         ]);
     }
+
+    /**
+     * @Route("catchOrderError", name="catchOrderError")
+     */
+    public function catchOrderErrorAction(): Response
+    {
+        return $this->render('catch_error/catchOrderError.html.twig', []);
+    }
 }

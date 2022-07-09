@@ -93,6 +93,6 @@ class SupplierController extends AbstractController
         $entity->remove($supplier);
         $entity->flush();
 
-        return $this->json("Delete a project successfully with id". $id);
+        return $this->redirectToRoute('app_supplier');
     }
 }

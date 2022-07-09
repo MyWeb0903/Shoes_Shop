@@ -43,50 +43,54 @@ class OrderController extends AbstractController
         $user = $this->getUser();
         $cart = $cartRepo->findOneBy(['user' => $user]);
 
-        $curDate = new \DateTime();
-        $curDate->format('H:i:s \O\n Y-m-d');
-
-        $getCart = $cartRepo->sumPrice($user, $cart);
-
-        $get = $uRepo->get($user);
-
-        $address = $get[0]['address'];
-        $phone = $get[0]['phone'];
-        $client = $get[0]['Client'];
-
-        $order->setOrderDate($curDate);
-        $order->setPayment($getCart[0]['Total']);
-        $order->setAddress($address);
-        $order->setPhone($phone);
-        $order->setUser($user);
-        $order->setClient($client);
-
-
-        $entity->persist($order);
-        $entity->flush();
-
-        //add to orderdetail
         $cont = $contRepo->countContain($cart);
         $get = $cont[0]['CountCart'];
-
-        $OrderID = $orderRepo->getOrderID($user);
-        $getOrder = $OrderID[0]['OrderID'];
-
-        $n = $orderRepo->find($getOrder);
-
-
-
+        
         if($get != 0){
+            $curDate = new \DateTime();
+            $curDate->format('H:i:s \O\n Y-m-d');
+
+            $getCart = $cartRepo->sumPrice($user, $cart);
+
+            $get = $uRepo->get($user);
+
+            $address = $get[0]['address'];
+            $phone = $get[0]['phone'];
+            $client = $get[0]['Client'];
+
+            $order->setOrderDate($curDate);
+            $order->setPayment($getCart[0]['Total']);
+            $order->setAddress($address);
+            $order->setPhone($phone);
+            $order->setUser($user);
+            $order->setClient($client);
+
+
+            $entity->persist($order);
+            $entity->flush();
+
+        //add to orderdetail
+        // $cont = $contRepo->countContain($cart);
+        // $get = $cont[0]['CountCart'];
+
+            $OrderID = $orderRepo->getOrderID($user);
+            $getOrder = $OrderID[0]['OrderID'];
+
+            $n = $orderRepo->find($getOrder);
+
+
+
+        // if($get != 0){
             for($i = 0; $i < $get; $i++){
                 $orderDetail = new OrderDetail();
 
                 $getCart = $contRepo->getProID($cart);
-                $quantity = $getCart[$i]['quantity'];
+                $Quantity = $getCart[$i]['quantity'];
         
                 $proID = $getCart[$i]['ProductID'];
                 $m = $proRepo->find($proID);
 
-                $orderDetail->setQtyPro($quantity);
+                $orderDetail->setQtyPro($Quantity);
                 $orderDetail->setOrderID($n);
                 $orderDetail->setProduct($m);
 
@@ -96,17 +100,17 @@ class OrderController extends AbstractController
             
                 $k = $getCart[$i]['ProQty'];
 
-                $m->setQuantity($k - $quantity);
+                $m->setQuantity($k - $Quantity);
 
                 $entity->persist($m);
                 $entity->flush();
+                return  $this->redirectToRoute('product_page');
             }
         }
         else{
-            return $this->json('No product to order!');
+            return  $this->redirectToRoute('catchOrderError');
         }
 
-        return  $this->redirectToRoute('product_page');
     }
 
 

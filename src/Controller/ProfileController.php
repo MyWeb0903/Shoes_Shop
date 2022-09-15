@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\Type\UpdatePasswordType;
 use App\Repository\CartRepository;
 use App\Repository\UserRepository;
+use Doctrine\ORM\Query\AST\Functions\LengthFunction;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -92,11 +93,11 @@ class ProfileController extends AbstractController
                     $avatar = $req->request->get('img-avatar');
        
 
-                    $findUser->setFullname($fullname);
-                    $findUser->setEmail($email);
-                    $findUser->setAddress($address);
-                    $findUser->setGender($gender);
-                    $findUser->setPhone($phone);
+                        $findUser->setFullname($fullname);
+                        $findUser->setEmail($email);
+                        $findUser->setAddress($address);
+                        $findUser->setGender($gender);
+                        $findUser->setPhone($phone);
 
                     $findUser->setPassword($hasher->hashPassword($user, $newPassword));
 

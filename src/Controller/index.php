@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home_page")
+     * @Route("/index", name="home_page")
      */
     public function homeAction(ProductRepository $repo): Response
     {   

@@ -26,7 +26,10 @@ class ProductType extends AbstractType
         $builder
         ->add('Name', TextType::class)
         ->add('Quantity', TextType::class)
-        ->add('Price', TextType::class)
+        ->add('Price', TextType::class, [
+            'attr' => ['onkeydown'=>"javascript: return ['Backspace','Delete','ArrowLeft','ArrowRight'].includes(event.code) ? true : !isNaN(Number(event.key)) && event.code!=='Space'"
+        ]
+        ])
         ->add('Detail', TextType::class)
         ->add('Image', FileType::class, [
             'label' => 'Image',

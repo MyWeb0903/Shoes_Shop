@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Constraints\Length;
 
 class ProfileController extends AbstractController
 {
@@ -83,15 +84,20 @@ class ProfileController extends AbstractController
 
             if($getHasherPassword == $getPassword)
             {
-                if($newPassword == $passwordConfirm)
-                {
-                    $fullname = $req->request->get('txt-fullname');
-                    $email = $req->request->get('txt-email');
-                    $address = $req->request->get('txt-address');
-                    $gender = $req->request->get('sele-gender');
-                    $phone = $req->request->get('txt-phone');
-                    $avatar = $req->request->get('img-avatar');
-       
+                $length = strlen($newPassword);
+                if($length < 8){
+                    $message = "Password must be more than 8 characters!";
+                }
+                else{
+                    if($newPassword == $passwordConfirm)
+                    {
+                        $fullname = $req->request->get('txt-fullname');
+                        $email = $req->request->get('txt-email');
+                        $address = $req->request->get('txt-address');
+                        $gender = $req->request->get('sele-gender');
+                        $phone = $req->request->get('txt-phone');
+                        $avatar = $req->request->get('img-avatar');
+        
 
                         $findUser->setFullname($fullname);
                         $findUser->setEmail($email);
@@ -99,20 +105,21 @@ class ProfileController extends AbstractController
                         $findUser->setGender($gender);
                         $findUser->setPhone($phone);
 
-                    $findUser->setPassword($hasher->hashPassword($user, $newPassword));
+                        $findUser->setPassword($hasher->hashPassword($user, $newPassword));
 
-                    $entity->persist($findUser);
-                    $entity->flush();
+                        $entity->persist($findUser);
+                        $entity->flush();
 
-                    $profiles = $repo->getUserAccount($user);
+                        $profiles = $repo->getUserAccount($user);
 
-                        $message = "Update your password successfully!";
+                            $message = "Update your password successfully!";
 
-                        return $this->render('profile/index.html.twig', [
-                        'message' => $message,
-                        'profiles' => $profiles,
-                        ]);
-                    }else
+                            return $this->render('profile/index.html.twig', [
+                            'message' => $message,
+                            'profiles' => $profiles,
+                            ]);
+                    }
+                    else
                     {  
                         $profiles = $repo->getUserAccount($user);
                         $message = "Confirmation password does not match!";
@@ -121,9 +128,10 @@ class ProfileController extends AbstractController
                             'message' => $message,
                             'profiles' => $profiles,
                     ]);
+                    }
                 }
-                
-            }else
+            }
+            else
             {
                 $message = "Current password is incorrect!";
                 $profiles = $repo->getUserAccount($user);
@@ -137,7 +145,7 @@ class ProfileController extends AbstractController
         
         $profiles = $repo->getUserAccount($user);
         $message = "";
-         return $this->render('profile/index.html.twig', [
+        return $this->render('profile/index.html.twig', [
             'message' => $message,
             'profiles' => $profiles,
 

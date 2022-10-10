@@ -34,7 +34,7 @@
                         <td>{{p.Quantity}}</td>
                         <td>{{p.Price|number_format(0, '.', ',')}}<span>&#8363;</span></td>
                         <td >
-                        <img src="./Image/{{p.Image}}" style="height: 100px; width: 100px;">
+                        <img src="./upload/Image/{{p.Image}}" style="height: 100px; width: 100px;">
                        </td>
                         <td>{{p.Detail}}</td>
                         <td><a style="color: #272727; margin-left:30px;" href="{{path ('editProduct', {'id' : p.id})}}" class="glyphicon glyphicon-pencil"></a> 
